@@ -50,6 +50,7 @@ class CommonSnackBarContent extends SnackBar {
          content: _SnackBarBody(message: message, type: type),
          backgroundColor: _backgroundColorFor(type),
          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+         behavior: SnackBarBehavior.floating,
          margin: const EdgeInsets.all(12),
        );
 }

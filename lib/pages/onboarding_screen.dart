@@ -6,7 +6,7 @@ import '../app_routes.dart';
 import '../other/app_colors.dart';
 import '../other/app_sizes.dart';
 import '../service/local_storage_service.dart';
-
+import '../widgets/common_snackbar.dart';
 import 'onboarding_screen/goals_screen.dart';
 import 'onboarding_screen/level_screen.dart';
 import 'onboarding_screen/plan_screen.dart';
@@ -111,18 +111,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       if (!mounted) return;
 
       if (status.isGranted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Notifications enabled successfully.'),
-            backgroundColor: Colors.green,
-          ),
+        CommonSnackBar.showSuccess(
+          context,
+          'Notifications enabled successfully.',
         );
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Notifications permission not granted.'),
-            backgroundColor: Colors.red,
-          ),
+        CommonSnackBar.showError(
+          context,
+          'Notifications permission not granted.',
         );
       }
       // Mark onboarding as completed and navigate to login.

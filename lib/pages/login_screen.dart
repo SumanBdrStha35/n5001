@@ -1,8 +1,16 @@
+// AuthRepository is expected to exist in your project.
+// If your repo uses a different path/name, update the import accordingly.
+
 import 'package:flutter/material.dart';
 
 import '../app_routes.dart';
-import '../data/auth_repository.dart';
+import '../service/local_storage_service.dart';
 import '../widgets/auth_base_widgets.dart';
+import '../widgets/common_snackbar.dart';
+
+// Firebase auth will be wired in once firebase_auth is added to pubspec.yaml.
+
+// (Left here as the next integration step.)
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -20,12 +28,24 @@ class _LoginScreenState extends State<LoginScreen>
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
 
+  // These will authenticate only if a user with this email/password exists.
+  static const String adminEmail = 'admin@example.com';
+  static const String adminPassword = 'admin123';
+
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
 
   @override
   void initState() {
     super.initState();
+    // If user already loggedin, skip directly.
+    LocalStorageService.isLoggedIn().then((loggedIn) {
+      if (!mounted) return;
+      if (loggedIn) {
+        Navigator.of(context).pushReplacementNamed(AppRoutes.dashboard);
+      }
+    });
+
     _tabController = TabController(length: 2, vsync: this);
   }
 
@@ -36,6 +56,50 @@ class _LoginScreenState extends State<LoginScreen>
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
+  }
+
+  Future<void> _handlePrimaryButtonClick({required bool isLogin}) async {
+    final ok = _formKey.currentState?.validate() ?? false;
+    if (!ok) return;
+
+    final email = _emailController.text.trim();
+    final password = _passwordController.text;
+
+    try {
+      if (email.isEmpty || password.isEmpty) {
+        CommonSnackBar.showError(
+          context,
+          'Email and password cannot be empty.',
+        );
+        return;
+      }
+
+      // Demo credentials gate (temporary until real auth is wired).
+      final isAdminLogin = email == adminEmail && password == adminPassword;
+
+      if (!isAdminLogin) {
+        CommonSnackBar.showError(
+          context,
+          isLogin
+              ? 'Invalid email or password.'
+              : 'Account creation is disabled for demo. Use the admin credentials.',
+        );
+        return;
+      }
+
+      // Persist "logged in" flag in local storage.
+      await LocalStorageService.setLoggedIn(true);
+
+      if (!mounted) return;
+      CommonSnackBar.showSuccess(
+        context,
+        isLogin ? 'Logged in successfully.' : 'Account created successfully.',
+      );
+      Navigator.of(context).pushReplacementNamed(AppRoutes.dashboard);
+    } catch (e) {
+      if (!mounted) return;
+      CommonSnackBar.showError(context, e.toString());
+    }
   }
 
   @override
@@ -184,71 +248,10 @@ class _LoginScreenState extends State<LoginScreen>
                                       text: isLogin
                                           ? 'Login'
                                           : 'Create account',
-                                      onPressed: () async {
-                                        final ok =
-                                            _formKey.currentState?.validate() ??
-                                            false;
-                                        if (!ok) return;
-
-                                        final email = _emailController.text
-                                            .trim();
-                                        final password =
-                                            _passwordController.text;
-
-                                        try {
-                                          if (isLogin) {
-                                            final ok =
-                                                await AuthRepository.login(
-                                                  email: email,
-                                                  password: password,
-                                                );
-                                            if (!ok) {
-                                              if (!mounted) return;
-                                              ScaffoldMessenger.of(
-                                                context,
-                                              ).showSnackBar(
-                                                const SnackBar(
-                                                  content: Text(
-                                                    'Invalid email or password',
-                                                  ),
-                                                ),
-                                              );
-                                              return;
-                                            }
-                                          } else {
-                                            await AuthRepository.signUp(
-                                              email: email,
-                                              password: password,
-                                            );
-                                          }
-
-                                          if (!mounted) return;
-                                          Navigator.of(
-                                            context,
-                                          ).pushNamedAndRemoveUntil(
-                                            AppRoutes.dashboard,
-                                            (route) => false,
-                                          );
-                                        } on StateError catch (e) {
-                                          if (!mounted) return;
-                                          ScaffoldMessenger.of(
-                                            context,
-                                          ).showSnackBar(
-                                            SnackBar(content: Text(e.message)),
-                                          );
-                                        } catch (_) {
-                                          if (!mounted) return;
-                                          ScaffoldMessenger.of(
-                                            context,
-                                          ).showSnackBar(
-                                            const SnackBar(
-                                              content: Text(
-                                                'Authentication failed',
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                      },
+                                      onPressed: () =>
+                                          _handlePrimaryButtonClick(
+                                            isLogin: isLogin,
+                                          ),
                                     ),
                                     if (isLogin) ...[
                                       const SizedBox(height: 12),
@@ -258,14 +261,9 @@ class _LoginScreenState extends State<LoginScreen>
                                           text: 'Forgot password?',
                                           onPressed: () {
                                             // Placeholder UX.
-                                            ScaffoldMessenger.of(
+                                            CommonSnackBar.showInfo(
                                               context,
-                                            ).showSnackBar(
-                                              const SnackBar(
-                                                content: Text(
-                                                  'Password reset not implemented yet.',
-                                                ),
-                                              ),
+                                              'Password reset not implemented yet.',
                                             );
                                           },
                                         ),
@@ -279,9 +277,6 @@ class _LoginScreenState extends State<LoginScreen>
                         ],
                       ),
                     ),
-
-                    const SizedBox(height: 12),
-                    _buildFooterHint(context),
                   ],
                 ),
               ),
@@ -325,17 +320,6 @@ class _LoginScreenState extends State<LoginScreen>
           ],
         ),
       ],
-    );
-  }
-
-  Widget _buildFooterHint(BuildContext context) {
-    return Text(
-      'Note: This screen is UI-only right now. Connect your auth/database later.',
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        color: Colors.black.withValues(alpha: 0.55),
-        fontSize: 12,
-      ),
     );
   }
 }
