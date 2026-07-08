@@ -1,16 +1,11 @@
-// AuthRepository is expected to exist in your project.
-// If your repo uses a different path/name, update the import accordingly.
-
 import 'package:flutter/material.dart';
 
 import '../app_routes.dart';
+import '../data/isar_service.dart';
+import '../data/user_store.dart';
 import '../service/local_storage_service.dart';
 import '../widgets/auth_base_widgets.dart';
 import '../widgets/common_snackbar.dart';
-
-// Firebase auth will be wired in once firebase_auth is added to pubspec.yaml.
-
-// (Left here as the next integration step.)
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -31,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen>
   // These will authenticate only if a user with this email/password exists.
   static const String adminEmail = 'admin@example.com';
   static const String adminPassword = 'admin123';
+  static const String adminUsername = 'Admin';
 
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
@@ -64,7 +60,6 @@ class _LoginScreenState extends State<LoginScreen>
 
     final email = _emailController.text.trim();
     final password = _passwordController.text;
-
     try {
       if (email.isEmpty || password.isEmpty) {
         CommonSnackBar.showError(
@@ -74,31 +69,69 @@ class _LoginScreenState extends State<LoginScreen>
         return;
       }
 
-      // Demo credentials gate (temporary until real auth is wired).
-      final isAdminLogin = email == adminEmail && password == adminPassword;
+      // Login
+      if (isLogin) {
+        final isAdminLogin = email == adminEmail && password == adminPassword;
 
-      if (!isAdminLogin) {
-        CommonSnackBar.showError(
-          context,
-          isLogin
-              ? 'Invalid email or password.'
-              : 'Account creation is disabled for demo. Use the admin credentials.',
-        );
+        // Admin login always allowed (for demo).
+        if (!isAdminLogin) {
+          final isar = await IsarService.instance;
+          final store = UserStore(isar: isar);
+          final valid = await store.validateCredentials(
+            email: email,
+            password: password,
+          );
+
+          if (!valid) {
+            CommonSnackBar.showError(context, 'Invalid email or password.');
+            return;
+          }
+        }
+
+        await LocalStorageService.setLoggedIn(true);
+        if (!mounted) return;
+        CommonSnackBar.showSuccess(context, 'Logged in successfully.');
+        if (isAdminLogin) {
+          // Admin demo: the app has no real “current user” persistence yet.
+          // UserProfileService currently loads the first stored user, so if
+          // no users exist, the UI will fall back to a default.
+          // Create an admin user in Isar so the username is always available.
+          final isar = await IsarService.instance;
+          final store = UserStore(isar: isar);
+          final normalized = email.toLowerCase();
+
+          final exists = await store.isEmailRegistered(normalized);
+          if (!exists) {
+            await store.createUser(
+              email: email,
+              password: password,
+              username: adminUsername,
+            );
+          }
+        }
+
+        Navigator.of(context).pushReplacementNamed(AppRoutes.dashboard);
+
         return;
       }
 
-      // Persist "logged in" flag in local storage.
-      await LocalStorageService.setLoggedIn(true);
-
-      if (!mounted) return;
-      CommonSnackBar.showSuccess(
-        context,
-        isLogin ? 'Logged in successfully.' : 'Account created successfully.',
+      // Sign up
+      final isar = await IsarService.instance;
+      final store = UserStore(isar: isar);
+      await store.createUser(
+        email: email,
+        password: password,
+        username: email.split('@').first,
       );
+
+      await LocalStorageService.setLoggedIn(true);
+      if (!mounted) return;
+      CommonSnackBar.showSuccess(context, 'Account created successfully.');
       Navigator.of(context).pushReplacementNamed(AppRoutes.dashboard);
     } catch (e) {
       if (!mounted) return;
       CommonSnackBar.showError(context, e.toString());
+      debugPrint('Error in login/signup: $e');
     }
   }
 

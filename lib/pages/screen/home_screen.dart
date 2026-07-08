@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../service/user_profile_service.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -48,13 +50,25 @@ class _HomeScreenState extends State<HomeScreen> {
               'おはようございます',
               style: TextStyle(fontSize: 13, color: Colors.black54),
             ),
-            const Text(
-              'Good morning, Aryan',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF1A237E),
+            FutureBuilder<String?>(
+              future: const UserProfileService().getCurrentUser().then(
+                (u) => u?.username,
               ),
+              builder: (context, snapshot) {
+                final username = snapshot.data?.trim();
+                final displayName = (username == null || username.isEmpty)
+                    ? 'Aryan'
+                    : username;
+
+                return Text(
+                  'Good morning, $displayName',
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF1A237E),
+                  ),
+                );
+              },
             ),
           ],
         ),
