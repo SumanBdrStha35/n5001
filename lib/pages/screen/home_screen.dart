@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../other/app_colors.dart';
 import '../../other/app_colors_theme.dart';
 import '../../service/user_profile_service.dart';
 
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const Text(
               'おはようございます',
-              style: TextStyle(fontSize: 13, color: Colors.black54),
+              style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
             ),
             FutureBuilder<String?>(
               future: const UserProfileService().getCurrentUser().then(
@@ -66,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF1A237E),
+                    color: AppColors.indigoPrimary,
                   ),
                 );
               },
@@ -76,23 +77,41 @@ class _HomeScreenState extends State<HomeScreen> {
         Row(
           children: [
             IconButton(
-              icon: const Icon(Icons.notifications_none, color: Colors.black87),
+              icon: const Icon(
+                Icons.notifications_none,
+                color: AppColors.black87,
+              ),
               onPressed: () {},
             ),
             IconButton(
-              icon: const Icon(Icons.settings_outlined, color: Colors.black87),
+              icon: const Icon(
+                Icons.settings_outlined,
+                color: AppColors.black87,
+              ),
               onPressed: () {},
             ),
-            const CircleAvatar(
-              backgroundColor: Color(0xFF3B5BDB),
-              radius: 18,
-              child: Text(
-                'A',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
+            FutureBuilder<String?>(
+              future: const UserProfileService().getCurrentUser().then(
+                (u) => u?.username,
               ),
+              builder: (context, snapshot) {
+                final username = snapshot.data?.trim() ?? '';
+                final initial = username.isNotEmpty
+                    ? username.characters.first.toUpperCase()
+                    : 'S';
+
+                return CircleAvatar(
+                  backgroundColor: AppColorsTheme.primary(context),
+                  radius: 18,
+                  child: Text(
+                    initial,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -107,11 +126,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.cardWhite,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: AppColors.black54Pure.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -131,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFFF59E0B),
+                      color: AppColors.amberStreak,
                     ),
                   ),
                   const Text(
@@ -139,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
-                      color: Colors.black54,
+                      color: AppColors.black54,
                       letterSpacing: 1,
                     ),
                   ),
@@ -147,21 +166,20 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Row(
                 children: List.generate(days.length, (index) {
+                  final isActive = activeDays[index];
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 3),
                     child: CircleAvatar(
                       radius: 16,
-                      backgroundColor: activeDays[index]
-                          ? const Color(0xFFF59E0B)
-                          : const Color(0xFFE5E7EB),
+                      backgroundColor: isActive
+                          ? AppColors.amberStreak
+                          : AppColors.black26Pure,
                       child: Text(
                         days[index],
                         style: TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
-                          color: activeDays[index]
-                              ? Colors.white
-                              : Colors.black38,
+                          color: isActive ? Colors.white : AppColors.black38,
                         ),
                       ),
                     ),
@@ -179,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black87,
+                  color: AppColors.black87,
                 ),
               ),
               Text(
@@ -187,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black87,
+                  color: AppColors.black87,
                 ),
               ),
             ],
@@ -197,9 +215,9 @@ class _HomeScreenState extends State<HomeScreen> {
             borderRadius: BorderRadius.circular(10),
             child: LinearProgressIndicator(
               value: 340 / 500,
-              backgroundColor: const Color(0xFFFEF3C7),
+              backgroundColor: AppColors.progressBg,
               valueColor: const AlwaysStoppedAnimation<Color>(
-                Color(0xFFF59E0B),
+                AppColors.amberStreak,
               ),
               minHeight: 8,
             ),
@@ -213,14 +231,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.cardWhite,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: const Color(0xFF3B5BDB).withValues(alpha: 0.3),
-        ),
+        border: Border.all(color: AppColors.blueBrand.withValues(alpha: 0.3)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
+            color: AppColors.black54Pure.withValues(alpha: 0.04),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -238,7 +254,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   vertical: 6,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF3B5BDB),
+                  color: AppColors.blueBrand,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Text(
@@ -254,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1A237E),
+                  backgroundColor: AppColors.indigoPrimary,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -277,20 +293,20 @@ class _HomeScreenState extends State<HomeScreen> {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF1A237E),
+              color: AppColors.indigoPrimary,
             ),
           ),
           const SizedBox(height: 6),
           const Text(
             '山、川、木、火、水',
-            style: TextStyle(fontSize: 16, color: Colors.black38),
+            style: TextStyle(fontSize: 16, color: AppColors.black38),
           ),
           const SizedBox(height: 14),
           const Text(
             '3 / 8 topics',
             style: TextStyle(
               fontSize: 12,
-              color: Colors.black54,
+              color: AppColors.black54,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -299,9 +315,9 @@ class _HomeScreenState extends State<HomeScreen> {
             borderRadius: BorderRadius.circular(10),
             child: LinearProgressIndicator(
               value: 3 / 8,
-              backgroundColor: const Color(0xFFE0E7FF),
+              backgroundColor: AppColors.lessonProgressBg,
               valueColor: const AlwaysStoppedAnimation<Color>(
-                Color(0xFF3B5BDB),
+                AppColors.blueBrand,
               ),
               minHeight: 6,
             ),
@@ -315,11 +331,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFFF0F4FF),
+        color: AppColors.vocabCard,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
+            color: AppColors.black54Pure.withValues(alpha: 0.04),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -336,14 +352,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   vertical: 6,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFD1FAE5),
+                  color: AppColors.vocabTagBg,
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: const Color(0xFF6EE7B7)),
+                  border: Border.all(color: AppColors.vocabTagBorder),
                 ),
                 child: const Text(
                   'VOCABULARY',
                   style: TextStyle(
-                    color: Color(0xFF065F46),
+                    color: AppColors.vocabTagText,
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1,
@@ -351,12 +367,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Row(
-                children: const [
-                  Icon(Icons.flip, size: 16, color: Colors.black54),
-                  SizedBox(width: 4),
-                  Text(
+                children: [
+                  Icon(Icons.flip, size: 16, color: AppColors.black54),
+                  const SizedBox(width: 4),
+                  const Text(
                     'tap to flip',
-                    style: TextStyle(color: Colors.black54, fontSize: 13),
+                    style: TextStyle(color: AppColors.black54, fontSize: 13),
                   ),
                 ],
               ),
@@ -368,13 +384,13 @@ class _HomeScreenState extends State<HomeScreen> {
             style: TextStyle(
               fontSize: 72,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: AppColors.black87,
             ),
           ),
           const SizedBox(height: 10),
           const Text(
             'ともだち · tomodachi',
-            style: TextStyle(fontSize: 15, color: Colors.black54),
+            style: TextStyle(fontSize: 15, color: AppColors.black54),
           ),
           const SizedBox(height: 20),
           const Text(
@@ -382,7 +398,7 @@ class _HomeScreenState extends State<HomeScreen> {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF1A237E),
+              color: AppColors.indigoPrimary,
             ),
           ),
           const SizedBox(height: 24),
@@ -392,7 +408,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: OutlinedButton(
                   onPressed: () {},
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.black26),
+                    side: BorderSide(color: AppColors.black26),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -401,7 +417,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: const Text(
                     'Skip',
                     style: TextStyle(
-                      color: Colors.black87,
+                      color: AppColors.black87,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -411,17 +427,17 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: OutlinedButton.icon(
                   onPressed: () {},
-                  icon: const Icon(Icons.add, color: Color(0xFF065F46)),
+                  icon: const Icon(Icons.add, color: AppColors.vocabIcon),
                   label: const Text(
                     'Add to practice',
                     style: TextStyle(
-                      color: Color(0xFF065F46),
+                      color: AppColors.vocabIcon,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(
-                      color: Color(0xFF065F46),
+                      color: AppColors.vocabIcon,
                       width: 1.5,
                     ),
                     shape: RoundedRectangleBorder(
@@ -447,7 +463,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.bold,
-            color: Colors.black54,
+            color: AppColors.black54,
             letterSpacing: 1,
           ),
         ),
@@ -470,11 +486,11 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 20),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.cardWhite,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.04),
+              color: AppColors.black54Pure.withValues(alpha: 0.04),
               blurRadius: 8,
               offset: const Offset(0, 3),
             ),
@@ -487,7 +503,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: const TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
-                color: Colors.black87,
+                color: AppColors.black87,
               ),
             ),
             const SizedBox(height: 4),
@@ -496,7 +512,7 @@ class _HomeScreenState extends State<HomeScreen> {
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 12,
-                color: Colors.black54,
+                color: AppColors.black54,
                 height: 1.4,
               ),
             ),
@@ -515,7 +531,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.bold,
-            color: Colors.black54,
+            color: AppColors.black54,
             letterSpacing: 1,
           ),
         ),
@@ -544,11 +560,11 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.cardWhite,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.04),
+              color: AppColors.black54Pure.withValues(alpha: 0.04),
               blurRadius: 8,
               offset: const Offset(0, 3),
             ),
@@ -556,14 +572,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: Row(
           children: [
-            Icon(icon, color: const Color(0xFF3B5BDB), size: 24),
+            Icon(icon, color: AppColors.blueBrand, size: 24),
             const SizedBox(width: 12),
             Text(
               label,
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,
-                color: Colors.black87,
+                color: AppColors.black87,
               ),
             ),
           ],

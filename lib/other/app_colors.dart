@@ -39,6 +39,34 @@ class AppColors {
   /// Main brand color
   static const Color primary = oceanBlue;
 
+  // =========================
+  // App-specific palette (HomeScreen)
+  // =========================
+
+  // Used in home_screen.dart
+  static const Color indigoPrimary = Color(0xFF1A237E);
+  static const Color amberStreak = Color(0xFFF59E0B);
+  static const Color blueBrand = Color(0xFF3B5BDB);
+  static const Color progressBg = Color(0xFFFEF3C7);
+  static const Color lessonProgressBg = Color(0xFFE0E7FF);
+  static const Color vocabCard = Color(0xFFF0F4FF);
+  static const Color vocabTagBg = Color(0xFFD1FAE5);
+  static const Color vocabTagBorder = Color(0xFF6EE7B7);
+  static const Color vocabTagText = Color(0xFF065F46);
+  static const Color vocabIcon = Color(0xFF065F46);
+  static const Color vocabElevatedText = Color(0xFF1A237E);
+  static const Color lightDividerText = Color(0xFF6B6B6B);
+  static const Color textMuted = Color(0xFF6B6B6B);
+  static const Color cardWhite = Color(0xFFFFFFFF);
+  static const Color cardWhiteSmoke = whiteSmoke;
+  static const Color black87 = Color(0xFF1C1C1C);
+  static const Color black54 = Color(0x8A1C1C1C);
+  static const Color black38 = Color(0x611C1C1C);
+  static const Color black26 = Color(0x421C1C1C);
+  static const Color black54Pure = Color(0x8A000000);
+  static const Color black38Pure = Color(0x61000000);
+  static const Color black26Pure = Color(0x42000000);
+
   /// Used for text on light background
   static const Color textPrimary = lightText;
 
