@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../other/app_colors_theme.dart';
 import '../../service/user_profile_service.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEEF2FF),
+      backgroundColor: AppColorsTheme.background(context),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
