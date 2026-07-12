@@ -1,110 +1,169 @@
 import 'package:flutter/material.dart';
+
 import 'app_colors.dart';
 
+/// Immutable per-mode palette.
+///
+/// Keep these values aligned with [AppColors] so existing palette usage stays consistent.
+@immutable
+class AppColorTheme {
+  final Brightness brightness;
+
+  final Color background;
+  final Color surface;
+  final Color surfaceVariant;
+  final Color card;
+  final Color border;
+
+  final Color primary;
+  final Color primaryDark;
+  final Color secondary;
+  final Color accent;
+
+  final Color textPrimary;
+  final Color textSecondary;
+  final Color textMuted;
+
+  // Home screen / branding
+  final Color brandIndigo;
+  final Color brandAmber;
+  final Color brandBlue;
+
+  // Status semantic
+  final Color success;
+  final Color warning;
+  final Color error;
+
+  const AppColorTheme({
+    required this.brightness,
+    required this.background,
+    required this.surface,
+    required this.surfaceVariant,
+    required this.card,
+    required this.border,
+    required this.primary,
+    required this.primaryDark,
+    required this.secondary,
+    required this.accent,
+    required this.textPrimary,
+    required this.textSecondary,
+    required this.textMuted,
+    required this.brandIndigo,
+    required this.brandAmber,
+    required this.brandBlue,
+    required this.success,
+    required this.warning,
+    required this.error,
+  });
+}
+
+/// Centralized color provider that adapts to Light & Dark modes.
+///
+/// Usage examples:
+/// - `AppColorsTheme.of(context).background`
+/// - `AppColorsTheme.light.primary`
+/// - `AppColorsTheme.dark.textPrimary`
 class AppColorsTheme {
   const AppColorsTheme._();
 
-  // =========================
-  // Primary Colors
-  // =========================
-  static Color primary(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? AppColors.darkPrimary
-        : AppColors.primary;
+  static const AppColorTheme light = AppColorTheme(
+    brightness: Brightness.light,
+    background: AppColors.background,
+    surface: AppColors.ivory,
+    surfaceVariant: AppColors.surfaceVariant,
+    card: AppColors.whiteSmoke,
+    border: AppColors.border,
+
+    primary: AppColors.oceanBlue,
+    primaryDark: AppColors.primaryDark,
+    secondary: AppColors.peach,
+    accent: AppColors.lavender,
+
+    textPrimary: AppColors.textPrimary,
+    textSecondary: AppColors.textSecondary,
+    textMuted: AppColors.textMuted,
+
+    brandIndigo: AppColors.indigoPrimary,
+    brandAmber: AppColors.amberStreak,
+    brandBlue: AppColors.blueBrand,
+
+    success: AppColors.success,
+    warning: AppColors.warning,
+    error: AppColors.error,
+  );
+
+  static const AppColorTheme dark = AppColorTheme(
+    brightness: Brightness.dark,
+    background: AppColors.darkBg,
+    surface: AppColors.darkSurface,
+    surfaceVariant: AppColors.darkCard,
+    card: AppColors.darkCard,
+    border: AppColors.darkCard,
+
+    primary: AppColors.darkPrimary,
+    primaryDark: AppColors.primaryDark,
+    secondary: AppColors.darkSecondary,
+    accent: AppColors.darkAccent,
+
+    textPrimary: AppColors.darkText,
+    textSecondary: AppColors.darkSecondary,
+    textMuted: AppColors.darkSecondary,
+
+    // Keep brand identity consistent across themes.
+    brandIndigo: AppColors.indigoPrimary,
+    brandAmber: AppColors.amberStreak,
+    brandBlue: AppColors.blueBrand,
+
+    success: AppColors.success,
+    warning: AppColors.warning,
+    error: AppColors.error,
+  );
+
+  /// Resolves current palette based on [ThemeData.brightness].
+  static AppColorTheme of(BuildContext context) {
+    return Theme.of(context).brightness == Brightness.dark ? dark : light;
   }
 
-  static Color primaryDark(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? AppColors.primaryDark
-        : AppColors.primaryDark;
-  }
+  // ------------------------------
+  // Backward-compatible API
+  // ------------------------------
+  // This keeps existing call sites (e.g. `AppColorsTheme.background(context)`)
+  // working while you migrate to `AppColorsTheme.of(context)`.
 
-  static Color primarySoft(BuildContext context) {
-    return primary(context).withValues(alpha: 0.10);
-  }
+  static Color primary(BuildContext context) => of(context).primary;
+  static Color primaryDark(BuildContext context) => of(context).primaryDark;
+  static Color primarySoft(BuildContext context) =>
+      of(context).primary.withValues(alpha: 0.10);
 
-  // =========================
-  // Background & Surface
-  // =========================
-  static Color background(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? AppColors.darkBg
-        : AppColors.background;
-  }
+  static Color background(BuildContext context) => of(context).background;
+  static Color surface(BuildContext context) => of(context).surface;
+  static Color surfaceVariant(BuildContext context) =>
+      of(context).surfaceVariant;
+  static Color card(BuildContext context) => of(context).card;
 
-  static Color surface(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? AppColors.darkSurface
-        : AppColors.surface;
-  }
+  static Color textPrimary(BuildContext context) => of(context).textPrimary;
+  static Color textSecondary(BuildContext context) => of(context).textSecondary;
 
-  static Color surfaceVariant(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? AppColors.darkCard
-        : AppColors.surfaceVariant;
-  }
+  static Color textMuted(BuildContext context) => of(context).textMuted;
 
-  static Color card(BuildContext context) {
-    return surfaceVariant(context);
-  }
+  static Color border(BuildContext context) => of(context).border;
 
-  // =========================
-  // Text Colors
-  // =========================
-  static Color textPrimary(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? AppColors.darkText
-        : AppColors.textPrimary;
-  }
+  static Color divider(BuildContext context) =>
+      border(context).withValues(alpha: 0.5);
 
-  static Color textSecondary(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? AppColors.darkSecondary
-        : AppColors.textSecondary;
-  }
+  static Color success(BuildContext context) => of(context).success;
 
-  // =========================
-  // Border & Divider
-  // =========================
-  static Color border(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? AppColors.darkCard.withValues(alpha: 0.8)
-        : AppColors.border;
-  }
+  static Color warning(BuildContext context) => of(context).warning;
 
-  static Color divider(BuildContext context) {
-    return border(context).withValues(alpha: 0.5);
-  }
+  static Color error(BuildContext context) => of(context).error;
 
-  // =========================
-  // State Colors
-  // =========================
-  static Color success(BuildContext context) {
-    return AppColors.success;
-  }
-
-  static Color warning(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? AppColors.darkSecondary
-        : AppColors.warning;
-  }
-
-  static Color error(BuildContext context) {
-    return AppColors.error;
-  }
-
-  // =========================
-  // Extra Accent Colors
-  // =========================
-  static Color accent(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? AppColors.darkAccent
-        : AppColors.lavender;
-  }
+  static Color accent(BuildContext context) => of(context).accent;
 
   static Color highlight(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark
-        ? AppColors.darkPrimary.withValues(alpha: 0.2)
+    final t = Theme.of(context);
+    // For dark: slightly accent-tinted highlight; for light: sky-blue tinted.
+    return t.brightness == Brightness.dark
+        ? of(context).primary.withValues(alpha: 0.2)
         : AppColors.skyBlue.withValues(alpha: 0.3);
   }
 }
