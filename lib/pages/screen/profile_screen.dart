@@ -338,16 +338,20 @@ class MenuTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(icon, color: iconColor),
-      title: Text(
-        title,
-        style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+    // Ensure ListTile ink/ripple has a dedicated Material ancestor.
+    return Material(
+      type: MaterialType.transparency,
+      child: ListTile(
+        leading: Icon(icon, color: iconColor),
+        title: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+        ),
+        trailing:
+            trailing ??
+            const Icon(Icons.chevron_right_rounded, color: Colors.grey),
+        onTap: onTap,
       ),
-      trailing:
-          trailing ??
-          const Icon(Icons.chevron_right_rounded, color: Colors.grey),
-      onTap: onTap,
     );
   }
 }
@@ -370,17 +374,21 @@ class SwitchTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(icon, color: iconColor),
-      title: Text(
-        title,
-        style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
-      ),
-      trailing: Switch(
-        value: value,
-        onChanged: onChanged,
-        activeThumbColor: Colors.white,
-        activeTrackColor: const Color(0xFFC62828),
+    // Ensure ListTile ink/ripple has a dedicated Material ancestor.
+    return Material(
+      type: MaterialType.transparency,
+      child: ListTile(
+        leading: Icon(icon, color: iconColor),
+        title: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+        ),
+        trailing: Switch(
+          value: value,
+          onChanged: onChanged,
+          activeThumbColor: Colors.white,
+          activeTrackColor: const Color(0xFFC62828),
+        ),
       ),
     );
   }

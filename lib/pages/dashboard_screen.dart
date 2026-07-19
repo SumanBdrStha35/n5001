@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'screen/home_screen.dart';
+import 'screen/phrasebook_screen.dart';
 import 'screen/profile_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -17,7 +18,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
     HomeScreen(),
     const _PlaceholderScreen(title: 'Learn'),
     const _PlaceholderScreen(title: 'Practice'),
-    const _PlaceholderScreen(title: 'Phrasebook'),
+    // const _PlaceholderScreen(title: 'Phrasebook'),
+    PhrasebookPage(),
     ProfileScreen(),
   ];
 
