@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'screen/home_screen.dart';
+import 'screen/profile_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -17,7 +18,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     const _PlaceholderScreen(title: 'Learn'),
     const _PlaceholderScreen(title: 'Practice'),
     const _PlaceholderScreen(title: 'Phrasebook'),
-    const _PlaceholderScreen(title: 'More'),
+    ProfileScreen(),
   ];
 
   @override

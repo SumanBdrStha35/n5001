@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:n5001/pages/screen/home_widget/home_lesson.dart';
+import 'package:n5001/pages/screen/home_widget/home_streak.dart';
 
 import '../../other/app_colors.dart';
 import '../../other/app_colors_theme.dart';
-import '../../service/user_profile_service.dart';
+import 'home_widget/home_header.dart';
+
+class _LessonDataLoader {
+  const _LessonDataLoader();
+
+  Future<Map<String, dynamic>> load() async {
+    // Keeping it dynamic so UI updates are supported.
+    await Future<void>.delayed(const Duration(milliseconds: 250));
+
+    return {
+      'category': 'Nature Kanji',
+      'lessonTitle': 'Lesson 4 — Nature kanji',
+      'previewText': '山、川、木、火、水',
+      'completedTopics': 3,
+      'totalTopics': 8,
+    };
+  }
+}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,11 +41,37 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildHeader(),
+              HomeHeader(),
               const SizedBox(height: 20),
-              _buildStreakCard(),
+              const HomeStreak(),
               const SizedBox(height: 16),
-              _buildLessonCard(),
+              FutureBuilder<Map<String, dynamic>>(
+                future: const _LessonDataLoader().load(),
+                builder: (context, snapshot) {
+                  final data = snapshot.data;
+                  if (data == null) {
+                    return HomeLessonCard(
+                      category: 'Loading',
+                      lessonTitle: 'Please wait…',
+                      previewText: '—',
+                      completedTopics: 0,
+                      totalTopics: 1,
+                      onContinuePressed: () {},
+                    );
+                  }
+
+                  return HomeLessonCard(
+                    category: (data['category'] as String?) ?? 'Lesson',
+                    lessonTitle: (data['lessonTitle'] as String?) ?? '',
+                    previewText: (data['previewText'] as String?) ?? '',
+                    completedTopics:
+                        (data['completedTopics'] as num?)?.toInt() ?? 0,
+                    totalTopics: (data['totalTopics'] as num?)?.toInt() ?? 1,
+                    onContinuePressed: () {},
+                  );
+                },
+              ),
+
               const SizedBox(height: 16),
               _buildVocabCard(),
               const SizedBox(height: 24),
@@ -37,292 +82,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildHeader() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'おはようございます',
-              style: TextStyle(fontSize: 13, color: AppColors.textSecondary),
-            ),
-            FutureBuilder<String?>(
-              future: const UserProfileService().getCurrentUser().then(
-                (u) => u?.username,
-              ),
-              builder: (context, snapshot) {
-                final username = snapshot.data?.trim();
-                final displayName = (username == null || username.isEmpty)
-                    ? 'Aryan'
-                    : username;
-
-                return Text(
-                  'Good morning, $displayName',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.indigoPrimary,
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            IconButton(
-              icon: const Icon(
-                Icons.notifications_none,
-                color: AppColors.black87,
-              ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: const Icon(
-                Icons.settings_outlined,
-                color: AppColors.black87,
-              ),
-              onPressed: () {},
-            ),
-            FutureBuilder<String?>(
-              future: const UserProfileService().getCurrentUser().then(
-                (u) => u?.username,
-              ),
-              builder: (context, snapshot) {
-                final username = snapshot.data?.trim() ?? '';
-                final initial = username.isNotEmpty
-                    ? username.characters.first.toUpperCase()
-                    : 'S';
-
-                return CircleAvatar(
-                  backgroundColor: AppColorsTheme.primary(context),
-                  radius: 18,
-                  child: Text(
-                    initial,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget _buildStreakCard() {
-    final days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-    final activeDays = [true, true, true, false, false, false, false];
-
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: AppColors.cardWhite,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.black54Pure.withValues(alpha: 0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    '12',
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.amberStreak,
-                    ),
-                  ),
-                  const Text(
-                    'DAY STREAK',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.black54,
-                      letterSpacing: 1,
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: List.generate(days.length, (index) {
-                  final isActive = activeDays[index];
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 3),
-                    child: CircleAvatar(
-                      radius: 16,
-                      backgroundColor: isActive
-                          ? AppColors.amberStreak
-                          : AppColors.black26Pure,
-                      child: Text(
-                        days[index],
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.bold,
-                          color: isActive ? Colors.white : AppColors.black38,
-                        ),
-                      ),
-                    ),
-                  );
-                }),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
-                'XP 340 / 500',
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.black87,
-                ),
-              ),
-              Text(
-                'Lv. 4',
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.black87,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: LinearProgressIndicator(
-              value: 340 / 500,
-              backgroundColor: AppColors.progressBg,
-              valueColor: const AlwaysStoppedAnimation<Color>(
-                AppColors.amberStreak,
-              ),
-              minHeight: 8,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildLessonCard() {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: AppColors.cardWhite,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: AppColors.blueBrand.withValues(alpha: 0.3)),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.black54Pure.withValues(alpha: 0.04),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 14,
-                  vertical: 6,
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.blueBrand,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Text(
-                  'KANJI',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1,
-                  ),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.indigoPrimary,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 10,
-                  ),
-                ),
-                child: const Text(
-                  'Continue',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 14),
-          const Text(
-            'Lesson 4 — Nature kanji',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: AppColors.indigoPrimary,
-            ),
-          ),
-          const SizedBox(height: 6),
-          const Text(
-            '山、川、木、火、水',
-            style: TextStyle(fontSize: 16, color: AppColors.black38),
-          ),
-          const SizedBox(height: 14),
-          const Text(
-            '3 / 8 topics',
-            style: TextStyle(
-              fontSize: 12,
-              color: AppColors.black54,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          const SizedBox(height: 6),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: LinearProgressIndicator(
-              value: 3 / 8,
-              backgroundColor: AppColors.lessonProgressBg,
-              valueColor: const AlwaysStoppedAnimation<Color>(
-                AppColors.blueBrand,
-              ),
-              minHeight: 6,
-            ),
-          ),
-        ],
       ),
     );
   }
