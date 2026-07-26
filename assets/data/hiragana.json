@@ -1,0 +1,1127 @@
+{
+  "hiraganaLessons": [
+    {
+      "title": "Vowels (あいうえお)",
+      "description": "The five basic vowel sounds — the foundation of every other hiragana character.",
+      "characters": {
+        "あ": {
+          "romaji": "a",
+          "strokeCount": 3,
+          "pronunciation": "like 'ah' in 'father'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical line down from top, curving left at the bottom",
+            "Stroke 3: Small curved stroke crossing through, from top-right sweeping down-left"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M20,25 L45,25", "duration": 400 },
+              { "stroke": 2, "path": "M35,10 C35,30 20,45 15,60", "duration": 500 },
+              { "stroke": 3, "path": "M50,35 C45,50 30,65 55,70", "duration": 500 }
+            ]
+          },
+          "tips": "Think of it as a lowercase 'a' with an extra curved tail.",
+          "mnemonics": "Looks like an 'a' typed in cursive with a fish hook tail.",
+          "exampleWords": [
+            { "japanese": "あさ", "romaji": "asa", "english": "morning" },
+            { "japanese": "あめ", "romaji": "ame", "english": "rain / candy" }
+          ]
+        },
+        "い": {
+          "romaji": "i",
+          "strokeCount": 2,
+          "pronunciation": "like 'ee' in 'see'",
+          "writingPattern": [
+            "Stroke 1: Short curved vertical line, top to bottom, slight left lean",
+            "Stroke 2: Longer curved vertical line to the right, top to bottom"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M25,15 C22,30 20,45 18,55", "duration": 400 },
+              { "stroke": 2, "path": "M45,10 C42,30 38,50 35,65", "duration": 450 }
+            ]
+          },
+          "tips": "Two simple downward curves, right one taller.",
+          "mnemonics": "Two people bowing side by side.",
+          "exampleWords": [
+            { "japanese": "いぬ", "romaji": "inu", "english": "dog" },
+            { "japanese": "いえ", "romaji": "ie", "english": "house" }
+          ]
+        },
+        "う": {
+          "romaji": "u",
+          "strokeCount": 2,
+          "pronunciation": "like 'oo' in 'moon' (short)",
+          "writingPattern": [
+            "Stroke 1: Short curved stroke at the top, like a small roof",
+            "Stroke 2: Long sweeping curve from top-right down and left, ending with a gentle flick"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M25,15 C30,10 40,10 45,18", "duration": 400 },
+              { "stroke": 2, "path": "M40,12 C35,30 20,50 15,65", "duration": 500 }
+            ]
+          },
+          "tips": "Picture a small roof over a wave.",
+          "mnemonics": "A little hat sitting on top of a smiling wave.",
+          "exampleWords": [
+            { "japanese": "うみ", "romaji": "umi", "english": "sea" },
+            { "japanese": "うた", "romaji": "uta", "english": "song" }
+          ]
+        },
+        "え": {
+          "romaji": "e",
+          "strokeCount": 2,
+          "pronunciation": "like 'e' in 'bed'",
+          "writingPattern": [
+            "Stroke 1: Short diagonal stroke from top-right to bottom-left",
+            "Stroke 2: Long sweeping curve starting from the left, dipping down, then looping up and curling back"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M45,15 L20,30", "duration": 400 },
+              { "stroke": 2, "path": "M15,25 C10,40 25,55 30,45 C35,35 25,20 40,15", "duration": 600 }
+            ]
+          },
+          "tips": "Practice slowly — the bottom loop should tuck under itself.",
+          "mnemonics": "Looks like a swan bending its neck back.",
+          "exampleWords": [
+            { "japanese": "えき", "romaji": "eki", "english": "station" },
+            { "japanese": "えんぴつ", "romaji": "enpitsu", "english": "pencil" }
+          ]
+        },
+        "お": {
+          "romaji": "o",
+          "strokeCount": 3,
+          "pronunciation": "like 'o' in 'more' (no glide)",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical line down from top, looping at the bottom",
+            "Stroke 3: Small curved stroke crossing through the top-right"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M20,25 L45,25", "duration": 400 },
+              { "stroke": 2, "path": "M35,10 C35,40 15,55 25,70 C30,75 40,70 35,60", "duration": 600 },
+              { "stroke": 3, "path": "M50,25 C48,15 55,10 60,18", "duration": 400 }
+            ]
+          },
+          "tips": "Similar to あ but with an extra floating stroke at the top right.",
+          "mnemonics": "あ wearing a tiny hat feather.",
+          "exampleWords": [
+            { "japanese": "おちゃ", "romaji": "ocha", "english": "tea" },
+            { "japanese": "おかね", "romaji": "okane", "english": "money" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "K-Row (かきくけこ)",
+      "description": "Adding the 'k' consonant to each vowel sound.",
+      "characters": {
+        "か": {
+          "romaji": "ka",
+          "strokeCount": 3,
+          "pronunciation": "like 'ca' in 'car'",
+          "writingPattern": [
+            "Stroke 1: Curved horizontal stroke, left to right",
+            "Stroke 2: Long curved vertical line from top-right sweeping down and left",
+            "Stroke 3: Small curved stroke crossing the left side of stroke 2"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,20 C25,15 35,15 40,22", "duration": 400 },
+              { "stroke": 2, "path": "M35,10 C30,30 15,50 10,65", "duration": 500 },
+              { "stroke": 3, "path": "M20,30 C18,35 15,40 18,45", "duration": 350 }
+            ]
+          },
+          "tips": "Looks like カ with an extra stroke — that tick makes it hiragana.",
+          "mnemonics": "A knee bending, kicking a small ball off to the side.",
+          "exampleWords": [
+            { "japanese": "かさ", "romaji": "kasa", "english": "umbrella" },
+            { "japanese": "かぞく", "romaji": "kazoku", "english": "family" }
+          ]
+        },
+        "き": {
+          "romaji": "ki",
+          "strokeCount": 4,
+          "pronunciation": "like 'key'",
+          "writingPattern": [
+            "Stroke 1: Long vertical stroke from top to bottom, slightly curved",
+            "Stroke 2: Short horizontal stroke crossing the vertical, slightly angled up",
+            "Stroke 3: Longer horizontal stroke below, also crossing the vertical",
+            "Stroke 4: Small curved loop at the bottom-left of the vertical"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M40,10 C38,30 35,50 33,70", "duration": 500 },
+              { "stroke": 2, "path": "M20,25 L50,23", "duration": 400 },
+              { "stroke": 3, "path": "M18,45 L52,43", "duration": 400 },
+              { "stroke": 4, "path": "M35,55 C30,58 28,62 32,65 C36,68 38,62 35,58", "duration": 450 }
+            ]
+          },
+          "tips": "Two stacked horizontal lines through a vertical stroke, plus a small loop.",
+          "mnemonics": "A key with two teeth and a loop handle.",
+          "exampleWords": [
+            { "japanese": "きって", "romaji": "kitte", "english": "stamp" },
+            { "japanese": "きいろ", "romaji": "kiiro", "english": "yellow" }
+          ]
+        },
+        "く": {
+          "romaji": "ku",
+          "strokeCount": 1,
+          "pronunciation": "like 'coo'",
+          "writingPattern": [
+            "Stroke 1: Single continuous angled stroke, starting top-left curving down to bottom-right with a slight hook"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M20,15 C30,25 25,40 35,55 C40,60 45,58 48,55", "duration": 500 }
+            ]
+          },
+          "tips": "One continuous angled stroke, like a sideways '<' sign.",
+          "mnemonics": "A bird's open beak.",
+          "exampleWords": [
+            { "japanese": "くつ", "romaji": "kutsu", "english": "shoes" },
+            { "japanese": "くも", "romaji": "kumo", "english": "cloud / spider" }
+          ]
+        },
+        "け": {
+          "romaji": "ke",
+          "strokeCount": 3,
+          "pronunciation": "like 'ke' in 'kept'",
+          "writingPattern": [
+            "Stroke 1: Short vertical line on the left, top to bottom, slightly angled",
+            "Stroke 2: Curved horizontal stroke from left to right",
+            "Stroke 3: Long curved vertical stroke from the right end of stroke 2, sweeping down-left"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,15 L12,40", "duration": 400 },
+              { "stroke": 2, "path": "M15,20 C25,15 35,15 40,22", "duration": 400 },
+              { "stroke": 3, "path": "M35,10 C30,30 15,50 10,65", "duration": 500 }
+            ]
+          },
+          "tips": "Similar to か but the left stroke is short and separate.",
+          "mnemonics": "Looks like か with its legs slightly apart.",
+          "exampleWords": [
+            { "japanese": "けさ", "romaji": "kesa", "english": "this morning" },
+            { "japanese": "けいかく", "romaji": "keikaku", "english": "plan" }
+          ]
+        },
+        "こ": {
+          "romaji": "ko",
+          "strokeCount": 2,
+          "pronunciation": "like 'co' in 'coat'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal stroke, left to right",
+            "Stroke 2: Longer horizontal stroke below, curving slightly upward like a smile"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M20,20 L45,20", "duration": 400 },
+              { "stroke": 2, "path": "M15,50 C25,45 35,45 50,52", "duration": 450 }
+            ]
+          },
+          "tips": "Two simple horizontal strokes stacked, the bottom one curving like a smile.",
+          "mnemonics": "Two chopsticks with a smiling mouth underneath.",
+          "exampleWords": [
+            { "japanese": "こども", "romaji": "kodomo", "english": "child" },
+            { "japanese": "ここ", "romaji": "koko", "english": "here" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "S-Row (さしすせそ)",
+      "description": "Adding the 's' consonant to each vowel sound.",
+      "characters": {
+        "さ": {
+          "romaji": "sa",
+          "strokeCount": 3,
+          "pronunciation": "like 'sa' in 'saw'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical line down from the right end of stroke 1, sweeping left",
+            "Stroke 3: Small curved stroke crossing through the left side"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,20 L40,20", "duration": 400 },
+              { "stroke": 2, "path": "M35,10 C30,30 15,50 10,65", "duration": 500 },
+              { "stroke": 3, "path": "M18,28 C15,33 12,38 15,43", "duration": 350 }
+            ]
+          },
+          "tips": "Similar to か but the crossing stroke is positioned higher.",
+          "mnemonics": "A knee with a bandage wrapped higher up.",
+          "exampleWords": [
+            { "japanese": "さくら", "romaji": "sakura", "english": "cherry blossom" },
+            { "japanese": "さかな", "romaji": "sakana", "english": "fish" }
+          ]
+        },
+        "し": {
+          "romaji": "shi",
+          "strokeCount": 1,
+          "pronunciation": "like 'she'",
+          "writingPattern": [
+            "Stroke 1: Single curved stroke starting from top, looping down and curling back up with a small hook"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M45,15 C40,30 20,55 35,65 C45,70 50,60 48,55", "duration": 550 }
+            ]
+          },
+          "tips": "One smooth curved stroke — like a cursive 'i' without the dot.",
+          "mnemonics": "A fishing hook with a curved line.",
+          "exampleWords": [
+            { "japanese": "しんぶん", "romaji": "shinbun", "english": "newspaper" },
+            { "japanese": "しまうま", "romaji": "shimauma", "english": "zebra" }
+          ]
+        },
+        "す": {
+          "romaji": "su",
+          "strokeCount": 2,
+          "pronunciation": "like 'sue'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right, slightly angled up",
+            "Stroke 2: Long sweeping curve starting from the left, dipping down, looping up, and curling into a tight spiral"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M20,20 L40,18", "duration": 350 },
+              { "stroke": 2, "path": "M15,15 C10,35 20,55 30,50 C40,45 35,30 25,35 C20,38 22,45 28,43", "duration": 650 }
+            ]
+          },
+          "tips": "The bottom loop should curl tightly — practice the spiral motion.",
+          "mnemonics": "A hiragana character with a curled tail like a sleeping cat.",
+          "exampleWords": [
+            { "japanese": "すし", "romaji": "sushi", "english": "sushi" },
+            { "japanese": "すうがく", "romaji": "suugaku", "english": "mathematics" }
+          ]
+        },
+        "せ": {
+          "romaji": "se",
+          "strokeCount": 3,
+          "pronunciation": "like 'se' in 'set'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical line from the right end of stroke 1, sweeping down-left",
+            "Stroke 3: Small horizontal tick crossing through the vertical stroke on the left side"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,20 L40,20", "duration": 400 },
+              { "stroke": 2, "path": "M35,10 C30,30 15,50 10,65", "duration": 500 },
+              { "stroke": 3, "path": "M25,35 L15,33", "duration": 300 }
+            ]
+          },
+          "tips": "Similar to さ but the crossing stroke is shorter and sits lower.",
+          "mnemonics": "A tree with a small branch growing out to the left.",
+          "exampleWords": [
+            { "japanese": "せんせい", "romaji": "sensei", "english": "teacher" },
+            { "japanese": "せかい", "romaji": "sekai", "english": "world" }
+          ]
+        },
+        "そ": {
+          "romaji": "so",
+          "strokeCount": 2,
+          "pronunciation": "like 'so' in 'soap'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal stroke with a small vertical hook at the end",
+            "Stroke 2: Long sweeping curve starting from the left, looping around and crossing through the center"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,20 L40,20 L42,30", "duration": 400 },
+              { "stroke": 2, "path": "M10,15 C5,40 25,60 35,50 C45,40 35,25 25,30 C20,33 22,40 28,38", "duration": 600 }
+            ]
+          },
+          "tips": "The second stroke loops around and crosses itself — like a cursive 'z'.",
+          "mnemonics": "A looping rollercoaster track that crosses itself.",
+          "exampleWords": [
+            { "japanese": "そら", "romaji": "sora", "english": "sky" },
+            { "japanese": "そば", "romaji": "soba", "english": "buckwheat noodles / near" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "T-Row (たちつてと)",
+      "description": "Adding the 't' consonant to each vowel sound.",
+      "characters": {
+        "た": {
+          "romaji": "ta",
+          "strokeCount": 4,
+          "pronunciation": "like 'ta' in 'taco'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical line from the right end of stroke 1, sweeping down-left",
+            "Stroke 3: Short horizontal stroke crossing through the left side",
+            "Stroke 4: Small curved stroke below stroke 3, like a tiny loop"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,18 L40,18", "duration": 400 },
+              { "stroke": 2, "path": "M35,8 C30,28 15,48 10,63", "duration": 500 },
+              { "stroke": 3, "path": "M22,32 L12,30", "duration": 300 },
+              { "stroke": 4, "path": "M18,38 C15,42 18,46 22,44", "duration": 350 }
+            ]
+          },
+          "tips": "Like か with an extra small stroke at the bottom left.",
+          "mnemonics": "か with a tiny charm hanging off the left side.",
+          "exampleWords": [
+            { "japanese": "たべる", "romaji": "taberu", "english": "to eat" },
+            { "japanese": "たまご", "romaji": "tamago", "english": "egg" }
+          ]
+        },
+        "ち": {
+          "romaji": "chi",
+          "strokeCount": 3,
+          "pronunciation": "like 'chee' in 'cheese'",
+          "writingPattern": [
+            "Stroke 1: Short diagonal stroke, top-right to bottom-left",
+            "Stroke 2: Long sweeping curve starting from the left, dipping down and looping up",
+            "Stroke 3: Small curved stroke at the bottom-right"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M40,15 L20,28", "duration": 350 },
+              { "stroke": 2, "path": "M15,20 C5,45 25,60 35,50 C42,42 35,30 25,35", "duration": 550 },
+              { "stroke": 3, "path": "M38,52 C36,58 40,62 44,58", "duration": 350 }
+            ]
+          },
+          "tips": "The loop should be round and balanced — practice making a smooth cursive 'C' shape.",
+          "mnemonics": "A number '5' with a curved tail.",
+          "exampleWords": [
+            { "japanese": "ちず", "romaji": "chizu", "english": "map" },
+            { "japanese": "ちかてつ", "romaji": "chikatetsu", "english": "subway" }
+          ]
+        },
+        "つ": {
+          "romaji": "tsu",
+          "strokeCount": 1,
+          "pronunciation": "like 'tsu' in 'tsunami'",
+          "writingPattern": [
+            "Stroke 1: Single curved stroke starting from the top, curving down and looping back up with a small flick"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M40,15 C35,25 20,50 30,60 C38,65 45,55 42,48", "duration": 500 }
+            ]
+          },
+          "tips": "One smooth stroke that curves like a wave.",
+          "mnemonics": "A wave curling over — think of 'tsunami'.",
+          "exampleWords": [
+            { "japanese": "つき", "romaji": "tsuki", "english": "moon" },
+            { "japanese": "つくえ", "romaji": "tsukue", "english": "desk" }
+          ]
+        },
+        "て": {
+          "romaji": "te",
+          "strokeCount": 1,
+          "pronunciation": "like 'te' in 'ten'",
+          "writingPattern": [
+            "Stroke 1: Single curved stroke starting horizontally, then dipping down and sweeping left with a slight upward flick"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,20 C30,15 45,20 40,40 C35,55 25,65 15,60", "duration": 500 }
+            ]
+          },
+          "tips": "Keep the initial horizontal part short, then let it curve down smoothly.",
+          "mnemonics": "A gentle wave that rises at the end.",
+          "exampleWords": [
+            { "japanese": "て", "romaji": "te", "english": "hand" },
+            { "japanese": "てんき", "romaji": "tenki", "english": "weather" }
+          ]
+        },
+        "と": {
+          "romaji": "to",
+          "strokeCount": 2,
+          "pronunciation": "like 'to' in 'toe'",
+          "writingPattern": [
+            "Stroke 1: Long curved vertical stroke from top to bottom, curving slightly right",
+            "Stroke 2: Small curved tick at the top-right, like a hook"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M30,10 C28,30 25,50 22,65", "duration": 500 },
+              { "stroke": 2, "path": "M45,15 C42,18 40,22 43,25", "duration": 350 }
+            ]
+          },
+          "tips": "Two strokes — the main vertical curve and a small tick at the top right.",
+          "mnemonics": "A walking cane with a small grip at the top.",
+          "exampleWords": [
+            { "japanese": "とり", "romaji": "tori", "english": "bird" },
+            { "japanese": "ともだち", "romaji": "tomodachi", "english": "friend" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "N-Row (なにぬねの)",
+      "description": "Adding the 'n' consonant to each vowel sound.",
+      "characters": {
+        "な": {
+          "romaji": "na",
+          "strokeCount": 4,
+          "pronunciation": "like 'na' in 'nap'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical line from the right end of stroke 1, sweeping down-left",
+            "Stroke 3: Short diagonal stroke crossing through the top section",
+            "Stroke 4: Long curved stroke looping at the bottom, attached to stroke 3"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,18 L40,18", "duration": 400 },
+              { "stroke": 2, "path": "M35,8 C30,28 15,48 10,63", "duration": 500 },
+              { "stroke": 3, "path": "M20,30 L30,25", "duration": 300 },
+              { "stroke": 4, "path": "M25,28 C20,45 5,55 15,65 C25,70 35,60 28,52", "duration": 550 }
+            ]
+          },
+          "tips": "Similar to た but the fourth stroke loops more prominently.",
+          "mnemonics": "た with a longer, more dramatic tail loop.",
+          "exampleWords": [
+            { "japanese": "なまえ", "romaji": "namae", "english": "name" },
+            { "japanese": "なつ", "romaji": "natsu", "english": "summer" }
+          ]
+        },
+        "に": {
+          "romaji": "ni",
+          "strokeCount": 3,
+          "pronunciation": "like 'knee'",
+          "writingPattern": [
+            "Stroke 1: Short diagonal stroke, top-right to bottom-left",
+            "Stroke 2: Long curved vertical stroke from top to bottom",
+            "Stroke 3: Short curved stroke near the bottom, crossing through the vertical"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M40,15 L20,28", "duration": 350 },
+              { "stroke": 2, "path": "M30,10 C28,30 25,50 22,65", "duration": 500 },
+              { "stroke": 3, "path": "M28,48 C20,50 15,54 18,58", "duration": 350 }
+            ]
+          },
+          "tips": "Think of it as a simplified version of ち with an extra crossing stroke.",
+          "mnemonics": "A person kneeling with an arm crossing the body.",
+          "exampleWords": [
+            { "japanese": "にほん", "romaji": "nihon", "english": "Japan" },
+            { "japanese": "にわ", "romaji": "niwa", "english": "garden" }
+          ]
+        },
+        "ぬ": {
+          "romaji": "nu",
+          "strokeCount": 3,
+          "pronunciation": "like 'new'",
+          "writingPattern": [
+            "Stroke 1: Short diagonal stroke, top-right to bottom-left",
+            "Stroke 2: Long sweeping curve starting from the left, looping down and curling up",
+            "Stroke 3: Small curved stroke at the bottom-right, like a tail"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M40,15 L22,28", "duration": 350 },
+              { "stroke": 2, "path": "M18,20 C5,45 25,65 35,55 C42,48 35,30 25,35 C20,38 22,46 28,44", "duration": 600 },
+              { "stroke": 3, "path": "M38,57 C36,62 40,65 44,62", "duration": 350 }
+            ]
+          },
+          "tips": "Similar to め but with a more pronounced loop and an extra tail stroke.",
+          "mnemonics": "A curled-up cat with a small tail flicking out.",
+          "exampleWords": [
+            { "japanese": "ぬま", "romaji": "numa", "english": "swamp" },
+            { "japanese": "ぬの", "romaji": "nuno", "english": "cloth" }
+          ]
+        },
+        "ね": {
+          "romaji": "ne",
+          "strokeCount": 4,
+          "pronunciation": "like 'ne' in 'net'",
+          "writingPattern": [
+            "Stroke 1: Short diagonal stroke, top-right to bottom-left",
+            "Stroke 2: Long curved vertical stroke from top to bottom, slightly angled",
+            "Stroke 3: Short curved stroke crossing the upper part of stroke 2",
+            "Stroke 4: Small curved stroke near the bottom, attached to stroke 2"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M40,15 L20,28", "duration": 350 },
+              { "stroke": 2, "path": "M30,10 C28,30 20,50 18,65", "duration": 500 },
+              { "stroke": 3, "path": "M25,30 L15,28", "duration": 300 },
+              { "stroke": 4, "path": "M22,48 C15,52 12,56 18,60", "duration": 350 }
+            ]
+          },
+          "tips": "Similar to れ but with an extra crossing stroke at the top.",
+          "mnemonics": "れ with a hat on — an extra stroke at the top section.",
+          "exampleWords": [
+            { "japanese": "ねこ", "romaji": "neko", "english": "cat" },
+            { "japanese": "ねる", "romaji": "neru", "english": "to sleep" }
+          ]
+        },
+        "の": {
+          "romaji": "no",
+          "strokeCount": 1,
+          "pronunciation": "like 'no' in 'note'",
+          "writingPattern": [
+            "Stroke 1: Single curved stroke starting from the left, looping up, crossing over, and curving down with a flick at the end"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M30,20 C20,15 10,30 20,45 C25,52 35,50 40,42 C45,35 42,25 35,28", "duration": 550 }
+            ]
+          },
+          "tips": "One continuous stroke that loops and crosses itself.",
+          "mnemonics": "A cursive 'n' that loops and crosses like a figure eight.",
+          "exampleWords": [
+            { "japanese": "のはら", "romaji": "nohara", "english": "field" },
+            { "japanese": "のみもの", "romaji": "nomimono", "english": "beverage" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "H-Row (はひふへほ)",
+      "description": "Adding the 'h' consonant to each vowel sound.",
+      "characters": {
+        "は": {
+          "romaji": "ha",
+          "strokeCount": 3,
+          "pronunciation": "like 'ha' in 'hot'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line with a vertical hook at the end, top to bottom",
+            "Stroke 2: Long curved vertical stroke sweeping from the right side",
+            "Stroke 3: Small curved stroke crossing the left side of stroke 1"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,15 L38,15 L40,28", "duration": 400 },
+              { "stroke": 2, "path": "M35,8 C30,30 15,50 10,65", "duration": 500 },
+              { "stroke": 3, "path": "M20,30 C18,35 15,40 18,45", "duration": 350 }
+            ]
+          },
+          "tips": "Like ほ but without the horizontal crossing stroke in the middle.",
+          "mnemonics": "A stick figure with an arm raised — like waving 'ha!'",
+          "exampleWords": [
+            { "japanese": "はな", "romaji": "hana", "english": "flower / nose" },
+            { "japanese": "はる", "romaji": "haru", "english": "spring" }
+          ]
+        },
+        "ひ": {
+          "romaji": "hi",
+          "strokeCount": 1,
+          "pronunciation": "like 'he' in 'he'",
+          "writingPattern": [
+            "Stroke 1: Single smooth curved stroke that starts horizontally, dips down, and arches back up with a slight flick"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,30 C25,15 40,20 42,35 C44,45 38,55 30,52", "duration": 500 }
+            ]
+          },
+          "tips": "One fluid stroke that looks like a gentle arch.",
+          "mnemonics": "A smiling mouth with a curved tongue.",
+          "exampleWords": [
+            { "japanese": "ひと", "romaji": "hito", "english": "person" },
+            { "japanese": "ひる", "romaji": "hiru", "english": "noon / leech" }
+          ]
+        },
+        "ふ": {
+          "romaji": "fu",
+          "strokeCount": 4,
+          "pronunciation": "like 'foo'",
+          "writingPattern": [
+            "Stroke 1: Short diagonal stroke, top-right to bottom-left",
+            "Stroke 2: Short curved stroke below stroke 1",
+            "Stroke 3: Long sweeping curve from the left, dipping down and curling up",
+            "Stroke 4: Small curved tail stroke at the bottom-right"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M40,10 L20,22", "duration": 350 },
+              { "stroke": 2, "path": "M22,25 L18,35", "duration": 300 },
+              { "stroke": 3, "path": "M15,25 C5,45 20,60 30,52", "duration": 500 },
+              { "stroke": 4, "path": "M33,54 C30,58 34,62 38,58", "duration": 350 }
+            ]
+          },
+          "tips": "Four strokes — two at the top and a sweeping curve with a tail.",
+          "mnemonics": "A mountain peak with a winding river at the base.",
+          "exampleWords": [
+            { "japanese": "ふね", "romaji": "fune", "english": "boat / ship" },
+            { "japanese": "ふゆ", "romaji": "fuyu", "english": "winter" }
+          ]
+        },
+        "へ": {
+          "romaji": "he",
+          "strokeCount": 1,
+          "pronunciation": "like 'he' in 'help'",
+          "writingPattern": [
+            "Stroke 1: Single angled stroke with a slight curve, like a check mark — from bottom-left to top-right with a gentle dip"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,55 C25,40 30,25 40,15", "duration": 400 }
+            ]
+          },
+          "tips": "One simple stroke — like a check mark. Same as katakana ヘ.",
+          "mnemonics": "A check mark — same as katakana ヘ.",
+          "exampleWords": [
+            { "japanese": "へや", "romaji": "heya", "english": "room" },
+            { "japanese": "へん", "romaji": "hen", "english": "strange / area" }
+          ]
+        },
+        "ほ": {
+          "romaji": "ho",
+          "strokeCount": 4,
+          "pronunciation": "like 'ho' in 'hope'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line with a vertical hook at the end",
+            "Stroke 2: Long curved vertical stroke from the right side",
+            "Stroke 3: Short horizontal stroke crossing through the center",
+            "Stroke 4: Small curved stroke on the left side"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,15 L38,15 L40,28", "duration": 400 },
+              { "stroke": 2, "path": "M35,8 C30,30 15,50 10,65", "duration": 500 },
+              { "stroke": 3, "path": "M12,38 L35,36", "duration": 350 },
+              { "stroke": 4, "path": "M18,45 C15,50 18,55 22,52", "duration": 350 }
+            ]
+          },
+          "tips": "Like は with an extra horizontal stroke through the middle.",
+          "mnemonics": "は with a belt across the middle.",
+          "exampleWords": [
+            { "japanese": "ほし", "romaji": "hoshi", "english": "star" },
+            { "japanese": "ほん", "romaji": "hon", "english": "book" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "M-Row (まみむめも)",
+      "description": "Adding the 'm' consonant to each vowel sound.",
+      "characters": {
+        "ま": {
+          "romaji": "ma",
+          "strokeCount": 3,
+          "pronunciation": "like 'ma' in 'mom'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical line from the right end of stroke 1, sweeping down and looping left",
+            "Stroke 3: Long sweeping curve starting from the left, crossing through and looping at the bottom"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,15 L40,15", "duration": 400 },
+              { "stroke": 2, "path": "M35,8 C30,25 20,40 15,55 C12,62 18,68 25,65", "duration": 550 },
+              { "stroke": 3, "path": "M10,45 C18,60 35,70 42,58 C48,48 38,38 30,45", "duration": 550 }
+            ]
+          },
+          "tips": "Three strokes — the bottom loop should be wide and balanced.",
+          "mnemonics": "A figure with a wide skirt — think of 'mama' with a flowing dress.",
+          "exampleWords": [
+            { "japanese": "まど", "romaji": "mado", "english": "window" },
+            { "japanese": "まち", "romaji": "machi", "english": "town / city" }
+          ]
+        },
+        "み": {
+          "romaji": "mi",
+          "strokeCount": 3,
+          "pronunciation": "like 'me' in 'me'",
+          "writingPattern": [
+            "Stroke 1: Short diagonal stroke, top-right to bottom-left",
+            "Stroke 2: Long curved vertical stroke from the upper section, sweeping down and curling left",
+            "Stroke 3: Long sweeping curve from the left, crossing the bottom and curling up"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M40,15 L25,25", "duration": 350 },
+              { "stroke": 2, "path": "M35,18 C30,35 20,50 15,65", "duration": 500 },
+              { "stroke": 3, "path": "M10,40 C15,55 30,65 40,55 C48,48 42,38 35,45", "duration": 550 }
+            ]
+          },
+          "tips": "Three strokes — the bottom loop wraps around gracefully.",
+          "mnemonics": "A figure with a curved spine and a sweeping tail.",
+          "exampleWords": [
+            { "japanese": "みず", "romaji": "mizu", "english": "water" },
+            { "japanese": "みみ", "romaji": "mimi", "english": "ear" }
+          ]
+        },
+        "む": {
+          "romaji": "mu",
+          "strokeCount": 3,
+          "pronunciation": "like 'moo'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical line from the right end of stroke 1, sweeping down-left",
+            "Stroke 3: Long sweeping curve from the bottom-left, crossing through and curling to the right"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M20,15 L45,15", "duration": 400 },
+              { "stroke": 2, "path": "M40,10 C35,28 20,45 15,60", "duration": 500 },
+              { "stroke": 3, "path": "M12,55 C22,70 40,75 50,65 C58,55 50,45 42,52", "duration": 550 }
+            ]
+          },
+          "tips": "The final stroke should wrap around to the right, like a curled tail.",
+          "mnemonics": "A cow's tail curling to the right — 'moo' for む.",
+          "exampleWords": [
+            { "japanese": "むし", "romaji": "mushi", "english": "insect" },
+            { "japanese": "むら", "romaji": "mura", "english": "village" }
+          ]
+        },
+        "め": {
+          "romaji": "me",
+          "strokeCount": 2,
+          "pronunciation": "like 'me' in 'met'",
+          "writingPattern": [
+            "Stroke 1: Short diagonal stroke, top-right to bottom-left",
+            "Stroke 2: Long sweeping curve starting from the left, looping up, crossing over, and curling down with a flick"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M40,15 L22,25", "duration": 350 },
+              { "stroke": 2, "path": "M18,20 C8,40 25,60 35,50 C42,42 35,30 25,35 C20,38 22,46 28,44", "duration": 600 }
+            ]
+          },
+          "tips": "Similar to ぬ but without the final tail stroke — two strokes total.",
+          "mnemonics": "A sleeping eye with a curved eyelid — 'me' means 'eye' in Japanese.",
+          "exampleWords": [
+            { "japanese": "め", "romaji": "me", "english": "eye" },
+            { "japanese": "めがね", "romaji": "megane", "english": "glasses" }
+          ]
+        },
+        "も": {
+          "romaji": "mo",
+          "strokeCount": 3,
+          "pronunciation": "like 'mo' in 'more'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Longer horizontal stroke below, left to right",
+            "Stroke 3: Curved vertical stroke crossing through both horizontal lines, sweeping down-left at the bottom"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M20,18 L45,18", "duration": 400 },
+              { "stroke": 2, "path": "M18,38 L48,38", "duration": 400 },
+              { "stroke": 3, "path": "M35,10 C32,28 25,45 20,60 C18,65 22,70 28,68", "duration": 550 }
+            ]
+          },
+          "tips": "Like こ but with a vertical stroke cutting through both horizontals.",
+          "mnemonics": "Two shelves with a pole running through them.",
+          "exampleWords": [
+            { "japanese": "もり", "romaji": "mori", "english": "forest" },
+            { "japanese": "もも", "romaji": "momo", "english": "peach" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "Y-Row (やゆよ)",
+      "description": "The 'y' consonant sounds — only three characters.",
+      "characters": {
+        "や": {
+          "romaji": "ya",
+          "strokeCount": 3,
+          "pronunciation": "like 'ya' in 'yacht'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical line from the right end of stroke 1, sweeping down-left",
+            "Stroke 3: Long sweeping curve from the left side, looping around and crossing through"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,15 L40,15", "duration": 400 },
+              { "stroke": 2, "path": "M35,8 C30,28 15,48 10,63", "duration": 500 },
+              { "stroke": 3, "path": "M8,35 C15,55 35,65 42,52 C48,42 38,32 28,40", "duration": 550 }
+            ]
+          },
+          "tips": "Similar to か but with a more pronounced loop at the bottom.",
+          "mnemonics": "か with an extra loop — like a fancy 'ya'.",
+          "exampleWords": [
+            { "japanese": "やま", "romaji": "yama", "english": "mountain" },
+            { "japanese": "やさい", "romaji": "yasai", "english": "vegetable" }
+          ]
+        },
+        "ゆ": {
+          "romaji": "yu",
+          "strokeCount": 2,
+          "pronunciation": "like 'you'",
+          "writingPattern": [
+            "Stroke 1: Short curved stroke at the top, like a small hook",
+            "Stroke 2: Long sweeping curve starting from the top-right, dipping down, looping around and curling up"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,15 C20,10 28,10 30,18", "duration": 350 },
+              { "stroke": 2, "path": "M25,15 C15,30 5,50 15,65 C25,75 40,65 38,55 C36,48 30,42 25,45", "duration": 600 }
+            ]
+          },
+          "tips": "Two strokes — the second stroke creates a teardrop-shaped loop.",
+          "mnemonics": "A hot spring pool with steam rising — 'yu' means 'hot water'.",
+          "exampleWords": [
+            { "japanese": "ゆき", "romaji": "yuki", "english": "snow" },
+            { "japanese": "ゆめ", "romaji": "yume", "english": "dream" }
+          ]
+        },
+        "よ": {
+          "romaji": "yo",
+          "strokeCount": 2,
+          "pronunciation": "like 'yo' in 'yoga'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right, with a small hook at the end",
+            "Stroke 2: Long curved vertical stroke sweeping down from the right side, curving left at the bottom"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M18,15 L40,15 L42,25", "duration": 400 },
+              { "stroke": 2, "path": "M35,8 C30,28 15,48 10,63", "duration": 500 }
+            ]
+          },
+          "tips": "Two strokes — like a simplified version of は.",
+          "mnemonics": "は without the small crossing stroke — a simpler form.",
+          "exampleWords": [
+            { "japanese": "よる", "romaji": "yoru", "english": "night" },
+            { "japanese": "よこ", "romaji": "yoko", "english": "side / horizontal" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "R-Row (らりるれろ)",
+      "description": "The 'r' consonant sounds — pronounced with a soft 'r' similar to a mix between 'r', 'l', and 'd'.",
+      "characters": {
+        "ら": {
+          "romaji": "ra",
+          "strokeCount": 2,
+          "pronunciation": "like 'la' in 'lawn' (soft)",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Long sweeping curve starting from the left, dipping down and curling into a loop"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M18,15 L40,15", "duration": 400 },
+              { "stroke": 2, "path": "M12,12 C8,35 20,60 30,55 C38,50 35,38 28,42", "duration": 550 }
+            ]
+          },
+          "tips": "Two strokes — the second stroke forms a small loop at the bottom.",
+          "mnemonics": "A flag on a pole, waving to the left.",
+          "exampleWords": [
+            { "japanese": "らん", "romaji": "ran", "english": "orchid" },
+            { "japanese": "らいしゅう", "romaji": "raishuu", "english": "next week" }
+          ]
+        },
+        "り": {
+          "romaji": "ri",
+          "strokeCount": 2,
+          "pronunciation": "like 'lee' (soft)",
+          "writingPattern": [
+            "Stroke 1: Short curved vertical stroke, top to bottom, slight rightward curve",
+            "Stroke 2: Longer curved vertical stroke to the right, top to bottom, sweeping slightly left at the end"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M25,10 L22,45", "duration": 400 },
+              { "stroke": 2, "path": "M40,10 L38,55", "duration": 450 }
+            ]
+          },
+          "tips": "Two simple vertical curves — similar to い but straighter.",
+          "mnemonics": "Two parallel swords standing side by side.",
+          "exampleWords": [
+            { "japanese": "りんご", "romaji": "ringo", "english": "apple" },
+            { "japanese": "りょこう", "romaji": "ryokou", "english": "travel" }
+          ]
+        },
+        "る": {
+          "romaji": "ru",
+          "strokeCount": 3,
+          "pronunciation": "like 'loo' (soft)",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical stroke from the right side, sweeping down-left",
+            "Stroke 3: Small curved loop at the bottom-right, like a curled tail"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M18,15 L38,15", "duration": 400 },
+              { "stroke": 2, "path": "M33,10 C28,30 15,50 12,60", "duration": 500 },
+              { "stroke": 3, "path": "M35,55 C32,62 36,68 42,64 C46,60 42,54 38,58", "duration": 450 }
+            ]
+          },
+          "tips": "Three strokes — the final loop should curl to the right like a pig's tail.",
+          "mnemonics": "A curled pig's tail at the bottom right.",
+          "exampleWords": [
+            { "japanese": "るす", "romaji": "rusu", "english": "absent / away from home" },
+            { "japanese": "るーる", "romaji": "ruuru", "english": "rule" }
+          ]
+        },
+        "れ": {
+          "romaji": "re",
+          "strokeCount": 3,
+          "pronunciation": "like 'le' in 'let' (soft)",
+          "writingPattern": [
+            "Stroke 1: Short diagonal stroke, top-right to bottom-left",
+            "Stroke 2: Long curved vertical stroke from top to bottom",
+            "Stroke 3: Small curved stroke near the bottom, like a short tail"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M38,12 L20,24", "duration": 350 },
+              { "stroke": 2, "path": "M30,10 C28,28 22,45 20,60", "duration": 500 },
+              { "stroke": 3, "path": "M25,48 C18,52 15,56 20,60", "duration": 350 }
+            ]
+          },
+          "tips": "Similar to ね but without the extra crossing stroke at the top.",
+          "mnemonics": "ね without the hat — a simpler form with just the tail.",
+          "exampleWords": [
+            { "japanese": "れきし", "romaji": "rekishi", "english": "history" },
+            { "japanese": "れんしゅう", "romaji": "renshuu", "english": "practice" }
+          ]
+        },
+        "ろ": {
+          "romaji": "ro",
+          "strokeCount": 2,
+          "pronunciation": "like 'lo' in 'low' (soft)",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Longer horizontal line below, left to right, with a slight upward curve"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M20,18 L45,18", "duration": 400 },
+              { "stroke": 2, "path": "M18,48 L48,52", "duration": 450 }
+            ]
+          },
+          "tips": "Two horizontal strokes — like こ but the bottom stroke curves up slightly.",
+          "mnemonics": "Two stacked shelves — slightly wider than こ.",
+          "exampleWords": [
+            { "japanese": "ろく", "romaji": "roku", "english": "six" },
+            { "japanese": "ろうか", "romaji": "rouka", "english": "hallway" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "W-Row (わをん)",
+      "description": "The final hiragana characters — 'wa', 'wo', and 'n'.",
+      "characters": {
+        "わ": {
+          "romaji": "wa",
+          "strokeCount": 3,
+          "pronunciation": "like 'wa' in 'water'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical stroke from the right side, sweeping down-left",
+            "Stroke 3: Long sweeping curve from the left, looping around and crossing through"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M15,15 L38,15", "duration": 400 },
+              { "stroke": 2, "path": "M33,10 C28,28 15,48 10,60", "duration": 500 },
+              { "stroke": 3, "path": "M8,35 C15,55 35,65 42,52 C48,42 38,32 28,40", "duration": 550 }
+            ]
+          },
+          "tips": "Similar to ね but the loop at the bottom is more open and rounded.",
+          "mnemonics": "ね with a wider, more open bottom loop — like a wide smile.",
+          "exampleWords": [
+            { "japanese": "わたし", "romaji": "watashi", "english": "I / me" },
+            { "japanese": "わに", "romaji": "wani", "english": "alligator" }
+          ]
+        },
+        "を": {
+          "romaji": "wo",
+          "strokeCount": 3,
+          "pronunciation": "like 'wo' in 'wonder'",
+          "writingPattern": [
+            "Stroke 1: Short horizontal line, left to right",
+            "Stroke 2: Curved vertical stroke from the right side, sweeping down-left",
+            "Stroke 3: Long sweeping curve from the bottom, looping around to the right and crossing through"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M18,15 L42,15", "duration": 400 },
+              { "stroke": 2, "path": "M38,8 C32,28 20,45 15,58", "duration": 500 },
+              { "stroke": 3, "path": "M12,50 C22,70 45,72 50,60 C55,50 48,42 40,50", "duration": 600 }
+            ]
+          },
+          "tips": "Three strokes — the final loop wraps around to the right more than わ.",
+          "mnemonics": "わ with a more dramatic loop that wraps further to the right.",
+          "exampleWords": [
+            { "japanese": "を (particle)", "romaji": "wo", "english": "object marker particle" },
+            { "japanese": "をみる", "romaji": "womiru", "english": "to see (classical)" }
+          ]
+        },
+        "ん": {
+          "romaji": "n",
+          "strokeCount": 3,
+          "pronunciation": "like 'n' in 'noon'",
+          "writingPattern": [
+            "Stroke 1: Short diagonal stroke, top-right to bottom-left",
+            "Stroke 2: Short curved stroke in the middle",
+            "Stroke 3: Long sweeping curve starting from the bottom-left, looping around and curling up"
+          ],
+          "animation": {
+            "type": "stroke-order-svg",
+            "frames": [
+              { "stroke": 1, "path": "M38,12 L20,22", "duration": 350 },
+              { "stroke": 2, "path": "M20,26 C18,30 15,34 18,38", "duration": 300 },
+              { "stroke": 3, "path": "M12,35 C8,50 22,65 32,58 C40,52 38,42 30,48", "duration": 500 }
+            ]
+          },
+          "tips": "Three strokes — the final stroke creates a gentle loop like a soft 'n' sound.",
+          "mnemonics": "A cursive 'n' with a small loop at the bottom.",
+          "exampleWords": [
+            { "japanese": "さん", "romaji": "san", "english": "three / Mr./Ms." },
+            { "japanese": "てん", "romaji": "ten", "english": "ten / dot / point" }
+          ]
+        }
+      }
+    }
+  ]
+}
+

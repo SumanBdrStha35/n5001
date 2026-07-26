@@ -1,0 +1,111 @@
+{
+  "katakanaLessons": [
+    {
+      "title": "Vowels (アイウエオ)",
+      "description": "The five basic vowel sounds in katakana — used primarily for loanwords and emphasis.",
+      "characters": {
+        "ア": { "romaji": "a", "strokeCount": 2, "pronunciation": "like 'ah' in 'father'", "tips": "Looks like a stylized 'A' without the crossbar.", "mnemonics": "A letter 'A' that lost its hat.", "exampleWords": [{"japanese": "アメリカ", "romaji": "amerika", "english": "America"}, {"japanese": "アイス", "romaji": "aisu", "english": "ice"}] },
+        "イ": { "romaji": "i", "strokeCount": 2, "pronunciation": "like 'ee' in 'see'", "tips": "Two angled strokes meeting at the top like a roof.", "mnemonics": "A small roof over two pillars.", "exampleWords": [{"japanese": "イタリア", "romaji": "itaria", "english": "Italy"}, {"japanese": "インク", "romaji": "inku", "english": "ink"}] },
+        "ウ": { "romaji": "u", "strokeCount": 3, "pronunciation": "like 'oo' in 'moon' (short)", "tips": "A roof shape with a curved bottom stroke.", "mnemonics": "A house with a curved roof.", "exampleWords": [{"japanese": "ウサギ", "romaji": "usagi", "english": "rabbit"}, {"japanese": "ウール", "romaji": "ūru", "english": "wool"}] },
+        "エ": { "romaji": "e", "strokeCount": 3, "pronunciation": "like 'e' in 'bed'", "tips": "Two horizontal lines connected by a vertical stroke.", "mnemonics": "A ladder with two rungs and no sides.", "exampleWords": [{"japanese": "エコ", "romaji": "eko", "english": "eco"}, {"japanese": "エネルギー", "romaji": "enerugī", "english": "energy"}] },
+        "オ": { "romaji": "o", "strokeCount": 3, "pronunciation": "like 'o' in 'more' (no glide)", "tips": "A cross shape with a curved stroke through the center.", "mnemonics": "A 'plus' sign with a curved tail.", "exampleWords": [{"japanese": "オレンジ", "romaji": "orenji", "english": "orange"}, {"japanese": "オフィス", "romaji": "ofisu", "english": "office"}] }
+      }
+    },
+    {
+      "title": "K-Row (カキクケコ)",
+      "description": "Adding the 'k' consonant to each vowel sound in katakana.",
+      "characters": {
+        "カ": { "romaji": "ka", "strokeCount": 2, "pronunciation": "like 'ca' in 'car'", "tips": "A horizontal stroke with a curved vertical coming down from its right.", "mnemonics": "Looks like a 'K' missing its back leg.", "exampleWords": [{"japanese": "カメラ", "romaji": "kamera", "english": "camera"}, {"japanese": "カード", "romaji": "kādo", "english": "card"}] },
+        "キ": { "romaji": "ki", "strokeCount": 4, "pronunciation": "like 'key'", "tips": "Two horizontal strokes crossed by one vertical, plus a short angled stroke at bottom left.", "mnemonics": "A cross with a floating sword.", "exampleWords": [{"japanese": "キロ", "romaji": "kiro", "english": "kilo"}, {"japanese": "キッチン", "romaji": "kicchin", "english": "kitchen"}] },
+        "ク": { "romaji": "ku", "strokeCount": 2, "pronunciation": "like 'coo'", "tips": "A curved line with a small tick at the bottom.", "mnemonics": "A bird's beak with a small foot.", "exampleWords": [{"japanese": "クラス", "romaji": "kurasu", "english": "class"}, {"japanese": "クリスマス", "romaji": "kurisumasu", "english": "Christmas"}] },
+        "ケ": { "romaji": "ke", "strokeCount": 3, "pronunciation": "like 'ke' in 'kept'", "tips": "Similar to ク but with an extra angled stroke on the left.", "mnemonics": "A bird looking back over its shoulder.", "exampleWords": [{"japanese": "ケーキ", "romaji": "kēki", "english": "cake"}, {"japanese": "ケータイ", "romaji": "kētai", "english": "cell phone"}] },
+        "コ": { "romaji": "ko", "strokeCount": 2, "pronunciation": "like 'co' in 'coat'", "tips": "Two horizontal lines — shorter on top, longer on bottom.", "mnemonics": "Two shelves on a wall.", "exampleWords": [{"japanese": "コーヒー", "romaji": "kōhī", "english": "coffee"}, {"japanese": "コンピュータ", "romaji": "konpyūta", "english": "computer"}] }
+      }
+    },
+    {
+      "title": "S-Row (サシスセソ)",
+      "description": "Adding the 's' consonant to each vowel sound in katakana.",
+      "characters": {
+        "サ": { "romaji": "sa", "strokeCount": 3, "pronunciation": "like 'sa' in 'saw'", "tips": "A horizontal stroke with two vertical lines dropping from it.", "mnemonics": "A table with two legs.", "exampleWords": [{"japanese": "サッカー", "romaji": "sakkā", "english": "soccer"}, {"japanese": "サラダ", "romaji": "sarada", "english": "salad"}] },
+        "シ": { "romaji": "shi", "strokeCount": 3, "pronunciation": "like 'she'", "tips": "Three short angled strokes, like dripping water.", "mnemonics": "Three raindrops falling.", "exampleWords": [{"japanese": "シャワー", "romaji": "shawā", "english": "shower"}, {"japanese": "シルク", "romaji": "shiruku", "english": "silk"}] },
+        "ス": { "romaji": "su", "strokeCount": 2, "pronunciation": "like 'sue'", "tips": "A curved line with a small angled hook at the end.", "mnemonics": "A hanger with a small hook.", "exampleWords": [{"japanese": "スープ", "romaji": "sūpu", "english": "soup"}, {"japanese": "スポーツ", "romaji": "supōtsu", "english": "sports"}] },
+        "セ": { "romaji": "se", "strokeCount": 2, "pronunciation": "like 'se' in 'set'", "tips": "A horizontal line with a curved stroke dropping from its right side.", "mnemonics": "An uppercase 'L' with a hat.", "exampleWords": [{"japanese": "セーター", "romaji": "sētā", "english": "sweater"}, {"japanese": "セット", "romaji": "setto", "english": "set"}] },
+        "ソ": { "romaji": "so", "strokeCount": 2, "pronunciation": "like 'so' in 'soap'", "tips": "Two short angled strokes, one above the other.", "mnemonics": "A stack of two toothpicks.", "exampleWords": [{"japanese": "ソファー", "romaji": "sofā", "english": "sofa"}, {"japanese": "ソース", "romaji": "sōsu", "english": "sauce"}] }
+      }
+    },
+    {
+      "title": "T-Row (タチツテト)",
+      "description": "Adding the 't' consonant to each vowel sound in katakana.",
+      "characters": {
+        "タ": { "romaji": "ta", "strokeCount": 3, "pronunciation": "like 'ta' in 'taco'", "tips": "A horizontal stroke with a curved vertical dropping from its right and a short angled stroke on the left.", "mnemonics": "Looks like カ but with an extra stroke on the left.", "exampleWords": [{"japanese": "タクシー", "romaji": "takushī", "english": "taxi"}, {"japanese": "タマゴ", "romaji": "tamago", "english": "egg"}] },
+        "チ": { "romaji": "chi", "strokeCount": 3, "pronunciation": "like 'chee' in 'cheese'", "tips": "A curved stroke at the top with a longer vertical stroke beneath.", "mnemonics": "A number '5' with a longer tail.", "exampleWords": [{"japanese": "チーズ", "romaji": "chīzu", "english": "cheese"}, {"japanese": "チケット", "romaji": "chiketto", "english": "ticket"}] },
+        "ツ": { "romaji": "tsu", "strokeCount": 3, "pronunciation": "like 'tsu' in 'tsunami'", "tips": "Three short angled strokes, one above and two below.", "mnemonics": "A bird's footprint in the snow.", "exampleWords": [{"japanese": "ツナ", "romaji": "tsuna", "english": "tuna"}, {"japanese": "ツアー", "romaji": "tsuā", "english": "tour"}] },
+        "テ": { "romaji": "te", "strokeCount": 3, "pronunciation": "like 'te' in 'ten'", "tips": "A horizontal stroke with a small angled stroke above and a curved vertical below.", "mnemonics": "A 'T' with a curved tail.", "exampleWords": [{"japanese": "テレビ", "romaji": "terebi", "english": "television"}, {"japanese": "テスト", "romaji": "tesuto", "english": "test"}] },
+        "ト": { "romaji": "to", "strokeCount": 2, "pronunciation": "like 'to' in 'toe'", "tips": "A vertical stroke with a small angled tick at the bottom right.", "mnemonics": "A walking cane with a foot.", "exampleWords": [{"japanese": "トマト", "romaji": "tomato", "english": "tomato"}, {"japanese": "トイレ", "romaji": "toire", "english": "toilet"}] }
+      }
+    },
+    {
+      "title": "N-Row (ナニヌネノ)",
+      "description": "Adding the 'n' consonant to each vowel sound in katakana.",
+      "characters": {
+        "ナ": { "romaji": "na", "strokeCount": 2, "pronunciation": "like 'na' in 'nap'", "tips": "A horizontal stroke with a long curved vertical dropping from its center.", "mnemonics": "A cross with a long tail.", "exampleWords": [{"japanese": "ナイフ", "romaji": "naifu", "english": "knife"}, {"japanese": "ナンバー", "romaji": "nambā", "english": "number"}] },
+        "ニ": { "romaji": "ni", "strokeCount": 2, "pronunciation": "like 'knee'", "tips": "Two horizontal strokes stacked evenly.", "mnemonics": "Two horizontal shelves of equal length.", "exampleWords": [{"japanese": "ニンジン", "romaji": "ninjin", "english": "carrot"}, {"japanese": "ニュース", "romaji": "nyūsu", "english": "news"}] },
+        "ヌ": { "romaji": "nu", "strokeCount": 3, "pronunciation": "like 'new'", "tips": "A curved stroke at the top with a sweeping diagonal through the center.", "mnemonics": "A crossed fishing hook.", "exampleWords": [{"japanese": "ヌードル", "romaji": "nūdoru", "english": "noodle"}, {"japanese": "ヌイグルミ", "romaji": "nuigurumi", "english": "stuffed toy"}] },
+        "ネ": { "romaji": "ne", "strokeCount": 4, "pronunciation": "like 'ne' in 'net'", "tips": "A combination of strokes — horizontal top, vertical left, and sweeping diagonal from right.", "mnemonics": "A 'K' with an extra stroke crossing through.", "exampleWords": [{"japanese": "ネコ", "romaji": "neko", "english": "cat"}, {"japanese": "ネット", "romaji": "netto", "english": "net"}] },
+        "ノ": { "romaji": "no", "strokeCount": 1, "pronunciation": "like 'no' in 'note'", "tips": "A single curved stroke sweeping from bottom-left to top-right.", "mnemonics": "A cursive 'n' written in one stroke.", "exampleWords": [{"japanese": "ノート", "romaji": "nōto", "english": "notebook"}, {"japanese": "ノイズ", "romaji": "noizu", "english": "noise"}] }
+      }
+    },
+    {
+      "title": "H-Row (ハヒフヘホ)",
+      "description": "Adding the 'h' consonant to each vowel sound in katakana.",
+      "characters": {
+        "ハ": { "romaji": "ha", "strokeCount": 2, "pronunciation": "like 'ha' in 'hot'", "tips": "Two angled strokes meeting at the top like a tent.", "mnemonics": "A small tent or mountain peak.", "exampleWords": [{"japanese": "ハウス", "romaji": "hausu", "english": "house"}, {"japanese": "ハンバーガー", "romaji": "hanbāgā", "english": "hamburger"}] },
+        "ヒ": { "romaji": "hi", "strokeCount": 2, "pronunciation": "like 'he' in 'he'", "tips": "A curved stroke on the left and a longer angled stroke descending from its top.", "mnemonics": "A raised eyebrow with a long nose.", "exampleWords": [{"japanese": "ヒーター", "romaji": "hītā", "english": "heater"}, {"japanese": "ヒト", "romaji": "hito", "english": "person"}] },
+        "フ": { "romaji": "fu", "strokeCount": 1, "pronunciation": "like 'foo'", "tips": "A single curved stroke that starts horizontally then angles down.", "mnemonics": "A bent arm holding a tray.", "exampleWords": [{"japanese": "フルーツ", "romaji": "furūtsu", "english": "fruit"}, {"japanese": "フランス", "romaji": "furansu", "english": "France"}] },
+        "ヘ": { "romaji": "he", "strokeCount": 1, "pronunciation": "like 'he' in 'help'", "tips": "A single angled stroke with a slight curve, like a check mark.", "mnemonics": "A check mark — same as hiragana へ.", "exampleWords": [{"japanese": "ヘリコプター", "romaji": "herikoputā", "english": "helicopter"}, {"japanese": "ヘルプ", "romaji": "herupu", "english": "help"}] },
+        "ホ": { "romaji": "ho", "strokeCount": 4, "pronunciation": "like 'ho' in 'hope'", "tips": "A horizontal stroke with a vertical through it, plus two angled strokes on the sides.", "mnemonics": "A cross with two branches on the sides.", "exampleWords": [{"japanese": "ホテル", "romaji": "hoteru", "english": "hotel"}, {"japanese": "ホーム", "romaji": "hōmu", "english": "home"}] }
+      }
+    },
+    {
+      "title": "M-Row (マミムメモ)",
+      "description": "Adding the 'm' consonant to each vowel sound in katakana.",
+      "characters": {
+        "マ": { "romaji": "ma", "strokeCount": 2, "pronunciation": "like 'ma' in 'mom'", "tips": "Two angled strokes meeting at the top, with the left stroke extending down.", "mnemonics": "A flying bird seen from below.", "exampleWords": [{"japanese": "マンガ", "romaji": "manga", "english": "manga"}, {"japanese": "マップ", "romaji": "mappu", "english": "map"}] },
+        "ミ": { "romaji": "mi", "strokeCount": 3, "pronunciation": "like 'me' in 'me'", "tips": "Three short angled strokes stacked diagonally.", "mnemonics": "Three stacked chevrons or ripples.", "exampleWords": [{"japanese": "ミルク", "romaji": "miruku", "english": "milk"}, {"japanese": "ミュージック", "romaji": "myūjikku", "english": "music"}] },
+        "ム": { "romaji": "mu", "strokeCount": 2, "pronunciation": "like 'moo'", "tips": "A long vertical stroke with a small angled stroke at the bottom left.", "mnemonics": "A flagpole with a pennant flying left.", "exampleWords": [{"japanese": "ムード", "romaji": "mūdo", "english": "mood"}, {"japanese": "ムシ", "romaji": "mushi", "english": "insect"}] },
+        "メ": { "romaji": "me", "strokeCount": 2, "pronunciation": "like 'me' in 'met'", "tips": "Two crossed strokes — a short horizontal and a longer diagonal.", "mnemonics": "A large 'X' with one arm shorter.", "exampleWords": [{"japanese": "メニュー", "romaji": "menyū", "english": "menu"}, {"japanese": "メール", "romaji": "mēru", "english": "email"}] },
+        "モ": { "romaji": "mo", "strokeCount": 3, "pronunciation": "like 'mo' in 'more'", "tips": "Three horizontal strokes crossed by one vertical stroke.", "mnemonics": "A ladder with three rungs.", "exampleWords": [{"japanese": "モノ", "romaji": "mono", "english": "thing"}, {"japanese": "モデル", "romaji": "moderu", "english": "model"}] }
+      }
+    },
+    {
+      "title": "Y-Row (ヤユヨ)",
+      "description": "The 'y' consonant sounds in katakana — only three characters.",
+      "characters": {
+        "ヤ": { "romaji": "ya", "strokeCount": 2, "pronunciation": "like 'ya' in 'yacht'", "tips": "A curved stroke at the top with a long vertical descending from its end.", "mnemonics": "A candy cane hanging from a hook.", "exampleWords": [{"japanese": "ヤクルト", "romaji": "yakuruto", "english": "yogurt drink"}, {"japanese": "ヤード", "romaji": "yādo", "english": "yard"}] },
+        "ユ": { "romaji": "yu", "strokeCount": 2, "pronunciation": "like 'you'", "tips": "A single curved stroke forming a U-shape with a small horizontal tick at the top left.", "mnemonics": "A horseshoe with a small nail at the top.", "exampleWords": [{"japanese": "ユニホーム", "romaji": "yunihōmu", "english": "uniform"}, {"japanese": "ユーモア", "romaji": "yūmoa", "english": "humor"}] },
+        "ヨ": { "romaji": "yo", "strokeCount": 3, "pronunciation": "like 'yo' in 'yoga'", "tips": "Three horizontal strokes stacked evenly, the top two shorter than the bottom.", "mnemonics": "Three shelves growing wider from top to bottom.", "exampleWords": [{"japanese": "ヨガ", "romaji": "yoga", "english": "yoga"}, {"japanese": "ヨーロッパ", "romaji": "yōroppa", "english": "Europe"}] }
+      }
+    },
+    {
+      "title": "R-Row (ラリルレロ)",
+      "description": "The 'r' consonant sounds in katakana — pronounced with a soft 'r' similar to a mix between 'r', 'l', and 'd'.",
+      "characters": {
+        "ラ": { "romaji": "ra", "strokeCount": 2, "pronunciation": "like 'la' in 'lawn' (soft)", "tips": "A horizontal stroke with a long curved vertical dropping from its right end.", "mnemonics": "A number '7' with a curved tail.", "exampleWords": [{"japanese": "ラジオ", "romaji": "rajio", "english": "radio"}, {"japanese": "ラーメン", "romaji": "rāmen", "english": "ramen"}] },
+        "リ": { "romaji": "ri", "strokeCount": 2, "pronunciation": "like 'lee' (soft)", "tips": "Two short vertical strokes side by side, slightly angled.", "mnemonics": "Two chopsticks standing side by side.", "exampleWords": [{"japanese": "リンゴ", "romaji": "ringo", "english": "apple"}, {"japanese": "リサイクル", "romaji": "risaikuru", "english": "recycle"}] },
+        "ル": { "romaji": "ru", "strokeCount": 2, "pronunciation": "like 'loo' (soft)", "tips": "A curved stroke at the top with a loop at the bottom right.", "mnemonics": "A fishhook with a small loop.", "exampleWords": [{"japanese": "ルール", "romaji": "rūru", "english": "rule"}, {"japanese": "ルーム", "romaji": "rūmu", "english": "room"}] },
+        "レ": { "romaji": "re", "strokeCount": 1, "pronunciation": "like 'le' in 'let' (soft)", "tips": "A single curved stroke starting horizontally then sweeping down and left.", "mnemonics": "A check mark with a long tail.", "exampleWords": [{"japanese": "レストラン", "romaji": "resutoran", "english": "restaurant"}, {"japanese": "レモン", "romaji": "remon", "english": "lemon"}] },
+        "ロ": { "romaji": "ro", "strokeCount": 3, "pronunciation": "like 'lo' in 'low' (soft)", "tips": "Three strokes forming a box shape — top horizontal, left vertical, and bottom horizontal.", "mnemonics": "A square open on the right side.", "exampleWords": [{"japanese": "ロボット", "romaji": "robotto", "english": "robot"}, {"japanese": "ロンドン", "romaji": "rondon", "english": "London"}] }
+      }
+    },
+    {
+      "title": "W-Row (ワヲン)",
+      "description": "The final katakana characters — 'wa', 'wo', and 'n'.",
+      "characters": {
+        "ワ": { "romaji": "wa", "strokeCount": 2, "pronunciation": "like 'wa' in 'water'", "tips": "A curved stroke forming a bowl shape with a short horizontal at the top left.", "mnemonics": "A bowl with a small lid on the left.", "exampleWords": [{"japanese": "ワイン", "romaji": "wain", "english": "wine"}, {"japanese": "ワック", "romaji": "wakku", "english": "wax"}] },
+        "ヲ": { "romaji": "wo", "strokeCount": 3, "pronunciation": "like 'wo' in 'wonder'", "tips": "A combination of strokes — a horizontal top, a curved middle, and a short vertical on the right.", "mnemonics": "A folded chair seen from the side.", "exampleWords": [{"japanese": "ヲタク", "romaji": "wotaku", "english": "otaku (alternate reading)"}, {"japanese": "ヲシテ", "romaji": "woshite", "english": "classical particle"}] },
+        "ン": { "romaji": "n", "strokeCount": 2, "pronunciation": "like 'n' in 'noon'", "tips": "Two short angled strokes — one above and one below.", "mnemonics": "A zigzag like a lightning bolt.", "exampleWords": [{"japanese": "サン", "romaji": "san", "english": "three / Mr."}, {"japanese": "テン", "romaji": "ten", "english": "ten"}] }
+      }
+    }
+  ]
+}
+
