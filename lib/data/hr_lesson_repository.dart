@@ -19,8 +19,8 @@ class LessonRepository {
   /// Loads lesson metadata from the appropriate bundled JSON asset
   /// based on the given [scriptType].
   ///
-  /// Returns a flat list where each item corresponds to one character,
-  /// tagged with its parent section name for grouping.
+  /// Returns a list where each item corresponds to one section/lesson,
+  /// containing all characters grouped together.
   Future<List<Map<String, dynamic>>> _loadLessonDefinitions(
     ScriptType scriptType,
   ) async {
@@ -49,24 +49,26 @@ class LessonRepository {
     for (int sectionIdx = 0; sectionIdx < sections.length; sectionIdx++) {
       final section = sections[sectionIdx] as Map<String, dynamic>;
       final sectionTitle = section['title'] as String? ?? '';
+      final description = section['description'] as String? ?? '';
       final characters = section['characters'] as Map<String, dynamic>? ?? {};
 
       // Sort characters to maintain a consistent order
       final sortedKeys = characters.keys.toList();
-
-      for (int charIdx = 0; charIdx < sortedKeys.length; charIdx++) {
-        final char = sortedKeys[charIdx];
+      final Map<String, String> charMap = {};
+      for (final char in sortedKeys) {
         final charData = characters[char] as Map<String, dynamic>;
         final romaji = charData['romaji'] as String? ?? '';
-
-        result.add({
-          'id': '${scriptPrefix}_s${sectionIdx + 1}_$char',
-          'title': char,
-          'subtitle': romaji,
-          'section': sectionTitle,
-          'sectionIdx': sectionIdx,
-        });
+        charMap[char] = romaji;
       }
+
+      result.add({
+        'id': '${scriptPrefix}_lesson_${sectionIdx + 1}',
+        'section': sectionTitle,
+        'description': description,
+        'characters': charMap,
+        'characterKeys': sortedKeys,
+        'sectionIdx': sectionIdx,
+      });
     }
 
     return result;
@@ -91,16 +93,17 @@ class LessonRepository {
       final idx = entry.key;
       final def = entry.value;
       final id = def['id'] as String;
-      // Default: first character of the entire script is "Opened", others are "Locked"
+      // Default: first lesson is "Opened", others are "Locked"
       final defaultStatus = (idx == 0) ? 'Opened' : 'Locked';
       final status = progressMap[id] ?? defaultStatus;
 
       return LessonData(
-        title: def['title'] as String? ?? '',
-        subtitle: def['subtitle'] as String? ?? '',
+        section: def['section'] as String? ?? '',
+        description: def['description'] as String? ?? '',
+        characters: (def['characters'] as Map<String, String>?) ?? {},
+        characterKeys: (def['characterKeys'] as List<String>?) ?? [],
         statusText: status,
         icon: _iconFromStatus(status),
-        section: def['section'] as String? ?? '',
         lessonId: id,
       );
     }).toList();

@@ -6,7 +6,7 @@ import '../../model/sript_lesson.dart';
 import '../../other/app_colors_theme.dart';
 import 'lesson_widget/gram/grammer.dart';
 import 'lesson_widget/kanji/kanji.dart';
-import 'lesson_widget/scripts/script.dart';
+import 'lesson_widget/scripts/scripts_section.dart';
 import 'lesson_widget/voca/vocabulary.dart';
 
 // --- Main Body Widget ---

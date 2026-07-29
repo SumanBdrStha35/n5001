@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../../data/hr_lesson_repository.dart';
 import '../../../../model/sript_data.dart';
 import '../../../../model/sript_lesson.dart';
-import 'script.dart';
+import 'widgets/header_card.dart';
+import 'widgets/lesson_list.dart';
 
-/// HiraganaPage – a convenience wrapper around [ScriptPageContent]
-/// pre‑configured with Hiragana script card data.
-///
-/// The script card data is computed dynamically from the actual lesson list
-/// so that progress and counts are always accurate.
 class HiraganaPage extends StatelessWidget {
   final List<LessonData> lessons;
   final bool isLoading;
@@ -19,66 +16,45 @@ class HiraganaPage extends StatelessWidget {
     required this.isLoading,
   });
 
-  static const List<String> _sampleChars = [
-    'あ',
-    'い',
-    'う',
-    'え',
-    'お',
-    'か',
-    'き',
-    'く',
-    'け',
-    'こ',
-  ];
-
-  /// Builds a [ScriptCardData] from the actual lesson data.
-  ScriptCardData _buildCardData() {
-    final total = lessons.length;
-    final completed = lessons.where((l) => l.statusText == 'Completed').length;
-    final inProgress = lessons
-        .where((l) => l.statusText == 'In Progress')
-        .length;
-    final opened = lessons.where((l) => l.statusText == 'Opened').length;
-
-    double progressPercent = total > 0 ? completed / total : 0.0;
-
-    String progressText;
-    bool isStarted;
+  ScriptSummary _buildSummary() {
+    final totalLessons = lessons.length;
+    final completed = lessons.where((e) => e.statusText == 'Completed').length;
+    final studying = lessons.where((e) => e.statusText == 'In Progress').length;
+    final unlocked = lessons.where((e) => e.statusText == 'Opened').length;
+    final progress = totalLessons == 0 ? 0.0 : completed / totalLessons;
+    final totalChars = lessons.fold<int>(0, (sum, l) => sum + l.characterCount);
     String actionText;
-
-    if (completed == total) {
-      progressText = 'All $total characters complete';
-      isStarted = true;
+    if (completed == totalLessons && totalLessons > 0) {
       actionText = 'Review';
-    } else if (completed > 0 || inProgress > 0 || opened > 0) {
-      final studying = completed + inProgress;
-      progressText = '$studying of $total complete';
-      isStarted = true;
-      actionText = 'Continue';
+    } else if (completed > 0 || studying > 0 || unlocked > 0) {
+      actionText = 'Continue Learning';
     } else {
-      progressText = '0 of $total — Not started';
-      isStarted = false;
       actionText = 'Start Learning';
     }
-
-    return ScriptCardData(
+    return ScriptSummary(
       title: 'Hiragana',
-      charCount: '$total chars',
-      characters: _sampleChars,
-      progressText: progressText,
-      progressPercent: progressPercent,
+      totalCharacters: totalChars,
+      totalLessons: totalLessons,
+      completedLessons: completed,
+      progress: progress,
       actionText: actionText,
-      isStarted: isStarted,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return ScriptPageContent(
-      scriptCard: _buildCardData(),
-      lessons: lessons,
-      isLoading: isLoading,
+    return Column(
+      children: [
+        HeaderCard(summary: _buildSummary(), lessons: lessons),
+        const SizedBox(height: 20),
+        Expanded(
+          child: LessonList(
+            lessons: lessons,
+            isLoading: isLoading,
+            scriptType: ScriptType.hiragana,
+          ),
+        ),
+      ],
     );
   }
 }
