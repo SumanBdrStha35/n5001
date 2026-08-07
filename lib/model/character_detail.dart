@@ -1,3 +1,5 @@
+import 'stroke_frame.dart';
+
 /// Model holding all the detailed information about a single character
 /// as loaded from the JSON data files.
 class CharacterDetail {
@@ -10,6 +12,9 @@ class CharacterDetail {
   final String mnemonics;
   final List<ExampleWord> exampleWords;
 
+  /// Stroke-order animation frames parsed from the JSON `animation.frames`.
+  final List<StrokeFrame> animationFrames;
+
   const CharacterDetail({
     required this.character,
     required this.romaji,
@@ -19,12 +24,27 @@ class CharacterDetail {
     required this.tips,
     required this.mnemonics,
     required this.exampleWords,
+    this.animationFrames = const [],
   });
 
   factory CharacterDetail.fromJson(
     String character,
     Map<String, dynamic> json,
   ) {
+    // Parse the nested `animation.frames` array if present.
+    final animation = json['animation'];
+    final List<StrokeFrame> frames = [];
+    if (animation is Map<String, dynamic>) {
+      final animFrames = animation['frames'];
+      if (animFrames is List) {
+        for (final frame in animFrames) {
+          if (frame is Map<String, dynamic>) {
+            frames.add(StrokeFrame.fromJson(frame));
+          }
+        }
+      }
+    }
+
     return CharacterDetail(
       character: character,
       romaji: json['romaji'] as String? ?? '',
@@ -42,6 +62,7 @@ class CharacterDetail {
               ?.map((e) => ExampleWord.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
+      animationFrames: frames,
     );
   }
 }

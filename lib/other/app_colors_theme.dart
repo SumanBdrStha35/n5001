@@ -34,6 +34,12 @@ class AppColorTheme {
   final Color warning;
   final Color error;
 
+  // Foreground (text/icon) rendered on top of primary/success surfaces
+  final Color onPrimary;
+
+  // Elevated / drop shadows
+  final Color shadow;
+
   const AppColorTheme({
     required this.brightness,
     required this.background,
@@ -54,6 +60,8 @@ class AppColorTheme {
     required this.success,
     required this.warning,
     required this.error,
+    required this.onPrimary,
+    required this.shadow,
   });
 }
 
@@ -90,6 +98,9 @@ class AppColorsTheme {
     success: AppColors.success,
     warning: AppColors.warning,
     error: AppColors.error,
+
+    onPrimary: AppColors.cardWhite,
+    shadow: AppColors.black54Pure,
   );
 
   static const AppColorTheme dark = AppColorTheme(
@@ -117,6 +128,9 @@ class AppColorsTheme {
     success: AppColors.success,
     warning: AppColors.warning,
     error: AppColors.error,
+
+    onPrimary: AppColors.darkText,
+    shadow: AppColors.black54Pure,
   );
 
   /// Resolves current palette based on [ThemeData.brightness].

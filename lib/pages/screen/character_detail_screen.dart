@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:logger/logger.dart';
 
 import '../../data/hr_lesson_repository.dart';
 import '../../model/character_detail.dart';
 import '../../model/sript_lesson.dart';
 import '../../other/app_colors_theme.dart';
 import '../../service/character_detail_service.dart';
+import '../../utils/simple_svg_path_parser.dart';
 
 /// A full‑screen detail page for studying a lesson's characters one by one.
 ///
@@ -17,7 +19,6 @@ class HiraganaLessonPage extends StatefulWidget {
   final List<CharacterDetail> characters;
   final int initialIndex;
   final VoidCallback? onLessonComplete;
-
   const HiraganaLessonPage({
     super.key,
     required this.lesson,
@@ -25,7 +26,6 @@ class HiraganaLessonPage extends StatefulWidget {
     this.initialIndex = 0,
     this.onLessonComplete,
   });
-
   @override
   State<HiraganaLessonPage> createState() => _HiraganaLessonPageState();
 }
@@ -41,20 +41,23 @@ class _HiraganaLessonPageState extends State<HiraganaLessonPage> {
   @override
   void initState() {
     super.initState();
-    _currentIndex = widget.initialIndex.clamp(0, _totalCharacters - 1);
-    _pageController = PageController(initialPage: _currentIndex);
+    _flutterTts = FlutterTts();
     _initTts();
+    _currentIndex = widget.initialIndex.clamp(0, _totalCharacters - 1).toInt();
+    _pageController = PageController(initialPage: _currentIndex);
   }
 
   Future<void> _initTts() async {
     try {
-      _flutterTts = FlutterTts();
-      await _flutterTts.setLanguage("ja-JP");
-      await _flutterTts.setPitch(1.0);
+      // Use Japanese so hiragana/katakana text is read correctly.
+      await _flutterTts.setLanguage('ja-JP');
       await _flutterTts.setSpeechRate(0.5);
-      _isTtsInitialized = true;
-    } catch (_) {
-      _isTtsInitialized = false;
+      await _flutterTts.setVolume(1.0);
+      await _flutterTts.setPitch(1.0);
+      await _flutterTts.awaitSpeakCompletion(true);
+      if (mounted) setState(() => _isTtsInitialized = true);
+    } catch (e) {
+      Logger().d('TTS init error: $e');
     }
   }
 
@@ -66,15 +69,22 @@ class _HiraganaLessonPageState extends State<HiraganaLessonPage> {
   }
 
   Future<void> _playAudio(String text) async {
-    if (!_isTtsInitialized) {
-      _showSnack('TTS not available');
-      return;
-    }
+    if (text.trim().isEmpty) return;
     try {
-      await _flutterTts.setLanguage("ja-JP");
-      await _flutterTts.speak(text);
-    } catch (_) {
-      _showSnack('Could not play audio');
+      await _flutterTts.setLanguage('ja-JP');
+      await _flutterTts.setSpeechRate(0.5);
+      await _flutterTts.setVolume(1.0);
+      await _flutterTts.setPitch(1.0);
+      await _flutterTts.awaitSpeakCompletion(true);
+      Logger().d('Character to speak: $text');
+      final result = await _flutterTts.speak(text);
+      if (result == 1) {
+        Logger().d('Speech started successfully for: $text');
+      } else {
+        Logger().d('Speech failed to start for: $text');
+      }
+    } catch (e) {
+      Logger().d('Error in TTS speak: $e');
     }
   }
 
@@ -102,8 +112,8 @@ class _HiraganaLessonPageState extends State<HiraganaLessonPage> {
   void _onPageChanged(int index) {
     setState(() => _currentIndex = index);
     // Auto-play current character audio
-    final char = widget.characters[index];
-    _playAudio(char.character);
+    // final char = widget.characters[index];
+    // _playAudio(char.character);
   }
 
   bool get _isFirst => _currentIndex == 0;
@@ -148,7 +158,7 @@ class _HiraganaLessonPageState extends State<HiraganaLessonPage> {
         ? widget.lesson.section
         : 'Lesson';
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: t.surface,
       elevation: 0,
       scrolledUnderElevation: 1,
       leading: IconButton(
@@ -198,11 +208,11 @@ class _HiraganaLessonPageState extends State<HiraganaLessonPage> {
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: t.surface,
         border: Border(top: BorderSide(color: t.border.withValues(alpha: 0.5))),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.04),
+            color: t.shadow.withValues(alpha: 0.04),
             blurRadius: 8,
             offset: const Offset(0, -2),
           ),
@@ -250,7 +260,7 @@ class _HiraganaLessonPageState extends State<HiraganaLessonPage> {
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(0, 48),
                   backgroundColor: _isLast ? t.success : t.primary,
-                  foregroundColor: Colors.white,
+                  foregroundColor: t.onPrimary,
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -316,6 +326,12 @@ class _CharacterPage extends StatelessWidget {
             tips: detail.tips,
             theme: theme,
           ),
+          const SizedBox(height: 14),
+          _WritingActionButtons(
+            onPlay: () => _openStrokeOrderSheet(context, detail, theme),
+            onPractice: () => _openPracticeSheet(context, detail, theme),
+            theme: theme,
+          ),
           const SizedBox(height: 20),
 
           // ---------- Mnemonic ----------
@@ -348,8 +364,104 @@ class _CharacterPage extends StatelessWidget {
 }
 
 // ---------------------------------------------------------------------------
+// Bottom sheet launchers
+// ---------------------------------------------------------------------------
+
+void _openStrokeOrderSheet(
+  BuildContext context,
+  CharacterDetail detail,
+  AppColorTheme theme,
+) {
+  // Check if animation data exists
+  if (detail.animationFrames.isEmpty) {
+    // Show a snackbar or dialog explaining the animation isn't available
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+          'Stroke order animation not available for this character',
+        ),
+        duration: Duration(seconds: 2),
+      ),
+    );
+    return;
+  }
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    builder: (_) => _StrokeAnimationSheet(detail: detail, theme: theme),
+  );
+}
+
+void _openPracticeSheet(
+  BuildContext context,
+  CharacterDetail detail,
+  AppColorTheme theme,
+) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    builder: (_) => _PracticeSheet(detail: detail, theme: theme),
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Sub‑widgets
 // ---------------------------------------------------------------------------
+
+/// "Play" (stroke-order animation) and "Practice" (draw-it-yourself) actions.
+class _WritingActionButtons extends StatelessWidget {
+  final VoidCallback onPlay;
+  final VoidCallback onPractice;
+  final AppColorTheme theme;
+
+  const _WritingActionButtons({
+    required this.onPlay,
+    required this.onPractice,
+    required this.theme,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: OutlinedButton.icon(
+            onPressed: onPlay,
+            icon: const Icon(Icons.play_circle_outline, size: 18),
+            label: const Text('Play'),
+            style: OutlinedButton.styleFrom(
+              foregroundColor: theme.primary,
+              side: BorderSide(color: theme.primary.withValues(alpha: 0.5)),
+              minimumSize: const Size(0, 46),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: ElevatedButton.icon(
+            onPressed: onPractice,
+            icon: const Icon(Icons.edit_outlined, size: 18),
+            label: const Text('Practice'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: theme.primary,
+              foregroundColor: theme.onPrimary,
+              elevation: 0,
+              minimumSize: const Size(0, 46),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
 
 class _SectionHeader extends StatelessWidget {
   final String title;
@@ -390,7 +502,7 @@ class _CharacterCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 24),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.card,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: theme.border.withValues(alpha: 0.4)),
         boxShadow: [
@@ -442,9 +554,9 @@ class _CharacterCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.volume_up_rounded,
-                    color: Colors.white,
+                    color: theme.onPrimary,
                     size: 22,
                   ),
                 ),
@@ -485,7 +597,7 @@ class _StrokeInfoCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.card,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: theme.border.withValues(alpha: 0.3)),
       ),
@@ -591,9 +703,9 @@ class _MnemonicCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFFFFFBEB),
+        color: theme.brandAmber.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFFFEF3C7)),
+        border: Border.all(color: theme.brandAmber.withValues(alpha: 0.3)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -601,14 +713,10 @@ class _MnemonicCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(6),
             decoration: BoxDecoration(
-              color: const Color(0xFFFEF3C7),
+              color: theme.brandAmber.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: const Icon(
-              Icons.auto_awesome,
-              color: Color(0xFFD97706),
-              size: 18,
-            ),
+            child: Icon(Icons.auto_awesome, color: theme.brandAmber, size: 18),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -620,16 +728,16 @@ class _MnemonicCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF92400E),
+                    color: theme.textPrimary,
                     letterSpacing: 0.5,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   mnemonics,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 14,
-                    color: Color(0xFF92400E),
+                    color: theme.textPrimary,
                     height: 1.4,
                   ),
                 ),
@@ -659,7 +767,7 @@ class _ExampleWordCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.card,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: theme.border.withValues(alpha: 0.3)),
       ),
@@ -726,6 +834,714 @@ class _ExampleWordCard extends StatelessWidget {
       ),
     );
   }
+}
+
+// ---------------------------------------------------------------------------
+// "Play" bottom sheet – animated stroke-order playback
+// ---------------------------------------------------------------------------
+
+class _StrokeAnimationSheet extends StatefulWidget {
+  final CharacterDetail detail;
+  final AppColorTheme theme;
+
+  const _StrokeAnimationSheet({required this.detail, required this.theme});
+
+  @override
+  State<_StrokeAnimationSheet> createState() => _StrokeAnimationSheetState();
+}
+
+class _StrokeAnimationSheetState extends State<_StrokeAnimationSheet>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final List<Path> _strokePaths;
+  late final List<double> _startFractions;
+  late final List<double> _endFractions;
+
+  // Add this for better state management
+  bool _isPlaying = false;
+
+  bool get _hasAnimation => _strokePaths.isNotEmpty;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeAnimation();
+  }
+
+  void _initializeAnimation() {
+    final frames = widget.detail.animationFrames;
+
+    // Handle empty frames case
+    if (frames.isEmpty) {
+      _strokePaths = [];
+      _startFractions = [];
+      _endFractions = [];
+      _controller = AnimationController(
+        vsync: this,
+        duration: const Duration(milliseconds: 1200),
+      );
+      return;
+    }
+
+    // Parse SVG paths
+    _strokePaths = frames
+        .map((f) => parseSimpleSvgPath(f.path))
+        .toList(growable: false);
+
+    // Calculate timing fractions
+    final durations = frames.map((f) => f.duration).toList();
+    final total = durations.fold<int>(0, (a, b) => a + b);
+
+    final starts = <double>[];
+    final ends = <double>[];
+    var acc = 0;
+
+    for (final d in durations) {
+      starts.add(total == 0 ? 0 : acc / total.toDouble());
+      acc += d;
+      ends.add(total == 0 ? 1 : acc / total.toDouble());
+    }
+
+    _startFractions = starts;
+    _endFractions = ends;
+
+    // Create animation controller
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: total == 0 ? 1200 : total),
+    );
+
+    // Add status listener for better control
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        setState(() => _isPlaying = false);
+      }
+    });
+
+    // Auto-play after frame is built
+    if (_hasAnimation) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _play());
+    }
+  }
+
+  void _play() {
+    if (!_hasAnimation || _controller.isAnimating) return;
+    setState(() => _isPlaying = true);
+    _controller.forward(from: 0.0);
+  }
+
+  void _replay() {
+    if (!_hasAnimation) return;
+    _controller.stop();
+    _controller.reset();
+    _play();
+  }
+
+  @override
+  void dispose() {
+    _controller.removeStatusListener((status) {});
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = widget.theme;
+    return DraggableScrollableSheet(
+      initialChildSize: 0.75,
+      minChildSize: 0.5,
+      maxChildSize: 0.95,
+      expand: false,
+      builder: (context, scrollController) {
+        return Container(
+          decoration: BoxDecoration(
+            color: t.surface,
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+          ),
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Container(
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: t.border,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 16, 8, 4),
+                child: Row(
+                  children: [
+                    Icon(
+                      _isPlaying
+                          ? Icons.play_circle_fill
+                          : Icons.play_circle_outline,
+                      color: t.primary,
+                      size: 22,
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        'Stroke Order — ${widget.detail.character}',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          color: t.textPrimary,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    // Add progress indicator
+                    if (_isPlaying)
+                      SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          value: _controller.value,
+                          color: t.primary,
+                          backgroundColor: t.border.withValues(alpha: 0.3),
+                        ),
+                      ),
+                    IconButton(
+                      icon: Icon(Icons.close, color: t.textSecondary),
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: ListView(
+                  controller: scrollController,
+                  padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
+                  children: [
+                    AspectRatio(
+                      aspectRatio: 1,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: t.card,
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(
+                            color: t.border.withValues(alpha: 0.4),
+                          ),
+                        ),
+                        child: _hasAnimation
+                            ? AnimatedBuilder(
+                                animation: _controller,
+                                builder: (context, _) {
+                                  return CustomPaint(
+                                    painter: _StrokeOrderPainter(
+                                      strokePaths: _strokePaths,
+                                      startFractions: _startFractions,
+                                      endFractions: _endFractions,
+                                      progress: _controller.value,
+                                      strokeColor: t.primary,
+                                      gridColor: t.border,
+                                    ),
+                                    size: Size.infinite,
+                                  );
+                                },
+                              )
+                            : Center(
+                                child: Text(
+                                  widget.detail.character,
+                                  style: TextStyle(
+                                    fontSize: 96,
+                                    color: t.textPrimary,
+                                  ),
+                                ),
+                              ),
+                      ),
+                    ),
+                    const SizedBox(height: 18),
+                    if (_hasAnimation) ...[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          OutlinedButton.icon(
+                            onPressed: _replay,
+                            icon: const Icon(Icons.replay, size: 18),
+                            label: const Text('Replay'),
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: t.primary,
+                              side: BorderSide(color: t.primary),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 22,
+                                vertical: 12,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          OutlinedButton.icon(
+                            onPressed: () {
+                              _controller.stop();
+                              _controller.reset();
+                              setState(() => _isPlaying = false);
+                            },
+                            icon: const Icon(Icons.stop, size: 18),
+                            label: const Text('Stop'),
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: t.textSecondary,
+                              side: BorderSide(color: t.border),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 22,
+                                vertical: 12,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      // Add progress slider
+                      Slider(
+                        value: _controller.value,
+                        onChanged: (value) {
+                          _controller.value = value;
+                          setState(() => _isPlaying = false);
+                        },
+                        activeColor: t.primary,
+                        inactiveColor: t.border.withValues(alpha: 0.3),
+                        min: 0,
+                        max: 1,
+                      ),
+                    ] else
+                      Text(
+                        'Stroke-order animation isn\'t available for this character yet — here\'s the written guide instead.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 13, color: t.textMuted),
+                      ),
+                    const SizedBox(height: 20),
+                    if (widget.detail.writingPattern.isNotEmpty)
+                      _StrokeInfoCard(
+                        strokeCount: widget.detail.strokeCount,
+                        writingPattern: widget.detail.writingPattern,
+                        tips: widget.detail.tips,
+                        theme: t,
+                      ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+/// Draws the practice grid plus the strokes revealed so far by [progress].
+class _StrokeOrderPainter extends CustomPainter {
+  static const double _viewBoxSize = 320;
+
+  final List<Path> strokePaths;
+  final List<double> startFractions;
+  final List<double> endFractions;
+  final double progress;
+  final Color strokeColor;
+  final Color gridColor;
+
+  _StrokeOrderPainter({
+    required this.strokePaths,
+    required this.startFractions,
+    required this.endFractions,
+    required this.progress,
+    required this.strokeColor,
+    required this.gridColor,
+  });
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    _drawGrid(canvas, size);
+
+    final scale = size.width / _viewBoxSize;
+    canvas.save();
+    canvas.scale(scale, scale);
+
+    final paint = Paint()
+      ..color = strokeColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 10
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+
+    for (var i = 0; i < strokePaths.length; i++) {
+      if (progress <= startFractions[i]) break;
+      final span = endFractions[i] - startFractions[i];
+      final localT = span <= 0
+          ? 1.0
+          : ((progress - startFractions[i]) / span).clamp(0.0, 1.0);
+      for (final metric in strokePaths[i].computeMetrics()) {
+        final extracted = metric.extractPath(0, metric.length * localT);
+        canvas.drawPath(extracted, paint);
+      }
+    }
+    canvas.restore();
+  }
+
+  void _drawGrid(Canvas canvas, Size size) {
+    final borderPaint = Paint()
+      ..color = gridColor.withValues(alpha: 0.4)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), borderPaint);
+
+    final dashPaint = Paint()
+      ..color = gridColor.withValues(alpha: 0.3)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    _dashedLine(
+      canvas,
+      Offset(size.width / 2, 0),
+      Offset(size.width / 2, size.height),
+      dashPaint,
+    );
+    _dashedLine(
+      canvas,
+      Offset(0, size.height / 2),
+      Offset(size.width, size.height / 2),
+      dashPaint,
+    );
+  }
+
+  void _dashedLine(Canvas canvas, Offset start, Offset end, Paint paint) {
+    const dashWidth = 6.0;
+    const dashSpace = 5.0;
+    final totalLength = (end - start).distance;
+    if (totalLength == 0) return;
+    final direction = (end - start) / totalLength;
+    double drawn = 0;
+    while (drawn < totalLength) {
+      final segStart = start + direction * drawn;
+      final segLen = (drawn + dashWidth) > totalLength
+          ? totalLength - drawn
+          : dashWidth;
+      canvas.drawLine(segStart, segStart + direction * segLen, paint);
+      drawn += dashWidth + dashSpace;
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant _StrokeOrderPainter oldDelegate) =>
+      oldDelegate.progress != progress;
+}
+
+// ---------------------------------------------------------------------------
+// "Practice" bottom sheet – freehand tracing / drawing
+// ---------------------------------------------------------------------------
+
+class _PracticeSheet extends StatefulWidget {
+  final CharacterDetail detail;
+  final AppColorTheme theme;
+
+  const _PracticeSheet({required this.detail, required this.theme});
+
+  @override
+  State<_PracticeSheet> createState() => _PracticeSheetState();
+}
+
+class _PracticeSheetState extends State<_PracticeSheet> {
+  final List<List<Offset>> _strokes = [];
+  List<Offset>? _currentStroke;
+  bool _showGuide = true;
+
+  void _onPanStart(DragStartDetails details) {
+    setState(() {
+      _currentStroke = [details.localPosition];
+      _strokes.add(_currentStroke!);
+    });
+  }
+
+  void _onPanUpdate(DragUpdateDetails details) {
+    if (_currentStroke == null) return;
+    setState(() => _currentStroke!.add(details.localPosition));
+  }
+
+  void _onPanEnd(DragEndDetails details) {
+    _currentStroke = null;
+  }
+
+  void _undo() {
+    if (_strokes.isEmpty) return;
+    setState(() => _strokes.removeLast());
+  }
+
+  void _clear() {
+    if (_strokes.isEmpty) return;
+    setState(() => _strokes.clear());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = widget.theme;
+    return DraggableScrollableSheet(
+      initialChildSize: 0.85,
+      minChildSize: 0.6,
+      maxChildSize: 0.95,
+      expand: false,
+      builder: (context, scrollController) {
+        return Container(
+          decoration: BoxDecoration(
+            color: t.surface,
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+          ),
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Container(
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: t.border,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 16, 8, 4),
+                child: Row(
+                  children: [
+                    Icon(Icons.edit, color: t.primary, size: 20),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        'Practice — ${widget.detail.character}',
+                        style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          color: t.textPrimary,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        _showGuide ? Icons.visibility : Icons.visibility_off,
+                        color: t.textSecondary,
+                      ),
+                      tooltip: 'Toggle guide',
+                      onPressed: () => setState(() => _showGuide = !_showGuide),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.close, color: t.textSecondary),
+                      onPressed: () => Navigator.of(context).pop(),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: ListView(
+                  controller: scrollController,
+                  padding: const EdgeInsets.fromLTRB(20, 4, 20, 20),
+                  children: [
+                    AspectRatio(
+                      aspectRatio: 1,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: t.card,
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(
+                            color: t.border.withValues(alpha: 0.4),
+                          ),
+                        ),
+                        clipBehavior: Clip.antiAlias,
+                        child: GestureDetector(
+                          onPanStart: _onPanStart,
+                          onPanUpdate: _onPanUpdate,
+                          onPanEnd: _onPanEnd,
+                          child: CustomPaint(
+                            painter: _PracticePainter(
+                              strokes: _strokes,
+                              guideChar: _showGuide
+                                  ? widget.detail.character
+                                  : '',
+                              gridColor: t.border,
+                              guideColor: t.textMuted,
+                              inkColor: t.primary,
+                            ),
+                            size: Size.infinite,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        OutlinedButton.icon(
+                          onPressed: _strokes.isEmpty ? null : _undo,
+                          icon: const Icon(Icons.undo, size: 18),
+                          label: const Text('Undo'),
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: t.textSecondary,
+                            side: BorderSide(color: t.border),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 12,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        OutlinedButton.icon(
+                          onPressed: _strokes.isEmpty ? null : _clear,
+                          icon: const Icon(Icons.refresh, size: 18),
+                          label: const Text('Clear'),
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: Colors.red.shade400,
+                            side: BorderSide(color: Colors.red.shade200),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 12,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      'Trace the faint character, or hide the guide to draw freehand.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 12, color: t.textMuted),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
+
+/// Draws the practice grid, an optional faint guide character, and the
+/// user's freehand ink strokes.
+class _PracticePainter extends CustomPainter {
+  final List<List<Offset>> strokes;
+  final String guideChar;
+  final Color gridColor;
+  final Color guideColor;
+  final Color inkColor;
+
+  _PracticePainter({
+    required this.strokes,
+    required this.guideChar,
+    required this.gridColor,
+    required this.guideColor,
+    required this.inkColor,
+  });
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final borderPaint = Paint()
+      ..color = gridColor.withValues(alpha: 0.5)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), borderPaint);
+
+    final dashPaint = Paint()
+      ..color = gridColor.withValues(alpha: 0.35)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1;
+    _dashedLine(
+      canvas,
+      Offset(size.width / 2, 0),
+      Offset(size.width / 2, size.height),
+      dashPaint,
+    );
+    _dashedLine(
+      canvas,
+      Offset(0, size.height / 2),
+      Offset(size.width, size.height / 2),
+      dashPaint,
+    );
+    _dashedLine(
+      canvas,
+      Offset.zero,
+      Offset(size.width, size.height),
+      dashPaint,
+    );
+    _dashedLine(
+      canvas,
+      Offset(size.width, 0),
+      Offset(0, size.height),
+      dashPaint,
+    );
+
+    if (guideChar.isNotEmpty) {
+      final tp = TextPainter(
+        text: TextSpan(
+          text: guideChar,
+          style: TextStyle(
+            fontSize: size.width * 0.62,
+            color: guideColor.withValues(alpha: 0.25),
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+      )..layout();
+      tp.paint(
+        canvas,
+        Offset((size.width - tp.width) / 2, (size.height - tp.height) / 2),
+      );
+    }
+
+    final inkPaint = Paint()
+      ..color = inkColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 10
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+
+    for (final stroke in strokes) {
+      if (stroke.isEmpty) continue;
+      if (stroke.length == 1) {
+        canvas.drawCircle(
+          stroke.first,
+          inkPaint.strokeWidth / 2,
+          inkPaint..style = PaintingStyle.fill,
+        );
+        inkPaint.style = PaintingStyle.stroke;
+        continue;
+      }
+      final path = Path()..moveTo(stroke.first.dx, stroke.first.dy);
+      for (final p in stroke.skip(1)) {
+        path.lineTo(p.dx, p.dy);
+      }
+      canvas.drawPath(path, inkPaint);
+    }
+  }
+
+  void _dashedLine(Canvas canvas, Offset start, Offset end, Paint paint) {
+    const dashWidth = 6.0;
+    const dashSpace = 5.0;
+    final totalLength = (end - start).distance;
+    if (totalLength == 0) return;
+    final direction = (end - start) / totalLength;
+    double drawn = 0;
+    while (drawn < totalLength) {
+      final segStart = start + direction * drawn;
+      final segLen = (drawn + dashWidth) > totalLength
+          ? totalLength - drawn
+          : dashWidth;
+      canvas.drawLine(segStart, segStart + direction * segLen, paint);
+      drawn += dashWidth + dashSpace;
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant _PracticePainter oldDelegate) => true;
 }
 
 // ---------------------------------------------------------------------------
