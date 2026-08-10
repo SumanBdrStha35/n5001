@@ -93,9 +93,30 @@ class LessonRepository {
       final idx = entry.key;
       final def = entry.value;
       final id = def['id'] as String;
-      // Default: first lesson is "Opened", others are "Locked"
-      final defaultStatus = (idx == 0) ? 'Opened' : 'Locked';
-      final status = progressMap[id] ?? defaultStatus;
+      // Check if previous lesson is completed
+      bool previousCompleted = false;
+      if (idx > 0) {
+        final prevId = '${scriptPrefix}_lesson_$idx';
+        final prevStatus = progressMap[prevId] ?? 'Locked';
+        previousCompleted = prevStatus == 'Completed';
+      }
+
+      // Determine status
+      String status;
+      if (idx == 0) {
+        // First lesson always starts as 'Opened' if not completed
+        status = progressMap[id] ?? 'Opened';
+      } else if (previousCompleted) {
+        // If previous lesson is completed, this one is 'Opened'
+        status = progressMap[id] ?? 'Opened';
+      } else {
+        // Otherwise locked
+        status = progressMap[id] ?? 'Locked';
+      }
+
+      // // Default: first lesson is "Opened", others are "Locked"
+      // final defaultStatus = (idx == 0) ? 'Opened' : 'Locked';
+      // final status = progressMap[id] ?? defaultStatus;
 
       return LessonData(
         section: def['section'] as String? ?? '',
@@ -130,6 +151,25 @@ class LessonRepository {
         await isar.lessonProgress.put(record);
       }
     });
+  }
+
+  /// Mark a lesson as completed and unlock the next one
+  Future<void> completeLesson({
+    required String lessonId,
+    required ScriptType scriptType,
+  }) async {
+    // Mark current lesson as completed
+    await updateProgress(lessonId: lessonId, status: 'Completed');
+
+    // Get all lessons to find the next one
+    final allLessons = await getLessons(scriptType: scriptType);
+    final currentIndex = allLessons.indexWhere((l) => l.lessonId == lessonId);
+
+    // Unlock next lesson if it exists
+    if (currentIndex >= 0 && currentIndex < allLessons.length - 1) {
+      final nextLesson = allLessons[currentIndex + 1];
+      await updateProgress(lessonId: nextLesson.lessonId, status: 'Opened');
+    }
   }
 
   /// Maps lesson status to the appropriate Flutter [IconData].

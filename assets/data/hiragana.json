@@ -12,27 +12,12 @@
             "Stroke 1: Short horizontal line, left to right",
             "Stroke 2: Curved vertical line down from top, curving left at the bottom",
             "Stroke 3: Small curved stroke crossing through, from top-right sweeping down-left"
-          ], 
-          "animation": {
-            "type": "stroke-order-svg",
-            "frames": [
-              {
-                "stroke": 1,
-                "path": "M68,93 C134,94 201,80 233,73",
-                "duration": 1500
-              },
-              {
-                "stroke": 2,
-                "path": "M148,30 c-16,95 -12,202 4,257",
-                "duration": 1500
-              },
-              {
-                "stroke": 3,
-                "path": "M202,124 C186,199 126.5329,294.64235 85,284 42.077297,273.00153 50.913695,215.5525 79,187 101.89599,163.72397 176,120 245,159 284.27512,181.19898 286.61493,218.94966 267.51063,249.56854 253.05177,272.74206 226.30966,291.83045 194,297",
-                "duration": 1500
-              }
-            ]
-          },
+          ],
+          "animation": [
+            "M31.01,33c0.88,0.88,2.75,1.82,5.25,1.75c8.62-0.25,20-2.12,29.5-4.25c1.51-0.34,4.62-0.88,6.62-0.5",
+            "M49.76,17.62c0.88,1,1.82,3.26,1.38,5.25c-3.75,16.75-6.25,38.13-5.13,53.63c0.41,5.7,1.88,10.88,3.38,13.62",
+            "M65.63,44.12c0.75,1.12,1.16,4.39,0.5,6.12c-4.62,12.26-11.24,23.76-25.37,35.76c-6.86,5.83-15.88,3.75-16.25-8.38c-0.34-10.87,13.38-23.12,32.38-26.74c12.42-2.37,27,1.38,30.5,12.75c4.05,13.18-3.76,26.37-20.88,30.49"
+          ],
           "tips": "Think of it as a lowercase 'a' with an extra curved tail.",
           "mnemonics": "Looks like an 'a' typed in cursive with a fish hook tail.",
           "exampleWords": [
@@ -43,18 +28,15 @@
         "い": {
           "romaji": "i",
           "strokeCount": 2,
-          "pronunciation": "like 'ee' in 'see'",
+          "pronunciation": "Like the start of 'i'",
           "writingPattern": [
             "Stroke 1: Short curved vertical line, top to bottom, slight left lean",
             "Stroke 2: Longer curved vertical line to the right, top to bottom"
           ],
-          "animation": {
-            "type": "stroke-order-svg",
-            "frames": [
-              { "stroke": 1, "path": "M25,15 C22,30 20,45 18,55", "duration": 400 },
-              { "stroke": 2, "path": "M45,10 C42,30 38,50 35,65", "duration": 450 }
-            ]
-          },
+          "animation": [
+            "M21.5,29.66c2.01,2.17,2.61,4.68,2.17,7.43c-3.09,19.16-1.03,32.01,7.93,41.45c6.12,6.45,6.26,3.14,7.04-5.21",
+            "M72.96,36.51c9.44,8.05,17.79,18.82,18.41,33.83"
+          ],
           "tips": "Two simple downward curves, right one taller.",
           "mnemonics": "Two people bowing side by side.",
           "exampleWords": [
