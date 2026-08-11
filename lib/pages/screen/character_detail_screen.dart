@@ -906,7 +906,7 @@ class _StrokeAnimationSheetState extends State<_StrokeAnimationSheet>
     // Create animation controller
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 2500), // Adjust the duration
     );
 
     _controller.addStatusListener((status) {
@@ -1219,7 +1219,8 @@ class KanjiStrokePainter extends CustomPainter {
     final Paint paint = Paint()
       ..color = strokeColor
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 3.0 / scale
+      ..strokeWidth =
+          3.0 // Stroke width
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round;
 
