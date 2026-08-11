@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -1162,39 +1163,95 @@ class KanjiStrokePainter extends CustomPainter {
     // Draw grid
     _drawGrid(canvas, size);
 
-    // Scale to fit in the canvas
-    final double scale = size.width / 200; // Assuming viewBox size of 200x200
-    canvas.save();
-    canvas.scale(scale, scale);
+    if (strokes.isEmpty) return;
 
-    // Calculate how many strokes to show based on progress
-    final int totalStrokes = strokes.length;
-    final int strokesToShow = (currentProgress * totalStrokes).floor();
-    final double partialStrokeProgress =
-        (currentProgress * totalStrokes) - strokesToShow;
+    // ------------------------------------------------------------
+    // 1. Calculate the complete SVG/path bounds
+    // ------------------------------------------------------------
+    Rect bounds = Rect.zero;
+    bool hasBounds = false;
+    for (final path in strokes) {
+      final pathBounds = path.getBounds();
+      if (!hasBounds) {
+        bounds = pathBounds;
+        hasBounds = true;
+      } else {
+        bounds = bounds.expandToInclude(pathBounds);
+      }
+    }
+    if (!hasBounds || bounds.width <= 0 || bounds.height <= 0) {
+      return;
+    }
+
+    // ------------------------------------------------------------
+    // 2. Calculate scale so the SVG fits inside the canvas
+    // ------------------------------------------------------------
+    // Padding around the character.
+    const double padding = 24.0;
+    final double availableWidth = size.width - (padding * 2);
+    final double availableHeight = size.height - (padding * 2);
+    final double scaleX = availableWidth / bounds.width;
+    final double scaleY = availableHeight / bounds.height;
+
+    // Keep aspect ratio.
+    final double scale = math.min(scaleX, scaleY);
+
+    // ------------------------------------------------------------
+    // 3. Calculate the scaled size
+    // ------------------------------------------------------------
+    final double scaledWidth = bounds.width * scale;
+    final double scaledHeight = bounds.height * scale;
+
+    // ------------------------------------------------------------
+    // 4. Center the SVG inside the canvas
+    // ------------------------------------------------------------
+    final double offsetX = (size.width - scaledWidth) / 2.0;
+    final double offsetY = (size.height - scaledHeight) / 2.0;
+    canvas.save();
+    // Move to the centered position.
+    canvas.translate(offsetX, offsetY);
+    // Scale SVG coordinates.
+    canvas.scale(scale, scale);
+    // Move the SVG's actual bounds to 0,0.
+    canvas.translate(-bounds.left, -bounds.top);
 
     // Draw completed strokes
     final Paint paint = Paint()
       ..color = strokeColor
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 3.0
+      ..strokeWidth = 3.0 / scale
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round;
 
-    // Draw all complete strokes
-    for (int i = 0; i < strokesToShow && i < totalStrokes; i++) {
+    // ------------------------------------------------------------
+    // 6. Calculate stroke animation progress
+    // ------------------------------------------------------------
+    final int totalStrokes = strokes.length;
+    if (totalStrokes == 0) {
+      canvas.restore();
+      return;
+    }
+    final double animationProgress = currentProgress.clamp(0.0, 1.0);
+    final double strokeProgress = animationProgress * totalStrokes;
+    final int completedStrokes = strokeProgress.floor().clamp(0, totalStrokes);
+    final double partialProgress = strokeProgress - completedStrokes;
+
+    // ------------------------------------------------------------
+    // 7. Draw completed strokes
+    // ------------------------------------------------------------
+    for (int i = 0; i < completedStrokes; i++) {
       canvas.drawPath(strokes[i], paint);
     }
-
-    // Draw partial stroke if needed
-    if (strokesToShow < totalStrokes && partialStrokeProgress > 0) {
+    // ------------------------------------------------------------
+    // 8. Draw current/partial stroke
+    // ------------------------------------------------------------
+    if (completedStrokes < totalStrokes && partialProgress > 0.0) {
       final Path partialPath = _extractPartialPath(
-        strokes[strokesToShow],
-        partialStrokeProgress,
+        strokes[completedStrokes],
+        partialProgress,
       );
       canvas.drawPath(partialPath, paint);
     }
-
     canvas.restore();
   }
 
@@ -1204,32 +1261,36 @@ class KanjiStrokePainter extends CustomPainter {
     if (progress <= 0.0) return Path();
 
     final Path result = Path();
-    final List<PathMetric> metrics = [];
-    path.computeMetrics().forEach((metric) {
-      metrics.add(metric);
-    });
+    final List<PathMetric> metrics = path.computeMetrics().toList();
+    if (metrics.isEmpty) {
+      return Path();
+    }
+    // path.computeMetrics().forEach((metric) {
+    //   metrics.add(metric);
+    // });
 
     double totalLength = 0;
     for (final metric in metrics) {
       totalLength += metric.length;
     }
 
-    if (totalLength == 0) return path;
+    if (totalLength == 0.0) return path;
 
     double targetLength = totalLength * progress;
-    double accumulated = 0;
+    double accumulatedLength = 0.0;
 
     for (final metric in metrics) {
-      if (accumulated + metric.length >= targetLength) {
-        final double remaining = targetLength - accumulated;
-        result.addPath(metric.extractPath(0, remaining), Offset.zero);
+      final double nextLength = accumulatedLength + metric.length;
+      if (nextLength >= targetLength) {
+        final double remaining = targetLength - accumulatedLength;
+        if (remaining > 0) {
+          result.addPath(metric.extractPath(0.0, remaining), Offset.zero);
+        }
         break;
-      } else {
-        result.addPath(metric.extractPath(0, metric.length), Offset.zero);
-        accumulated += metric.length;
       }
+      result.addPath(metric.extractPath(0.0, metric.length), Offset.zero);
+      accumulatedLength = nextLength;
     }
-
     return result;
   }
 
@@ -1237,13 +1298,13 @@ class KanjiStrokePainter extends CustomPainter {
     final borderPaint = Paint()
       ..color = gridColor.withValues(alpha: 0.4)
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
+      ..strokeWidth = 1.0;
     canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), borderPaint);
 
-    final dashPaint = Paint()
+    final Paint dashPaint = Paint()
       ..color = gridColor.withValues(alpha: 0.3)
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
+      ..strokeWidth = 1.0;
 
     // Horizontal and vertical center lines
     _dashedLine(
@@ -1276,23 +1337,24 @@ class KanjiStrokePainter extends CustomPainter {
   void _dashedLine(Canvas canvas, Offset start, Offset end, Paint paint) {
     const dashWidth = 6.0;
     const dashSpace = 5.0;
-    final totalLength = (end - start).distance;
-    if (totalLength == 0) return;
-    final direction = (end - start) / totalLength;
-    double drawn = 0;
+    final Offset difference = end - start;
+    final double totalLength = difference.distance;
+    if (totalLength == 0.0) return;
+    final Offset direction = difference / totalLength;
+    double drawn = 0.0;
     while (drawn < totalLength) {
-      final segStart = start + direction * drawn;
-      final segLen = (drawn + dashWidth) > totalLength
-          ? totalLength - drawn
-          : dashWidth;
+      final Offset segStart = start + direction * drawn;
+      final double segLen = math.min(dashWidth, totalLength - drawn);
       canvas.drawLine(segStart, segStart + direction * segLen, paint);
       drawn += dashWidth + dashSpace;
     }
   }
 
   @override
-  bool shouldRepaint(KanjiStrokePainter oldDelegate) {
+  bool shouldRepaint(covariant KanjiStrokePainter oldDelegate) {
     return oldDelegate.currentProgress != currentProgress ||
+        oldDelegate.strokes.length != strokes.length ||
+        oldDelegate.gridColor != gridColor ||
         oldDelegate.strokes.length != strokes.length;
   }
 }
