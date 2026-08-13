@@ -2,110 +2,979 @@
   "katakanaLessons": [
     {
       "title": "Vowels (アイウエオ)",
-      "description": "The five basic vowel sounds in katakana — used primarily for loanwords and emphasis.",
+      "description": "The five basic vowel sounds in katakana. These are the foundation for all other characters.",
       "characters": {
-        "ア": { "romaji": "a", "strokeCount": 2, "pronunciation": "like 'ah' in 'father'", "tips": "Looks like a stylized 'A' without the crossbar.", "mnemonics": "A letter 'A' that lost its hat.", "exampleWords": [{"japanese": "アメリカ", "romaji": "amerika", "english": "America"}, {"japanese": "アイス", "romaji": "aisu", "english": "ice"}] },
-        "イ": { "romaji": "i", "strokeCount": 2, "pronunciation": "like 'ee' in 'see'", "tips": "Two angled strokes meeting at the top like a roof.", "mnemonics": "A small roof over two pillars.", "exampleWords": [{"japanese": "イタリア", "romaji": "itaria", "english": "Italy"}, {"japanese": "インク", "romaji": "inku", "english": "ink"}] },
-        "ウ": { "romaji": "u", "strokeCount": 3, "pronunciation": "like 'oo' in 'moon' (short)", "tips": "A roof shape with a curved bottom stroke.", "mnemonics": "A house with a curved roof.", "exampleWords": [{"japanese": "ウサギ", "romaji": "usagi", "english": "rabbit"}, {"japanese": "ウール", "romaji": "ūru", "english": "wool"}] },
-        "エ": { "romaji": "e", "strokeCount": 3, "pronunciation": "like 'e' in 'bed'", "tips": "Two horizontal lines connected by a vertical stroke.", "mnemonics": "A ladder with two rungs and no sides.", "exampleWords": [{"japanese": "エコ", "romaji": "eko", "english": "eco"}, {"japanese": "エネルギー", "romaji": "enerugī", "english": "energy"}] },
-        "オ": { "romaji": "o", "strokeCount": 3, "pronunciation": "like 'o' in 'more' (no glide)", "tips": "A cross shape with a curved stroke through the center.", "mnemonics": "A 'plus' sign with a curved tail.", "exampleWords": [{"japanese": "オレンジ", "romaji": "orenji", "english": "orange"}, {"japanese": "オフィス", "romaji": "ofisu", "english": "office"}] }
+        "ア": {
+          "romaji": "a",
+          "strokeCount": 2,
+          "pronunciation": "Like 'ah' in 'father'.",
+          "tips": "Start with the top horizontal stroke, then the angled vertical.",
+          "mnemonics": "A samurai's sword cutting down from an 'A' shape.",
+          "writingPattern": [
+            "Start at top-left, draw short horizontal line to the right.",
+            "From the middle-right of the first stroke, draw a long diagonal down and to the left."
+          ],
+          "animation": [
+            "M23.5,26.25c2.41,1.56,3.98,1.44,8.51,0.75c11.4-1.75,37.77-5.5,48.28-6.78c5.23-0.64,7.99,2.06,2.62,6.04c-6.75,5-13.12,9.5-23.25,16",
+            "M53.12,41.12c0.79,1.5,1.02,3.24,0.58,5.28c-4.04,18.48-9.92,31.85-19.92,45.48"
+          ],
+          "exampleWords": [
+            { "japanese": "アメリカ", "romaji": "amerika", "english": "America" },
+            { "japanese": "アイデア", "romaji": "aidea", "english": "Idea" }
+          ]
+        },
+        "イ": {
+          "romaji": "i",
+          "strokeCount": 2,
+          "pronunciation": "Like 'ee' in 'see'.",
+          "tips": "Keep strokes symmetrical like a roof.",
+          "mnemonics": "Two priests meditating side-by-side (they look like a 'roof').",
+          "writingPattern": [
+            "Start at top-left, draw a slanted stroke down and to the right.",
+            "Start slightly right of the first, draw a parallel slanted stroke down and to the left."
+          ],
+          "animation": [
+            "M69.75,16.75c0.12,1.75-0.34,3.86-1.62,5.5c-10.13,12.87-23.75,29.63-45.63,42.87",
+            "M56.38,43.88c1,1.12,1.25,3,1.25,4.62c0,1.62,0,32.75,0,34.62c0,1.87-0.13,9.13-0.13,11.76"
+          ],
+          "exampleWords": [
+            { "japanese": "イタリア", "romaji": "itaria", "english": "Italy" },
+            { "japanese": "イギリス", "romaji": "igirisu", "english": "UK" }
+          ]
+        },
+        "ウ": {
+          "romaji": "u",
+          "strokeCount": 3,
+          "pronunciation": "Like 'oo' in 'moon' (short).",
+          "tips": "The top is a dot, the second stroke is a curve, the third is a long downward line.",
+          "mnemonics": "A crow sitting on a tree branch.",
+          "writingPattern": [
+            "Draw a small dot at the top.",
+            "Start below the dot, draw a curve to the right and down.",
+            "Start at the bottom of the curve, draw a long diagonal down to the left."
+          ],
+          "animation": [
+            "M53.25,14.62c1,1.12,1.25,3,1.25,4.62c0,1.62,0,10.76,0,12.64",
+            "M26.5,31.25c1,1.12,1.22,3,1.25,4.62c0.09,4.45,0.29,10.95,0.45,16.37c0.07,2.5,0.14,4.77,0.18,6.5",
+            "M29.12,35.88c19.38-2.25,40.25-4.25,49-5.5c8.75-1.25,8.28,0.84,6.25,6.88c-5,14.88-20.12,43.5-41,56.62"
+          ],
+          "exampleWords": [
+            { "japanese": "ウサギ", "romaji": "usagi", "english": "Rabbit" },
+            { "japanese": "ウイルス", "romaji": "uirusu", "english": "Virus" }
+          ]
+        },
+        "エ": {
+          "romaji": "e",
+          "strokeCount": 3,
+          "pronunciation": "Like 'e' in 'bed'.",
+          "tips": "Draw the top and middle lines first, then the vertical stroke.",
+          "mnemonics": "An 'E' (English letter) without its right side.",
+          "writingPattern": [
+            "Draw a short horizontal line at the top center.",
+            "Draw a slightly longer horizontal line in the middle center.",
+            "Draw a vertical line from the top to the bottom, crossing the two horizontals."
+          ],
+          "animation": [
+            "M31.87,35.68c2.32,0.71,5.14,0.66,7.48,0.29c8.57-1.35,22.4-2.85,33.66-3.85c2.26-0.2,4.52-0.19,6.77,0.22",
+            "M53.34,38.13c1,1.12,1.31,3,1.25,4.62c-0.18,4.74-0.51,12.89-0.83,22.25c-0.08,2.31-0.16,4.7-0.23,7.12",
+            "M19,75.46c3.41,0.94,7.57,0.88,11.01,0.39c17.78-2.48,34.53-3.86,50.55-3.9c3.34-0.01,7.23,0.42,10.46,1.8"
+          ],
+          "exampleWords": [
+            { "japanese": "エレベーター", "romaji": "erebētā", "english": "Elevator" },
+            { "japanese": "エアコン", "romaji": "eakon", "english": "Air Conditioner" }
+          ]
+        },
+        "オ": {
+          "romaji": "o",
+          "strokeCount": 3,
+          "pronunciation": "Like 'o' in 'more' (with no lip rounding).",
+          "tips": "Draw the vertical line first for balance.",
+          "mnemonics": "A compass pointing North, with a wave at the bottom.",
+          "writingPattern": [
+            "Draw a short vertical line from top-center down.",
+            "Draw a horizontal line crossing the middle of the vertical.",
+            "Draw a curved hook at the bottom of the vertical, sweeping right."
+          ],
+          "animation": [
+            "M19.5,37.85c3.91,1.78,7.55,1.55,11.01,1.02c18.03-2.75,34.4-4.5,50.55-5.41c3.34-0.19,6.35,0.17,10.46,1.38",
+            "M60.38,16.38c1.32,1.49,1.65,3.97,1.65,6.12c0,8-0.25,46.23-0.25,58.63c0,20.38-5.88,7.5-9.25,5.5",
+            "M60.29,36.38c0,1.62-1.64,3.61-3.62,6c-7.88,9.5-21.12,22.75-34.62,33"
+          ],
+          "exampleWords": [
+            { "japanese": "オレンジ", "romaji": "orenji", "english": "Orange" },
+            { "japanese": "オフィス", "romaji": "ofisu", "english": "Office" }
+          ]
+        }
       }
     },
     {
       "title": "K-Row (カキクケコ)",
-      "description": "Adding the 'k' consonant to each vowel sound in katakana.",
+      "description": "Adding the 'k' consonant. These characters follow the sharp, straight aesthetic of katakana.",
       "characters": {
-        "カ": { "romaji": "ka", "strokeCount": 2, "pronunciation": "like 'ca' in 'car'", "tips": "A horizontal stroke with a curved vertical coming down from its right.", "mnemonics": "Looks like a 'K' missing its back leg.", "exampleWords": [{"japanese": "カメラ", "romaji": "kamera", "english": "camera"}, {"japanese": "カード", "romaji": "kādo", "english": "card"}] },
-        "キ": { "romaji": "ki", "strokeCount": 4, "pronunciation": "like 'key'", "tips": "Two horizontal strokes crossed by one vertical, plus a short angled stroke at bottom left.", "mnemonics": "A cross with a floating sword.", "exampleWords": [{"japanese": "キロ", "romaji": "kiro", "english": "kilo"}, {"japanese": "キッチン", "romaji": "kicchin", "english": "kitchen"}] },
-        "ク": { "romaji": "ku", "strokeCount": 2, "pronunciation": "like 'coo'", "tips": "A curved line with a small tick at the bottom.", "mnemonics": "A bird's beak with a small foot.", "exampleWords": [{"japanese": "クラス", "romaji": "kurasu", "english": "class"}, {"japanese": "クリスマス", "romaji": "kurisumasu", "english": "Christmas"}] },
-        "ケ": { "romaji": "ke", "strokeCount": 3, "pronunciation": "like 'ke' in 'kept'", "tips": "Similar to ク but with an extra angled stroke on the left.", "mnemonics": "A bird looking back over its shoulder.", "exampleWords": [{"japanese": "ケーキ", "romaji": "kēki", "english": "cake"}, {"japanese": "ケータイ", "romaji": "kētai", "english": "cell phone"}] },
-        "コ": { "romaji": "ko", "strokeCount": 2, "pronunciation": "like 'co' in 'coat'", "tips": "Two horizontal lines — shorter on top, longer on bottom.", "mnemonics": "Two shelves on a wall.", "exampleWords": [{"japanese": "コーヒー", "romaji": "kōhī", "english": "coffee"}, {"japanese": "コンピュータ", "romaji": "konpyūta", "english": "computer"}] }
+        "カ": {
+          "romaji": "ka",
+          "strokeCount": 2,
+          "pronunciation": "Like 'ca' in 'car'.",
+          "tips": "Draw the long curve first, then the horizontal line crossing it.",
+          "mnemonics": "A sharp knife cutting a piece of fruit.",
+          "writingPattern": [
+            "Draw a long slanted stroke from top-right down to bottom-left.",
+            "Draw a short horizontal stroke starting from the middle of the first, going left."
+          ],
+          "animation": [
+            "M25.5,40.62c1.88,1.25,4.51,1.87,7.12,1.5c17.88-2.5,32.78-4.51,42.5-5.88c7.12-1,10.59,0.24,8.62,7.88c-2.12,8.25-4.47,17.81-9.25,29.12c-10.49,24.88-14.11,14.51-19.24,11.88",
+            "M55.88,17.12c0.88,1.62,1.29,3.83,0.75,6.75c-4.25,22.88-15.88,45.25-30.25,58.88"
+          ],
+          "exampleWords": [
+            { "japanese": "カメラ", "romaji": "kamera", "english": "Camera" },
+            { "japanese": "カレー", "romaji": "karē", "english": "Curry" }
+          ]
+        },
+        "キ": {
+          "romaji": "ki",
+          "strokeCount": 4,
+          "pronunciation": "Like 'key'.",
+          "tips": "The top two strokes are a set, the bottom two are a set.",
+          "mnemonics": "A key turned sideways, with the teeth pointing down.",
+          "writingPattern": [
+            "Draw a long vertical line from top-center down.",
+            "Draw a short horizontal line crossing the top of the vertical.",
+            "Draw a second horizontal line below the first.",
+            "Draw a short slanted stroke starting from the bottom-left of the vertical."
+          ],
+          "animation": [
+            "M27,40.5c1.75,0.62,4.77,1.09,7.25,0.38c11.75-3.38,30.62-8.13,37.5-9.88c2.62-0.67,6.75-1.12,9-1",
+            "M19.5,65.8c2.28,0.84,6.24,1.18,9.46,0.17c17.79-5.59,32.67-9.09,49.17-12.99c3.43-0.81,8.81-1.52,11.74-1.35",
+            "M48.87,16.75c2.5,1.75,3.43,3.24,3.88,6.12c2.12,13.62,6.38,45.38,8.25,59.25c0.4,3,1,8.38,1.38,11.12"
+          ],
+          "exampleWords": [
+            { "japanese": "キロ", "romaji": "kiro", "english": "Kilo" },
+            { "japanese": "キッス", "romaji": "kissu", "english": "Kiss" }
+          ]
+        },
+        "ク": {
+          "romaji": "ku",
+          "strokeCount": 2,
+          "pronunciation": "Like 'coo'.",
+          "tips": "Draw the sweeping curve first, then the little dot/tick.",
+          "mnemonics": "A bird pecking at the ground (the tick is its foot).",
+          "writingPattern": [
+            "Draw a curved line from top-right sweeping down to bottom-left.",
+            "Draw a small diagonal tick at the bottom-right of the curve."
+          ],
+          "animation": [
+            "M50,19.62c0.38,1.5,0.34,3.48-0.5,5.12c-4.12,8.12-7.88,15.5-16.12,24.12",
+            "M51.25,28.62c2.62,0.25,5.67-0.39,7.62-0.88c6-1.5,9.75-2.38,15.12-3.88c5.79-1.62,7.53-0.42,5.12,4.88c-10.36,22.88-26.24,44.14-48.61,60.51"
+          ],
+          "exampleWords": [
+            { "japanese": "クラス", "romaji": "kurasu", "english": "Class" },
+            { "japanese": "クリスマス", "romaji": "kurisumasu", "english": "Christmas" }
+          ]
+        },
+        "ケ": {
+          "romaji": "ke",
+          "strokeCount": 3,
+          "pronunciation": "Like 'ke' in 'kept'.",
+          "tips": "Make the left stroke distinct from the right sweep.",
+          "mnemonics": "A bird looking back over its shoulder (the extra stroke is its head).",
+          "writingPattern": [
+            "Draw a short slanted stroke from top-left down to the left.",
+            "Draw a curved line from top-right sweeping down to bottom-left.",
+            "Draw a small diagonal tick at the bottom-right of the curve."
+          ],
+          "animation": [
+            "M40.96,17.88c0.44,1.9,0.39,4.42-0.59,6.5c-4.82,10.31-9.21,19.67-18.87,30.62",
+            "M37.88,37.62c2.12,0.88,4.15,1.04,6.62,0.5c12.62-2.75,25.5-4.88,35.75-6.5c3.61-0.57,6.25-0.75,9.25-0.5",
+            "M64.46,38.88c0.44,1.9,0.5,4.27-0.08,6.5c-3.63,13.75-9.25,31.25-24.63,43.87"
+          ],
+          "exampleWords": [
+            { "japanese": "ケーキ", "romaji": "kēki", "english": "Cake" },
+            { "japanese": "ケータイ", "romaji": "kētai", "english": "Cell Phone" }
+          ]
+        },
+        "コ": {
+          "romaji": "ko",
+          "strokeCount": 2,
+          "pronunciation": "Like 'co' in 'coat'.",
+          "tips": "Draw the top line first, then the bottom. Keep them parallel.",
+          "mnemonics": "A mouth open wide (C shape) but with a flat top.",
+          "writingPattern": [
+            "Draw a long horizontal line at the top.",
+            "Draw a longer horizontal line at the bottom."
+          ],
+          "animation": [
+            "M30.13,35c1.75,1,3.01,2.18,6.5,1.62c14.25-2.25,29.62-4.25,37.38-5.5c9.37-1.51,9.88,0.25,8,7.5c-2.77,10.71-5.25,22.12-7,34.88",
+            "M27.5,77.38c2.62,1.12,4.38,1.51,8.25,1c11.38-1.5,22.62-3,33.75-3.38c4-0.13,5.88,0,9.62,0.5"
+          ],
+          "exampleWords": [
+            { "japanese": "コーヒー", "romaji": "kōhī", "english": "Coffee" },
+            { "japanese": "コンピューター", "romaji": "konpyūtā", "english": "Computer" }
+          ]
+        }
       }
     },
     {
       "title": "S-Row (サシスセソ)",
-      "description": "Adding the 's' consonant to each vowel sound in katakana.",
+      "description": "Adding the 's' consonant. Pay close attention to the difference between 'シ' (shi) and 'ツ' (tsu), which are easily confused.",
       "characters": {
-        "サ": { "romaji": "sa", "strokeCount": 3, "pronunciation": "like 'sa' in 'saw'", "tips": "A horizontal stroke with two vertical lines dropping from it.", "mnemonics": "A table with two legs.", "exampleWords": [{"japanese": "サッカー", "romaji": "sakkā", "english": "soccer"}, {"japanese": "サラダ", "romaji": "sarada", "english": "salad"}] },
-        "シ": { "romaji": "shi", "strokeCount": 3, "pronunciation": "like 'she'", "tips": "Three short angled strokes, like dripping water.", "mnemonics": "Three raindrops falling.", "exampleWords": [{"japanese": "シャワー", "romaji": "shawā", "english": "shower"}, {"japanese": "シルク", "romaji": "shiruku", "english": "silk"}] },
-        "ス": { "romaji": "su", "strokeCount": 2, "pronunciation": "like 'sue'", "tips": "A curved line with a small angled hook at the end.", "mnemonics": "A hanger with a small hook.", "exampleWords": [{"japanese": "スープ", "romaji": "sūpu", "english": "soup"}, {"japanese": "スポーツ", "romaji": "supōtsu", "english": "sports"}] },
-        "セ": { "romaji": "se", "strokeCount": 2, "pronunciation": "like 'se' in 'set'", "tips": "A horizontal line with a curved stroke dropping from its right side.", "mnemonics": "An uppercase 'L' with a hat.", "exampleWords": [{"japanese": "セーター", "romaji": "sētā", "english": "sweater"}, {"japanese": "セット", "romaji": "setto", "english": "set"}] },
-        "ソ": { "romaji": "so", "strokeCount": 2, "pronunciation": "like 'so' in 'soap'", "tips": "Two short angled strokes, one above the other.", "mnemonics": "A stack of two toothpicks.", "exampleWords": [{"japanese": "ソファー", "romaji": "sofā", "english": "sofa"}, {"japanese": "ソース", "romaji": "sōsu", "english": "sauce"}] }
+        "サ": {
+          "romaji": "sa",
+          "strokeCount": 3,
+          "pronunciation": "Like 'sa' in 'saw'.",
+          "tips": "Draw the top line, then the two vertical lines dropping from it.",
+          "mnemonics": "A table with two wooden legs.",
+          "writingPattern": [
+            "Draw a horizontal line at the top.",
+            "Draw a slanted vertical line from the left side of the top line down.",
+            "Draw a slanted vertical line from the right side of the top line down."
+          ],
+          "animation": [
+            "M16.5,44.34c2.84,1.27,4.77,1.91,8.93,1.13c17.2-3.22,40.45-5.35,58.53-5.34c4.33,0,6.92,0.37,10.42,0.82",
+            "M36.63,23.38c1.12,1.38,1.19,2.5,1.25,4.75c0.25,9,0.38,20.25,0.75,28.88c0.14,3.25,0.38,7.12,0.38,9.25",
+            "M69.63,16.62c1.5,2,1.62,2.87,1.62,6.25c0,8.25-0.16,9-0.16,15.88c0,23.25-9.34,42.5-23.21,53.13"
+          ],
+          "exampleWords": [
+            { "japanese": "サッカー", "romaji": "sakkā", "english": "Soccer" },
+            { "japanese": "サラダ", "romaji": "sarada", "english": "Salad" }
+          ]
+        },
+        "シ": {
+          "romaji": "shi",
+          "strokeCount": 3,
+          "pronunciation": "Like 'she'.",
+          "tips": "All three strokes are horizontal dashes stacked vertically but shifted right.",
+          "mnemonics": "Three rain drops falling sideways in a strong wind.",
+          "writingPattern": [
+            "Draw a short horizontal dash at the top-left.",
+            "Draw a longer horizontal dash below it, slightly to the right.",
+            "Draw a long sweeping diagonal from bottom-left up to the right."
+          ],
+          "animation": [
+            "M39.87,19.75c5.14,1.57,9.79,6.01,11.5,8.62",
+            "M26,42.62c3.25,0.88,10.25,5.5,12.25,8.13",
+            "M33,85c3.75,0.88,7.12,0.49,10.38-1.38c17.87-10.24,32.37-23.87,46.12-42.87"
+          ],
+          "exampleWords": [
+            { "japanese": "シャワー", "romaji": "shawā", "english": "Shower" },
+            { "japanese": "シルク", "romaji": "shiruku", "english": "Silk" }
+          ]
+        },
+        "ス": {
+          "romaji": "su",
+          "strokeCount": 2,
+          "pronunciation": "Like 'sue'.",
+          "tips": "Draw the top hook, then the sweeping curve at the bottom.",
+          "mnemonics": "A hanger with a small hook at the bottom.",
+          "writingPattern": [
+            "Draw a small diagonal hook at the top-left.",
+            "Draw a long curve starting from the hook, sweeping down and to the right."
+          ],
+          "animation": [
+            "M30.13,29.38c1.75,1.5,4.15,1.98,6.62,1.38c13.25-3.25,24.25-5.62,31.25-7.38c7-1.76,8.64,1.16,6.5,5.75c-11.24,24.12-28.37,45.87-53.5,57.25",
+            "M61,57.25c11,7.38,21,17,28,28.62"
+          ],
+          "exampleWords": [
+            { "japanese": "スープ", "romaji": "sūpu", "english": "Soup" },
+            { "japanese": "スポーツ", "romaji": "supōtsu", "english": "Sports" }
+          ]
+        },
+        "セ": {
+          "romaji": "se",
+          "strokeCount": 2,
+          "pronunciation": "Like 'se' in 'set'.",
+          "tips": "Draw the sweeping curve first, then the top horizontal line.",
+          "mnemonics": "An uppercase 'L' wearing a baseball cap.",
+          "writingPattern": [
+            "Draw a long sweeping vertical line from top-right down to bottom-left.",
+            "Draw a horizontal line at the top, crossing the start of the vertical."
+          ],
+          "animation": [
+            "M17,49.38c3.12,1.5,5.04,2.18,8.62,1.38c23.5-5.25,31.24-7.43,50.62-11.62c23.12-5,6.5,7.75-3.25,18.12",
+            "M42.38,19.5c2,2.25,2.15,3.5,2.12,6.62c-0.12,17.5-0.88,31.75-0.88,41.12c0,14,3.13,16.99,12.38,17.12c8.38,0.12,14.12,0.12,18,0.12c3.88,0,7.5-0.5,10.5-1.12"
+          ],
+          "exampleWords": [
+            { "japanese": "セーター", "romaji": "sētā", "english": "Sweater" },
+            { "japanese": "セール", "romaji": "sēru", "english": "Sale" }
+          ]
+        },
+        "ソ": {
+          "romaji": "so",
+          "strokeCount": 2,
+          "pronunciation": "Like 'so' in 'soap'.",
+          "tips": "Two strokes: a top dot and a long sweeping curve.",
+          "mnemonics": "A comma floating above a wave.",
+          "writingPattern": [
+            "Draw a short diagonal dash at the top-right.",
+            "Draw a long sweeping curve from just below the dash down to the bottom-left."
+          ],
+          "animation": [
+            "M23.5,25.5c3.92,4.1,7.71,9.93,10.75,17.88",
+            "M83.5,21c1.25,2.5,1.3,4.44,0.12,8.5c-5.87,20.38-26.24,49.5-45.62,61.25"
+          ],
+          "exampleWords": [
+            { "japanese": "ソファー", "romaji": "sofā", "english": "Sofa" },
+            { "japanese": "ソース", "romaji": "sōsu", "english": "Sauce" }
+          ]
+        }
       }
     },
     {
       "title": "T-Row (タチツテト)",
-      "description": "Adding the 't' consonant to each vowel sound in katakana.",
+      "description": "Adding the 't' consonant. Note the unique sounds 'chi' and 'tsu'.",
       "characters": {
-        "タ": { "romaji": "ta", "strokeCount": 3, "pronunciation": "like 'ta' in 'taco'", "tips": "A horizontal stroke with a curved vertical dropping from its right and a short angled stroke on the left.", "mnemonics": "Looks like カ but with an extra stroke on the left.", "exampleWords": [{"japanese": "タクシー", "romaji": "takushī", "english": "taxi"}, {"japanese": "タマゴ", "romaji": "tamago", "english": "egg"}] },
-        "チ": { "romaji": "chi", "strokeCount": 3, "pronunciation": "like 'chee' in 'cheese'", "tips": "A curved stroke at the top with a longer vertical stroke beneath.", "mnemonics": "A number '5' with a longer tail.", "exampleWords": [{"japanese": "チーズ", "romaji": "chīzu", "english": "cheese"}, {"japanese": "チケット", "romaji": "chiketto", "english": "ticket"}] },
-        "ツ": { "romaji": "tsu", "strokeCount": 3, "pronunciation": "like 'tsu' in 'tsunami'", "tips": "Three short angled strokes, one above and two below.", "mnemonics": "A bird's footprint in the snow.", "exampleWords": [{"japanese": "ツナ", "romaji": "tsuna", "english": "tuna"}, {"japanese": "ツアー", "romaji": "tsuā", "english": "tour"}] },
-        "テ": { "romaji": "te", "strokeCount": 3, "pronunciation": "like 'te' in 'ten'", "tips": "A horizontal stroke with a small angled stroke above and a curved vertical below.", "mnemonics": "A 'T' with a curved tail.", "exampleWords": [{"japanese": "テレビ", "romaji": "terebi", "english": "television"}, {"japanese": "テスト", "romaji": "tesuto", "english": "test"}] },
-        "ト": { "romaji": "to", "strokeCount": 2, "pronunciation": "like 'to' in 'toe'", "tips": "A vertical stroke with a small angled tick at the bottom right.", "mnemonics": "A walking cane with a foot.", "exampleWords": [{"japanese": "トマト", "romaji": "tomato", "english": "tomato"}, {"japanese": "トイレ", "romaji": "toire", "english": "toilet"}] }
+        "タ": {
+          "romaji": "ta",
+          "strokeCount": 3,
+          "pronunciation": "Like 'ta' in 'taco'.",
+          "tips": "Draw the top line, then the two vertical strokes (one short, one long).",
+          "mnemonics": "A person holding a long spear.",
+          "writingPattern": [
+            "Draw a horizontal line at the top.",
+            "From the left side, draw a short slanted stroke down.",
+            "From the right side, draw a long sweeping curve down."
+          ],
+          "animation": [
+            "M48.83,19.75c0.43,1.72,0.39,4-0.58,5.89c-4.77,9.34-9.1,17.82-18.63,27.73",
+            "M49.75,30.38c2.75,0.5,5,0,7.62-0.62c6.02-1.43,10.5-2.62,15.88-4.12c5.79-1.62,8.22,0.31,5.88,5.62c-10.88,24.62-22.13,43.99-50.13,59.99",
+            "M43.38,45.62c6.75,3.5,10.62,7.88,14.75,15.25"
+          ],
+          "exampleWords": [
+            { "japanese": "タクシー", "romaji": "takushī", "english": "Taxi" },
+            { "japanese": "タオル", "romaji": "taoru", "english": "Towel" }
+          ]
+        },
+        "チ": {
+          "romaji": "chi",
+          "strokeCount": 3,
+          "pronunciation": "Like 'chee' in 'cheese'.",
+          "tips": "Draw the top horizontal, then the long vertical, then the hook.",
+          "mnemonics": "A number '5' with a longer tail.",
+          "writingPattern": [
+            "Draw a short horizontal line near the top.",
+            "Draw a long vertical line downwards from the middle of the horizontal.",
+            "Draw a small diagonal hook at the bottom right of the vertical."
+          ],
+          "animation": [
+            "M69.76,15.25c-0.38,2.62-2.01,4.37-3.88,5.38c-7.88,4.25-18.62,9.75-35.5,13.25",
+            "M18.5,51.5c2.88,0.88,4.39,1.65,7.88,1.25c22-2.5,36.38-4.25,56.12-4.88c4.88-0.15,7.88,0.51,10.88,1.51",
+            "M54.88,30.75c0.88,0.75,1.75,2.49,1.75,4.75c0,6.03,0.03,11.25,0.03,18.27c0,14.98-5.03,29.48-16.53,39.23"
+          ],
+          "exampleWords": [
+            { "japanese": "チーズ", "romaji": "chīzu", "english": "Cheese" },
+            { "japanese": "チケット", "romaji": "chiketto", "english": "Ticket" }
+          ]
+        },
+        "ツ": {
+          "romaji": "tsu",
+          "strokeCount": 3,
+          "pronunciation": "Like 'tsu' in 'tsunami'.",
+          "tips": "All strokes are horizontal dashes. Key difference from シ: they are aligned vertically.",
+          "mnemonics": "A bird's footprint in the snow, heading down.",
+          "writingPattern": [
+            "Draw a short horizontal dash at the top-right.",
+            "Draw a longer horizontal dash below it.",
+            "Draw a long sweeping diagonal from top-left down to bottom-right."
+          ],
+          "animation": [
+            "M21.5,31.38c2.38,3,4.5,9.38,4.88,13.88",
+            "M45.62,23.75c3.38,3.5,6.62,9.5,7,14.88",
+            "M84.62,27.88c0.75,2.25,0.39,5.26-0.75,8c-7.63,18.37-21.25,41.12-46,52.5"
+          ],
+          "exampleWords": [
+            { "japanese": "ツナ", "romaji": "tsuna", "english": "Tuna" },
+            { "japanese": "ツアー", "romaji": "tsuā", "english": "Tour" }
+          ]
+        },
+        "テ": {
+          "romaji": "te",
+          "strokeCount": 3,
+          "pronunciation": "Like 'te' in 'ten'.",
+          "tips": "Draw the vertical first, then the top horizontal, then the bottom hook.",
+          "mnemonics": "A tree branch (horizontal) with a twig (vertical) and a leaf (hook).",
+          "writingPattern": [
+            "Draw a short vertical line at the center.",
+            "Draw a horizontal line crossing the top of the vertical.",
+            "Draw a small diagonal hook at the bottom left of the vertical."
+          ],
+          "animation": [
+            "M36.5,21.5c2.12,1.25,4.38,1.59,7.25,1.25c10.62-1.25,16.88-2.25,24.62-3.25c3.73-0.48,5.63-0.5,8.13-0.25",
+            "M20,44.12c2.88,1,5.26,1.05,7.5,0.75c22.38-3,37-5.62,54.13-6.12c5.62-0.16,7.75,0,10.38,0.62",
+            "M58,43.25c0.88,1,1.32,2.63,1.12,4.38c-1.74,15.37-11.62,34.99-24.62,41.87"
+          ],
+          "exampleWords": [
+            { "japanese": "テレビ", "romaji": "terebi", "english": "TV" },
+            { "japanese": "テスト", "romaji": "tesuto", "english": "Test" }
+          ]
+        },
+        "ト": {
+          "romaji": "to",
+          "strokeCount": 2,
+          "pronunciation": "Like 'to' in 'toe'.",
+          "tips": "Draw the long vertical, then the short horizontal.",
+          "mnemonics": "A walking stick with a small foot.",
+          "writingPattern": [
+            "Draw a long vertical line from top to bottom.",
+            "Draw a short horizontal line crossing the vertical at the bottom."
+          ],
+          "animation": [
+            "M44,16.38c1.25,1.12,2.12,3.25,2.12,5.5c0,26.12,0,53.5,0,57.62c0,4.12,0,10.5,0,13.38",
+            "M49.24,43.12c11.75,4.12,18.25,10.62,24.5,18.75"
+          ],
+          "exampleWords": [
+            { "japanese": "トマト", "romaji": "tomato", "english": "Tomato" },
+            { "japanese": "トイレ", "romaji": "toire", "english": "Toilet" }
+          ]
+        }
       }
     },
     {
       "title": "N-Row (ナニヌネノ)",
-      "description": "Adding the 'n' consonant to each vowel sound in katakana.",
+      "description": "Adding the 'n' consonant. These characters are relatively simple but distinct.",
       "characters": {
-        "ナ": { "romaji": "na", "strokeCount": 2, "pronunciation": "like 'na' in 'nap'", "tips": "A horizontal stroke with a long curved vertical dropping from its center.", "mnemonics": "A cross with a long tail.", "exampleWords": [{"japanese": "ナイフ", "romaji": "naifu", "english": "knife"}, {"japanese": "ナンバー", "romaji": "nambā", "english": "number"}] },
-        "ニ": { "romaji": "ni", "strokeCount": 2, "pronunciation": "like 'knee'", "tips": "Two horizontal strokes stacked evenly.", "mnemonics": "Two horizontal shelves of equal length.", "exampleWords": [{"japanese": "ニンジン", "romaji": "ninjin", "english": "carrot"}, {"japanese": "ニュース", "romaji": "nyūsu", "english": "news"}] },
-        "ヌ": { "romaji": "nu", "strokeCount": 3, "pronunciation": "like 'new'", "tips": "A curved stroke at the top with a sweeping diagonal through the center.", "mnemonics": "A crossed fishing hook.", "exampleWords": [{"japanese": "ヌードル", "romaji": "nūdoru", "english": "noodle"}, {"japanese": "ヌイグルミ", "romaji": "nuigurumi", "english": "stuffed toy"}] },
-        "ネ": { "romaji": "ne", "strokeCount": 4, "pronunciation": "like 'ne' in 'net'", "tips": "A combination of strokes — horizontal top, vertical left, and sweeping diagonal from right.", "mnemonics": "A 'K' with an extra stroke crossing through.", "exampleWords": [{"japanese": "ネコ", "romaji": "neko", "english": "cat"}, {"japanese": "ネット", "romaji": "netto", "english": "net"}] },
-        "ノ": { "romaji": "no", "strokeCount": 1, "pronunciation": "like 'no' in 'note'", "tips": "A single curved stroke sweeping from bottom-left to top-right.", "mnemonics": "A cursive 'n' written in one stroke.", "exampleWords": [{"japanese": "ノート", "romaji": "nōto", "english": "notebook"}, {"japanese": "ノイズ", "romaji": "noizu", "english": "noise"}] }
+        "ナ": {
+          "romaji": "na",
+          "strokeCount": 2,
+          "pronunciation": "Like 'na' in 'nap'.",
+          "tips": "Draw the sweeping vertical first, then the horizontal crossing it.",
+          "mnemonics": "A cross where the bottom part is longer than the top.",
+          "writingPattern": [
+            "Draw a long vertical line starting at the top-center, curving slightly left.",
+            "Draw a horizontal line crossing the vertical about 1/3 of the way down."
+          ],
+          "animation": [
+            "M18.5,44.12c2.62,1,4.77,1.17,9.12,0.5c19.38-3,37.75-4.75,52.38-5.62c3.75-0.22,8.88-0.25,11.88,0.12",
+            "M53.26,14.5c1.75,1.25,2.75,3,2.75,6c0,3,0.12,21.5,0.12,24.25c0,20-6,37.62-18.38,49.12"
+          ],
+          "exampleWords": [
+            { "japanese": "ナイフ", "romaji": "naifu", "english": "Knife" },
+            { "japanese": "ナンバー", "romaji": "nambā", "english": "Number" }
+          ]
+        },
+        "ニ": {
+          "romaji": "ni",
+          "strokeCount": 2,
+          "pronunciation": "Like 'knee'.",
+          "tips": "Draw two parallel horizontal lines. Top is slightly shorter.",
+          "mnemonics": "Two equal-length wooden planks on a shelf.",
+          "writingPattern": [
+            "Draw a horizontal line at the top.",
+            "Draw a slightly longer horizontal line below it."
+          ],
+          "animation": [
+            "M32.63,34.69c2.5,1.19,4.33,1.6,7.45,1.35c11.55-0.91,18.3-2.41,27.04-3.18c2.64-0.23,6.27-0.16,8.39,0.08",
+            "M20,74.88c2.62,1,4.78,1.45,9.12,0.75c20.25-3.25,36.5-3.88,52.38-3.88c3.75,0,8,1,11.12,2.38"
+          ],
+          "exampleWords": [
+            { "japanese": "ニンジン", "romaji": "ninjin", "english": "Carrot" },
+            { "japanese": "ニュース", "romaji": "nyūsu", "english": "News" }
+          ]
+        },
+        "ヌ": {
+          "romaji": "nu",
+          "strokeCount": 3,
+          "pronunciation": "Like 'new'.",
+          "tips": "Draw the top hook, then the long sweeping curve.",
+          "mnemonics": "A fishing hook with a line caught in it.",
+          "writingPattern": [
+            "Draw a small diagonal hook at the top-left.",
+            "Draw a horizontal line from the hook to the right.",
+            "Draw a long sweeping curve from the bottom of the hook down and to the left."
+          ],
+          "animation": [
+            "M33.38,27.62c2.75,1.25,5.38,1.16,8.5,0.62c10.12-1.75,19-3.12,28.62-5c6.67-1.3,7.75-0.12,5.38,5.62c-6.7,16.22-20.63,40.52-48.88,57.89",
+            "M44.88,46.38c12,6.75,22.38,15.38,30.62,28.12"
+          ],
+          "exampleWords": [
+            { "japanese": "ヌードル", "romaji": "nūdoru", "english": "Noodle" },
+            { "japanese": "ヌイグルミ", "romaji": "nuigurumi", "english": "Stuffed Toy" }
+          ]
+        },
+        "ネ": {
+          "romaji": "ne",
+          "strokeCount": 4,
+          "pronunciation": "Like 'ne' in 'net'.",
+          "tips": "Draw the left vertical, then the top horizontal, then the bottom hook.",
+          "mnemonics": "A tree with a branch and a small root.",
+          "writingPattern": [
+            "Draw a long vertical line on the left side.",
+            "Draw a horizontal line crossing the top of the vertical.",
+            "Draw a slanted line crossing the middle of the vertical.",
+            "Draw a small diagonal hook at the bottom right."
+          ],
+          "animation": [
+            "M51.38,12.38c3.38,2.12,8,5.88,11,10.88",
+            "M26.88,36.16c2.62,1.46,5.45,1.93,8.5,1.19c10.75-2.6,20.75-4.98,30.88-7.5c6.53-1.62,7.81,1.27,4.62,4.68c-11.63,12.47-22.76,23.35-48.88,37.97",
+            "M54.38,54.12c1.38,1.75,1.62,3.5,1.62,6c0,2.5,0,27.5,0,29.38c0,1.88,0,4,0,6.88",
+            "M65.38,53.62c12.5,6,19.88,11.75,24.88,18.88"
+          ],
+          "exampleWords": [
+            { "japanese": "ネコ", "romaji": "neko", "english": "Cat" },
+            { "japanese": "ネット", "romaji": "netto", "english": "Net" }
+          ]
+        },
+        "ノ": {
+          "romaji": "no",
+          "strokeCount": 1,
+          "pronunciation": "Like 'no' in 'note'.",
+          "tips": "Draw in one sweeping stroke from top-left to bottom-right.",
+          "mnemonics": "A samurai's sword slashing down.",
+          "writingPattern": [
+            "Draw a single sweeping curve from top-left down to bottom-right."
+          ],
+          "animation": [
+            "M72.37,25.25c0.75,2,0.92,4.89,0.25,7.25c-7.12,25-25.38,44.75-43.62,56.88"
+          ],
+          "exampleWords": [
+            { "japanese": "ノート", "romaji": "nōto", "english": "Notebook" },
+            { "japanese": "ノイズ", "romaji": "noizu", "english": "Noise" }
+          ]
+        }
       }
     },
     {
       "title": "H-Row (ハヒフヘホ)",
-      "description": "Adding the 'h' consonant to each vowel sound in katakana.",
+      "description": "Adding the 'h' consonant. Watch out for フ (fu), which is unique.",
       "characters": {
-        "ハ": { "romaji": "ha", "strokeCount": 2, "pronunciation": "like 'ha' in 'hot'", "tips": "Two angled strokes meeting at the top like a tent.", "mnemonics": "A small tent or mountain peak.", "exampleWords": [{"japanese": "ハウス", "romaji": "hausu", "english": "house"}, {"japanese": "ハンバーガー", "romaji": "hanbāgā", "english": "hamburger"}] },
-        "ヒ": { "romaji": "hi", "strokeCount": 2, "pronunciation": "like 'he' in 'he'", "tips": "A curved stroke on the left and a longer angled stroke descending from its top.", "mnemonics": "A raised eyebrow with a long nose.", "exampleWords": [{"japanese": "ヒーター", "romaji": "hītā", "english": "heater"}, {"japanese": "ヒト", "romaji": "hito", "english": "person"}] },
-        "フ": { "romaji": "fu", "strokeCount": 1, "pronunciation": "like 'foo'", "tips": "A single curved stroke that starts horizontally then angles down.", "mnemonics": "A bent arm holding a tray.", "exampleWords": [{"japanese": "フルーツ", "romaji": "furūtsu", "english": "fruit"}, {"japanese": "フランス", "romaji": "furansu", "english": "France"}] },
-        "ヘ": { "romaji": "he", "strokeCount": 1, "pronunciation": "like 'he' in 'help'", "tips": "A single angled stroke with a slight curve, like a check mark.", "mnemonics": "A check mark — same as hiragana へ.", "exampleWords": [{"japanese": "ヘリコプター", "romaji": "herikoputā", "english": "helicopter"}, {"japanese": "ヘルプ", "romaji": "herupu", "english": "help"}] },
-        "ホ": { "romaji": "ho", "strokeCount": 4, "pronunciation": "like 'ho' in 'hope'", "tips": "A horizontal stroke with a vertical through it, plus two angled strokes on the sides.", "mnemonics": "A cross with two branches on the sides.", "exampleWords": [{"japanese": "ホテル", "romaji": "hoteru", "english": "hotel"}, {"japanese": "ホーム", "romaji": "hōmu", "english": "home"}] }
+        "ハ": {
+          "romaji": "ha",
+          "strokeCount": 2,
+          "pronunciation": "Like 'ha' in 'hot'.",
+          "tips": "Draw the left stroke first, then the right. They meet at the top.",
+          "mnemonics": "A small tent or mountain peak.",
+          "writingPattern": [
+            "Draw a diagonal line from top-center down to the bottom-left.",
+            "Draw a second diagonal line from top-center down to the bottom-right."
+          ],
+          "animation": [
+            "M39.33,36.88c0.38,1.14,0.46,2.88-0.12,4.14c-6.33,13.73-13.33,23.86-22.21,32.23",
+            "M65.5,36.38c13,9.12,23.12,22.62,28,33.38"
+          ],
+          "exampleWords": [
+            { "japanese": "ハウス", "romaji": "hausu", "english": "House" },
+            { "japanese": "ハンバーガー", "romaji": "hanbāgā", "english": "Hamburger" }
+          ]
+        },
+        "ヒ": {
+          "romaji": "hi",
+          "strokeCount": 2,
+          "pronunciation": "Like 'he' in 'he'.",
+          "tips": "Draw the left curve, then the long right stroke.",
+          "mnemonics": "A person with a big nose looking to the right.",
+          "writingPattern": [
+            "Draw a short curve on the left.",
+            "Draw a long sweeping line from the top of the curve down to the right."
+          ],
+          "animation": [
+            "M35.38,44.5c1.75,1.38,4.51,2.19,6.88,1.88c10.24-1.38,17.24-2.88,24.24-4.26c3.01-0.59,7.12-1,9.38-0.88",
+            "M31,17.62c1.38,1.26,1.88,3.38,1.88,6.13c0,2.75-0.88,44-0.88,47.25c0,9.75,4,14.62,13.75,14.62c6,0,16.38,0.12,21.38,0c5-0.12,9.5-0.62,13.5-1.5"
+          ],
+          "exampleWords": [
+            { "japanese": "ヒーター", "romaji": "hītā", "english": "Heater" },
+            { "japanese": "ヒント", "romaji": "hinto", "english": "Hint" }
+          ]
+        },
+        "フ": {
+          "romaji": "fu",
+          "strokeCount": 1,
+          "pronunciation": "Like 'foo'. This is the only 'f' sound in Japanese.",
+          "tips": "Draw in one smooth stroke from left to right, then hook down.",
+          "mnemonics": "A bent arm holding a tray of food.",
+          "writingPattern": [
+            "Draw a single sweeping stroke starting horizontally left, curving up, then hooking down and to the left."
+          ],
+          "animation": [
+            "M24.5,30c1.88,1.88,3.5,2.04,6.5,1.62c14.5-2,29-4.38,43.75-6.88c6.82-1.16,10.58,2.29,6.88,9.12c-10.38,19.14-21.25,39.52-50.01,53.64"
+          ],
+          "exampleWords": [
+            { "japanese": "フルーツ", "romaji": "furūtsu", "english": "Fruit" },
+            { "japanese": "フランス", "romaji": "furansu", "english": "France" }
+          ]
+        },
+        "ヘ": {
+          "romaji": "he",
+          "strokeCount": 1,
+          "pronunciation": "Like 'he' in 'help'.",
+          "tips": "Draw in one stroke, like a check mark.",
+          "mnemonics": "A check mark. (It looks exactly like Hiragana へ).",
+          "writingPattern": [
+            "Draw a single slanted stroke from top-right down to the bottom-left, with a slight curve."
+          ],
+          "animation": [
+            "M15.5,49.02c2.78,1.55,5.39,0.64,6.95-0.9c4.05-4.01,9.47-8.3,12-10.88c3.16-3.23,7.32-5.26,12.01-1.16c11.25,9.82,25.03,21.45,35.78,30.36c4.28,3.55,7.71,6.85,11.25,9.56"
+          ],
+          "exampleWords": [
+            { "japanese": "ヘリコプター", "romaji": "herikoputā", "english": "Helicopter" },
+            { "japanese": "ヘルプ", "romaji": "herupu", "english": "Help" }
+          ]
+        },
+        "ホ": {
+          "romaji": "ho",
+          "strokeCount": 4,
+          "pronunciation": "Like 'ho' in 'hope'.",
+          "tips": "Draw the central vertical, then the crossbar, then the two side strokes.",
+          "mnemonics": "A cross with two branches growing out of the sides.",
+          "writingPattern": [
+            "Draw a long vertical line from top-center down.",
+            "Draw a horizontal line crossing the vertical in the middle.",
+            "Draw a short slanted stroke from the top-left of the vertical.",
+            "Draw a short slanted stroke from the bottom-left of the vertical."
+          ],
+          "animation": [
+            "M22.63,40.38c2.62,1,4.75,1.71,9.12,1.25c17.75-1.88,29.25-2.75,45.38-3.88c3.74-0.26,7.38-0.12,11.12,0.62",
+            "M53.75,17.12c1.38,1.88,1.38,4.5,1.38,7.38c0,2.88-0.12,46.62-0.12,51.88c0,23.12-6.25,11.25-9.75,9.62",
+            "M27.38,59.38c0.5,9.25-1.38,16.62-6.38,21.88",
+            "M73.25,52.75c10.88,9.63,15.5,17.63,16.63,24.87"
+          ],
+          "exampleWords": [
+            { "japanese": "ホテル", "romaji": "hoteru", "english": "Hotel" },
+            { "japanese": "ホーム", "romaji": "hōmu", "english": "Home" }
+          ]
+        }
       }
     },
     {
       "title": "M-Row (マミムメモ)",
-      "description": "Adding the 'm' consonant to each vowel sound in katakana.",
+      "description": "Adding the 'm' consonant. These characters are often visually balanced.",
       "characters": {
-        "マ": { "romaji": "ma", "strokeCount": 2, "pronunciation": "like 'ma' in 'mom'", "tips": "Two angled strokes meeting at the top, with the left stroke extending down.", "mnemonics": "A flying bird seen from below.", "exampleWords": [{"japanese": "マンガ", "romaji": "manga", "english": "manga"}, {"japanese": "マップ", "romaji": "mappu", "english": "map"}] },
-        "ミ": { "romaji": "mi", "strokeCount": 3, "pronunciation": "like 'me' in 'me'", "tips": "Three short angled strokes stacked diagonally.", "mnemonics": "Three stacked chevrons or ripples.", "exampleWords": [{"japanese": "ミルク", "romaji": "miruku", "english": "milk"}, {"japanese": "ミュージック", "romaji": "myūjikku", "english": "music"}] },
-        "ム": { "romaji": "mu", "strokeCount": 2, "pronunciation": "like 'moo'", "tips": "A long vertical stroke with a small angled stroke at the bottom left.", "mnemonics": "A flagpole with a pennant flying left.", "exampleWords": [{"japanese": "ムード", "romaji": "mūdo", "english": "mood"}, {"japanese": "ムシ", "romaji": "mushi", "english": "insect"}] },
-        "メ": { "romaji": "me", "strokeCount": 2, "pronunciation": "like 'me' in 'met'", "tips": "Two crossed strokes — a short horizontal and a longer diagonal.", "mnemonics": "A large 'X' with one arm shorter.", "exampleWords": [{"japanese": "メニュー", "romaji": "menyū", "english": "menu"}, {"japanese": "メール", "romaji": "mēru", "english": "email"}] },
-        "モ": { "romaji": "mo", "strokeCount": 3, "pronunciation": "like 'mo' in 'more'", "tips": "Three horizontal strokes crossed by one vertical stroke.", "mnemonics": "A ladder with three rungs.", "exampleWords": [{"japanese": "モノ", "romaji": "mono", "english": "thing"}, {"japanese": "モデル", "romaji": "moderu", "english": "model"}] }
+        "マ": {
+          "romaji": "ma",
+          "strokeCount": 2,
+          "pronunciation": "Like 'ma' in 'mom'.",
+          "tips": "Draw the top horizontal, then the long vertical descending from it.",
+          "mnemonics": "A bird flying upwards, seen from below.",
+          "writingPattern": [
+            "Draw a horizontal line at the top.",
+            "Draw a long slanted line from the middle of the top line down to the bottom-left."
+          ],
+          "animation": [
+            "M21.5,33.75c1.88,1.88,3.5,1.99,6.5,1.62c19.62-2.38,33.5-4,51.25-6.38c6.85-0.92,9.37,1.67,4.38,7.62c-7.12,8.5-17.88,20-28.75,31.62",
+            "M43.38,58.88c8.43,6.5,16.6,15.93,20.25,26.25"
+          ],
+          "exampleWords": [
+            { "japanese": "マンガ", "romaji": "manga", "english": "Manga" },
+            { "japanese": "マフラー", "romaji": "mafurā", "english": "Muffler/Scarf" }
+          ]
+        },
+        "ミ": {
+          "romaji": "mi",
+          "strokeCount": 3,
+          "pronunciation": "Like 'me' in 'me'.",
+          "tips": "Draw three short diagonal dashes, stacked diagonally.",
+          "mnemonics": "Three water ripples in a pond.",
+          "writingPattern": [
+            "Draw a short diagonal dash at the top-right.",
+            "Draw a slightly longer dash below it.",
+            "Draw a longer dash below that, all slanting the same way."
+          ],
+          "animation": [
+            "M41.87,20c10.4,2.57,20.5,6.3,25,10.38",
+            "M42,46.88c10.72,2.69,21.11,6.6,25.75,10.88",
+            "M36.5,75c15.71,4.49,30.95,11,37.75,18.12"
+          ],
+          "exampleWords": [
+            { "japanese": "ミルク", "romaji": "miruku", "english": "Milk" },
+            { "japanese": "ミュージック", "romaji": "myūjikku", "english": "Music" }
+          ]
+        },
+        "ム": {
+          "romaji": "mu",
+          "strokeCount": 2,
+          "pronunciation": "Like 'moo'.",
+          "tips": "Draw the long curve, then the small tick at the bottom.",
+          "mnemonics": "A flagpole with a pennant flying in the wind.",
+          "writingPattern": [
+            "Draw a long sweeping curve from top-right down to bottom-left.",
+            "Draw a small diagonal tick at the bottom-left of the curve."
+          ],
+          "animation": [
+            "M53.84,22.5c0.88,1.75,0.78,4.57-0.38,6.88c-9.25,18.38-16.19,30.96-25.25,45.75c-3.75,6.12-3,8.38,4.38,7.12c7.38-1.26,46.62-8.12,49.62-8.88",
+            "M72.21,60.12c6.88,6.38,13.62,14.88,16,25.38"
+          ],
+          "exampleWords": [
+            { "japanese": "ムード", "romaji": "mūdo", "english": "Mood" },
+            { "japanese": "ムシ", "romaji": "mushi", "english": "Insect" }
+          ]
+        },
+        "メ": {
+          "romaji": "me",
+          "strokeCount": 2,
+          "pronunciation": "Like 'me' in 'met'.",
+          "tips": "Draw the horizontal line, then the vertical line crossing it.",
+          "mnemonics": "A large 'X' with one arm shorter than the other.",
+          "writingPattern": [
+            "Draw a horizontal line.",
+            "Draw a long diagonal line crossing the horizontal."
+          ],
+          "animation": [
+            "M73.38,19.12c0.88,1.75,0.48,4.44-0.38,6.88c-7.75,22.12-21.75,47.62-45,62.88",
+            "M39.51,39.5c16.54,7.76,32.12,18,38.5,30.88"
+          ],
+          "exampleWords": [
+            { "japanese": "メニュー", "romaji": "menyū", "english": "Menu" },
+            { "japanese": "メール", "romaji": "mēru", "english": "Email" }
+          ]
+        },
+        "モ": {
+          "romaji": "mo",
+          "strokeCount": 3,
+          "pronunciation": "Like 'mo' in 'more'.",
+          "tips": "Draw the three horizontal lines, then the vertical crossing them.",
+          "mnemonics": "A ladder with three rungs.",
+          "writingPattern": [
+            "Draw a short horizontal line at the top.",
+            "Draw a slightly longer horizontal line below it.",
+            "Draw a longer horizontal line below that.",
+            "Draw a vertical line crossing all three horizontals."
+          ],
+          "animation": [
+            "M27.88,26.19c2.5,1.19,4.33,1.6,7.45,1.35c11.55-0.91,21.93-2.16,32.79-3.93c2.62-0.42,6.27-0.41,8.39-0.17",
+            "M17.5,54.38c2.62,1,4.78,1.45,9.12,0.75c20.26-3.25,33.88-5.38,51.64-6.13c3.75-0.16,7.38,0.25,11.12,0.88",
+            "M48.76,29.88c1.12,1.62,1.42,3.62,1.42,6.12c0,6.53-0.65,33.56-0.65,35.88c0,7.67,3.09,11.08,10.53,11.76c5.33,0.49,12.31,0.24,16.37,0c4.46-0.26,6.52-0.74,9.59-1.43"
+          ],
+          "exampleWords": [
+            { "japanese": "モノ", "romaji": "mono", "english": "Thing" },
+            { "japanese": "モデル", "romaji": "moderu", "english": "Model" }
+          ]
+        }
       }
     },
     {
       "title": "Y-Row (ヤユヨ)",
-      "description": "The 'y' consonant sounds in katakana — only three characters.",
+      "description": "The 'y' consonant sounds. These are used to create combined sounds (e.g., キャ, シュ, ニョ) when written smaller.",
       "characters": {
-        "ヤ": { "romaji": "ya", "strokeCount": 2, "pronunciation": "like 'ya' in 'yacht'", "tips": "A curved stroke at the top with a long vertical descending from its end.", "mnemonics": "A candy cane hanging from a hook.", "exampleWords": [{"japanese": "ヤクルト", "romaji": "yakuruto", "english": "yogurt drink"}, {"japanese": "ヤード", "romaji": "yādo", "english": "yard"}] },
-        "ユ": { "romaji": "yu", "strokeCount": 2, "pronunciation": "like 'you'", "tips": "A single curved stroke forming a U-shape with a small horizontal tick at the top left.", "mnemonics": "A horseshoe with a small nail at the top.", "exampleWords": [{"japanese": "ユニホーム", "romaji": "yunihōmu", "english": "uniform"}, {"japanese": "ユーモア", "romaji": "yūmoa", "english": "humor"}] },
-        "ヨ": { "romaji": "yo", "strokeCount": 3, "pronunciation": "like 'yo' in 'yoga'", "tips": "Three horizontal strokes stacked evenly, the top two shorter than the bottom.", "mnemonics": "Three shelves growing wider from top to bottom.", "exampleWords": [{"japanese": "ヨガ", "romaji": "yoga", "english": "yoga"}, {"japanese": "ヨーロッパ", "romaji": "yōroppa", "english": "Europe"}] }
+        "ヤ": {
+          "romaji": "ya",
+          "strokeCount": 2,
+          "pronunciation": "Like 'ya' in 'yacht'.",
+          "tips": "Draw the top hook, then the long vertical line.",
+          "mnemonics": "A candy cane hanging from a hook.",
+          "writingPattern": [
+            "Draw a small curved hook at the top.",
+            "Draw a long vertical line dropping from the tip of the hook."
+          ],
+          "animation": [
+            "M18,45.75c2.12,1.62,6.15,2.35,10.12,1.38c18.88-4.62,33.39-7.83,48.88-11.88c22-5.75,1.5,14.25-2.75,20",
+            "M38.47,19.38c1.65,1.4,2.54,2.67,3.18,5.21c0.64,2.54,11.95,52.9,12.59,55.57c0.64,2.67,2.16,9.16,3.05,12.46"
+          ],
+          "exampleWords": [
+            { "japanese": "ヤクルト", "romaji": "yakuruto", "english": "Yogurt Drink (brand)" },
+            { "japanese": "ヤード", "romaji": "yādo", "english": "Yard" }
+          ]
+        },
+        "ユ": {
+          "romaji": "yu",
+          "strokeCount": 2,
+          "pronunciation": "Like 'you'.",
+          "tips": "Draw the top hook, then the U-shaped curve below.",
+          "mnemonics": "A horseshoe with a nail at the top.",
+          "writingPattern": [
+            "Draw a small diagonal hook at the top-left.",
+            "Draw a U-shaped curve starting from the hook, going down and right."
+          ],
+          "animation": [
+            "M29.5,35.38c2.38,1.5,5.14,2.08,9.25,1.5c13.25-1.88,18.02-2.4,27.62-4c6.75-1.12,7.78,0.16,6.5,6.38c-2.38,11.5-4.88,24.5-6.5,34.5",
+            "M17,76.88c2.75,1.5,4.76,2.05,9.12,1.5c22.62-2.88,36-3.88,54.12-3.88c3.75,0,7.38,0.5,11.12,1.12"
+          ],
+          "exampleWords": [
+            { "japanese": "ユニホーム", "romaji": "yunihōmu", "english": "Uniform" },
+            { "japanese": "ユーモア", "romaji": "yūmoa", "english": "Humor" }
+          ]
+        },
+        "ヨ": {
+          "romaji": "yo",
+          "strokeCount": 3,
+          "pronunciation": "Like 'yo' in 'yoga'.",
+          "tips": "Draw three horizontal lines, each slightly longer than the one above.",
+          "mnemonics": "Three shelves, growing wider as they go down.",
+          "writingPattern": [
+            "Draw a short horizontal line at the top.",
+            "Draw a slightly longer horizontal line below it.",
+            "Draw the longest horizontal line at the bottom."
+          ],
+          "animation": [
+            "M29.13,30.12c2.38,1.5,5.12,1.98,9.25,1.5c14-1.62,26.71-3.04,36.38-4.25c6-0.75,6.88,0.5,6.5,6.38c-1,15.51-1.89,30.63-3.01,42.25",
+            "M29.25,52.88c2.38,1.5,5.12,1.98,9.25,1.5c10.5-1.22,22.81-2.29,31.11-3.04c2.77-0.25,5.27,0.04,7.77,0.54",
+            "M23.5,78.84c2.75,1.3,4.74,1.68,9.12,1.3c12.5-1.08,29.37-2.9,41.38-2.9c3.38,0,5.62,0,9.38,0.54"
+          ],
+          "exampleWords": [
+            { "japanese": "ヨガ", "romaji": "yoga", "english": "Yoga" },
+            { "japanese": "ヨーロッパ", "romaji": "yōroppa", "english": "Europe" }
+          ]
+        }
       }
     },
     {
       "title": "R-Row (ラリルレロ)",
-      "description": "The 'r' consonant sounds in katakana — pronounced with a soft 'r' similar to a mix between 'r', 'l', and 'd'.",
+      "description": "The 'r' consonant. In Japanese, this is a tap sound, similar to a soft 'd' or 'l'. It's not a rolled 'r'.",
       "characters": {
-        "ラ": { "romaji": "ra", "strokeCount": 2, "pronunciation": "like 'la' in 'lawn' (soft)", "tips": "A horizontal stroke with a long curved vertical dropping from its right end.", "mnemonics": "A number '7' with a curved tail.", "exampleWords": [{"japanese": "ラジオ", "romaji": "rajio", "english": "radio"}, {"japanese": "ラーメン", "romaji": "rāmen", "english": "ramen"}] },
-        "リ": { "romaji": "ri", "strokeCount": 2, "pronunciation": "like 'lee' (soft)", "tips": "Two short vertical strokes side by side, slightly angled.", "mnemonics": "Two chopsticks standing side by side.", "exampleWords": [{"japanese": "リンゴ", "romaji": "ringo", "english": "apple"}, {"japanese": "リサイクル", "romaji": "risaikuru", "english": "recycle"}] },
-        "ル": { "romaji": "ru", "strokeCount": 2, "pronunciation": "like 'loo' (soft)", "tips": "A curved stroke at the top with a loop at the bottom right.", "mnemonics": "A fishhook with a small loop.", "exampleWords": [{"japanese": "ルール", "romaji": "rūru", "english": "rule"}, {"japanese": "ルーム", "romaji": "rūmu", "english": "room"}] },
-        "レ": { "romaji": "re", "strokeCount": 1, "pronunciation": "like 'le' in 'let' (soft)", "tips": "A single curved stroke starting horizontally then sweeping down and left.", "mnemonics": "A check mark with a long tail.", "exampleWords": [{"japanese": "レストラン", "romaji": "resutoran", "english": "restaurant"}, {"japanese": "レモン", "romaji": "remon", "english": "lemon"}] },
-        "ロ": { "romaji": "ro", "strokeCount": 3, "pronunciation": "like 'lo' in 'low' (soft)", "tips": "Three strokes forming a box shape — top horizontal, left vertical, and bottom horizontal.", "mnemonics": "A square open on the right side.", "exampleWords": [{"japanese": "ロボット", "romaji": "robotto", "english": "robot"}, {"japanese": "ロンドン", "romaji": "rondon", "english": "London"}] }
+        "ラ": {
+          "romaji": "ra",
+          "strokeCount": 2,
+          "pronunciation": "A light tap like the 'dd' in 'ladder'.",
+          "tips": "Draw the top horizontal, then the sweeping curve dropping from it.",
+          "mnemonics": "A number '7' with a long, sweeping tail.",
+          "writingPattern": [
+            "Draw a horizontal line at the top.",
+            "Draw a long sweeping curve from the center of the top line down to the bottom-left."
+          ],
+          "animation": [
+            "M38.63,21.06c2.07,1.86,4.43,2.53,8.05,2.15c9.2-0.96,14.34-2.01,21.57-2.95c2.41-0.31,4.13-0.53,6.51-0.19",
+            "M26,41.89c2.38,1.7,5.12,2.24,9.25,1.7c14-1.84,31.21-4.95,40.88-6.32c6-0.85,8.14,0.62,6.25,5.72c-6.88,18.62-22,38.25-45.25,48.62"
+          ],
+          "exampleWords": [
+            { "japanese": "ラジオ", "romaji": "rajio", "english": "Radio" },
+            { "japanese": "ラーメン", "romaji": "rāmen", "english": "Ramen" }
+          ]
+        },
+        "リ": {
+          "romaji": "ri",
+          "strokeCount": 2,
+          "pronunciation": "A light tap like the 'dd' in 'ladder'.",
+          "tips": "Draw two parallel, slightly slanted vertical strokes.",
+          "mnemonics": "Two chopsticks standing side-by-side.",
+          "writingPattern": [
+            "Draw a slanted vertical line on the left.",
+            "Draw a parallel slanted vertical line on the right."
+          ],
+          "animation": [
+            "M35,18.38c1.12,1.5,1.62,3,1.62,4.88c0,1.88,0,25,0,27c0,2,0,6.12,0,7.75",
+            "M71,15.38c1.5,1.25,2.38,3.12,2.38,5.38c0,2.26-0.12,28.88-0.12,32.88c0,19.62-9.5,32.25-21.75,40.38"
+          ],
+          "exampleWords": [
+            { "japanese": "リンゴ", "romaji": "ringo", "english": "Apple" },
+            { "japanese": "リサイクル", "romaji": "risaikuru", "english": "Recycle" }
+          ]
+        },
+        "ル": {
+          "romaji": "ru",
+          "strokeCount": 2,
+          "pronunciation": "A light tap like the 'dd' in 'ladder'.",
+          "tips": "Draw the top hook, then the sweeping curve with a loop at the end.",
+          "mnemonics": "A fishhook with a small loop at the bottom.",
+          "writingPattern": [
+            "Draw a small diagonal hook at the top-left.",
+            "Draw a sweeping curve from the hook down, looping back up at the bottom."
+          ],
+          "animation": [
+            "M34.38,31.88c1.12,1.5,1.72,3,1.62,4.88c-1.12,22.88-8.88,40.62-17.5,49.5",
+            "M56.51,19.62c1.5,1.25,2.38,3.12,2.38,5.38c0,2.26-0.12,47.62-0.12,51.62c0,10.5,0.52,10.21,9.38,2.75c9.5-8,16.5-14.62,26.38-25.62"
+          ],
+          "exampleWords": [
+            { "japanese": "ルール", "romaji": "rūru", "english": "Rule" },
+            { "japanese": "ルーム", "romaji": "rūmu", "english": "Room" }
+          ]
+        },
+        "レ": {
+          "romaji": "re",
+          "strokeCount": 1,
+          "pronunciation": "A light tap like the 'dd' in 'ladder'.",
+          "tips": "Draw in one smooth stroke, like a check mark.",
+          "mnemonics": "A check mark with a very long tail.",
+          "writingPattern": [
+            "Draw a single sweeping stroke from top-left down to bottom-right."
+          ],
+          "animation": [
+            "M34.5,19.75c1.5,1.25,2.38,3.12,2.38,5.38c0,2.26-0.12,50.12-0.12,54.12c-0.02,8.75-0.14,8.63,9.36,3.75c13.23-6.79,33.38-22.5,43.25-33.5"
+          ],
+          "exampleWords": [
+            { "japanese": "レストラン", "romaji": "resutoran", "english": "Restaurant" },
+            { "japanese": "レモン", "romaji": "remon", "english": "Lemon" }
+          ]
+        },
+        "ロ": {
+          "romaji": "ro",
+          "strokeCount": 3,
+          "pronunciation": "A light tap like the 'dd' in 'ladder'.",
+          "tips": "Draw a box shape, leaving the right side open.",
+          "mnemonics": "A square with the right side missing.",
+          "writingPattern": [
+            "Draw a horizontal line at the top.",
+            "Draw a vertical line on the left side.",
+            "Draw a horizontal line at the bottom."
+          ],
+          "animation": [
+            "M25,33.25c1.5,1.25,2.16,3.14,2.38,5.38c0.96,10.07,2.14,23.67,3.14,34.88c0.31,3.4,0.59,6.58,0.86,9.38",
+            "M28.13,36.12c9.25-1,37.62-3.12,45.62-4.25c8-1.13,9.57,0.53,8.38,6.62c-2.13,10.89-4.13,21.89-6.75,34.89",
+            "M32,78.12c5.38-0.5,33.62-3,36.5-3c2.88,0,7.88-0.25,11.5,0.25"
+          ],
+          "exampleWords": [
+            { "japanese": "ロボット", "romaji": "robotto", "english": "Robot" },
+            { "japanese": "ロンドン", "romaji": "rondon", "english": "London" }
+          ]
+        }
       }
     },
     {
-      "title": "W-Row (ワヲン)",
-      "description": "The final katakana characters — 'wa', 'wo', and 'n'.",
+      "title": "W-Row (ワヲ)",
+      "description": "The final two vowels: 'wa' and 'wo'. 'wo' is rarely used in modern Japanese.",
       "characters": {
-        "ワ": { "romaji": "wa", "strokeCount": 2, "pronunciation": "like 'wa' in 'water'", "tips": "A curved stroke forming a bowl shape with a short horizontal at the top left.", "mnemonics": "A bowl with a small lid on the left.", "exampleWords": [{"japanese": "ワイン", "romaji": "wain", "english": "wine"}, {"japanese": "ワック", "romaji": "wakku", "english": "wax"}] },
-        "ヲ": { "romaji": "wo", "strokeCount": 3, "pronunciation": "like 'wo' in 'wonder'", "tips": "A combination of strokes — a horizontal top, a curved middle, and a short vertical on the right.", "mnemonics": "A folded chair seen from the side.", "exampleWords": [{"japanese": "ヲタク", "romaji": "wotaku", "english": "otaku (alternate reading)"}, {"japanese": "ヲシテ", "romaji": "woshite", "english": "classical particle"}] },
-        "ン": { "romaji": "n", "strokeCount": 2, "pronunciation": "like 'n' in 'noon'", "tips": "Two short angled strokes — one above and one below.", "mnemonics": "A zigzag like a lightning bolt.", "exampleWords": [{"japanese": "サン", "romaji": "san", "english": "three / Mr."}, {"japanese": "テン", "romaji": "ten", "english": "ten"}] }
+        "ワ": {
+          "romaji": "wa",
+          "strokeCount": 2,
+          "pronunciation": "Like 'wa' in 'water'.",
+          "tips": "Draw the top horizontal first, then the bowl shape.",
+          "mnemonics": "A bowl with a small lid on the left side.",
+          "writingPattern": [
+            "Draw a short horizontal line at the top-left.",
+            "Draw a curved line from the end of the horizontal, sweeping down and to the right, forming a 'U' shape."
+          ],
+          "animation": [
+            "M25,23.62c1.5,1.25,2.16,3.14,2.38,5.38c0.96,10.07,0.89,8.17,1.89,19.38c0.31,3.4,0.59,6.58,0.86,9.38",
+            "M27.75,26.38c3.12,0.38,5.16,0.22,8.23-0.06c13.77-1.29,27.15-2.32,41.65-3.7c8.04-0.76,9.44,0.51,8.38,6.62c-4.76,27.26-20.64,47.64-43.88,61.51"
+          ],
+          "exampleWords": [
+            { "japanese": "ワイン", "romaji": "wain", "english": "Wine" },
+            { "japanese": "ワンピース", "romaji": "wanpīsu", "english": "One-piece Dress" }
+          ]
+        },
+        "ヲ": {
+          "romaji": "wo",
+          "strokeCount": 3,
+          "pronunciation": "Like 'wo' in 'wonder', but often just pronounced 'o'.",
+          "tips": "A complex shape: a top horizontal, a curved middle, and a right vertical.",
+          "mnemonics": "A folded chair seen from the side.",
+          "writingPattern": [
+            "Draw a short horizontal line at the top-left.",
+            "Draw a curved line sweeping down and to the right.",
+            "Draw a short vertical line at the bottom-right of the curve."
+          ],
+          "animation": [
+            "M30.24,25.14c2.38,1.7,5.11,2.13,9.25,1.7c12.32-1.29,21.94-2.6,30.48-3.64c2.81-0.34,5.51-0.65,8.14-0.93",
+            "M29,46.69c2.25,1.44,4.44,1.9,8.05,1.4c8.19-1.15,19.93-2.64,28.56-3.79c2.38-0.31,4.65-0.62,6.75-0.92",
+            "M78,22.88c0.88,2,0.62,4.64,0.12,7c-4.88,22.5-23.5,47.12-44.12,60.74"
+          ],
+          "exampleWords": [
+            { "japanese": "ヲタク", "romaji": "wotaku", "english": "Otaku (alternate spelling)" },
+            { "japanese": "ヲン", "romaji": "won", "english": "Korean Won (currency)" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "Final Consonant (ン)",
+      "description": "The only standalone consonant in Japanese. It appears at the end of syllables.",
+      "characters": {
+        "ン": {
+          "romaji": "n",
+          "strokeCount": 2,
+          "pronunciation": "Like 'n' in 'noon'.",
+          "tips": "Draw the top diagonal dash, then the long sweeping curve.",
+          "mnemonics": "A lightning bolt striking the ground.",
+          "writingPattern": [
+            "Draw a short diagonal dash at the top-left.",
+            "Draw a long sweeping curve from the middle of the dash down to the bottom-right."
+          ],
+          "animation": [
+            "M26.5,24.88c5.76,2.15,12.68,8.47,15.75,14.25",
+            "M28.62,83.75c2.5,1.62,5.12,0.96,7.75-0.62c20.13-12.13,35-24.63,49.63-41.13"
+          ],
+          "exampleWords": [
+            { "japanese": "サン", "romaji": "san", "english": "Three / Mr." },
+            { "japanese": "テン", "romaji": "ten", "english": "Ten" },
+            { "japanese": "ロンドン", "romaji": "rondon", "english": "London" }
+          ]
+        }
       }
     }
   ]
 }
-

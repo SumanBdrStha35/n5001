@@ -1,0 +1,120 @@
+{
+  "hiraganaDakuten": [
+    {
+      "title": "G-Row",
+      "description": "The 'G' row is created by adding two small strokes (dakuten) to the K-row characters. This changes the unvoiced 'K' sound into a voiced 'G' sound.",
+      "characters": {
+        "ぱ": {
+          "romaji": "pa",
+          "strokeCount": 4,
+          "pronunciation": "Like 'pa' in 'paper'. It's a plosive, unvoiced sound made by pressing the lips together and releasing a burst of air.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'ha' - the short horizontal line at the top, from left to right.",
+            "2. Draw the second stroke of 'ha' - the vertical line from top to bottom, slightly curved.",
+            "3. Draw the third stroke of 'ha' - the sweeping hook that curves to the right.",
+            "4. Draw the fourth stroke of 'ha' - the final small curve that loops back.",
+            "5. Add the small circle (handakuten) in the top right corner. It should be a neat, round circle."
+          ],
+          "animation": [
+            "M24.51,18c1.25,1.5,2.15,4,1.62,6.62c-3.5,17.62-6.98,36.4-4,54.88c2.5,15.5,1.12,2,5.62-6.25",
+            "M49.64,37.89c2.41,1.57,4.85,2.16,7.8,1.71c9.36-1.43,17.46-2.94,23.4-4.57c3.12-0.86,5.96-1.29,7.8-1.29",
+            "M69.77,16.5c2.25,2.12,2.88,4.12,2.88,6.5c0,2.38,1.5,38.62,1.5,48c0,22.5-30.62,19.62-30.62,10.5c0-9.75,23.88-5.62,29.5-2.88c5.62,2.74,11.98,8.26,13.36,9.38",
+            "M87.5,14.62c3.24,0,5.88,2.84,5.88,6.34c0,3.5-2.64,6.34-5.88,6.34c-3.24,0-5.88-2.84-5.88-6.34C81.62,17.47,84.26,14.62,87.5,14.62z"
+          ],
+          "tips": "The handakuten (the small circle) is the 'p' marker. Unlike dakuten (two strokes), it's a single circle. Make sure it's clearly round, not oval or squished. The 'p' sound is a sharp, explosive sound made with your lips.",
+          "mnemonics": "The circle looks like a bubble. When you pop it, you get a 'p' sound! Think of 'p' as a 'pop' of air.",
+          "commonMistakes": "Confusing the handakuten (circle) with the dakuten (two strokes). Also, making the circle too large or too small—it should be about the same size as the strokes of the character.",
+          "exampleWords": [
+            { "japanese": "ぱん", "romaji": "pan", "english": "bread" },
+            { "japanese": "ぱそこん", "romaji": "pasokon", "english": "personal computer" }
+          ]
+        },
+        "ぴ": {
+          "romaji": "pi",
+          "strokeCount": 4,
+          "pronunciation": "Like 'pi' in 'pine' or 'pizza'. It's a sharp, unvoiced sound followed by a short 'i'.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'hi' - the short horizontal line at the top.",
+            "2. Draw the second stroke of 'hi' - the curved vertical line going down.",
+            "3. Draw the third stroke of 'hi' - the sweeping hook that curves to the right and up.",
+            "4. Draw the fourth stroke of 'hi' - the final hook that loops back to the left.",
+            "5. Add the small circle (handakuten) in the top right corner, neatly positioned."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "The 'i' sound is short and sharp, like the 'ee' in 'see' but shorter. Make sure the handakuten is placed just above the character's center, not too high or low.",
+          "mnemonics": "The circle is a tiny 'pea' (pi) that you pop. Think of a 'peach' with a little circle on top!",
+          "commonMistakes": "Writing the handakuten too far to the right or making it oval. Also, pronouncing it like 'bi' (which is voiced). Remember: 'p' is unvoiced, so no vocal cord vibration.",
+          "exampleWords": [
+            { "japanese": "ぴあの", "romaji": "piano", "english": "piano" },
+            { "japanese": "ぴんく", "romaji": "pinku", "english": "pink" }
+          ]
+        },
+        "ぷ": {
+          "romaji": "pu",
+          "strokeCount": 3,
+          "pronunciation": "Like 'pu' in 'put' (but with a flatter 'u' sound). It's an unvoiced, plosive sound.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'fu' - the small horizontal curve at the top.",
+            "2. Draw the second stroke of 'fu' - the sweeping vertical curve that goes down and slightly right.",
+            "3. Draw the third stroke of 'fu' - the final hook that curves to the left.",
+            "4. Add the small circle (handakuten) in the top right corner, making it round and clear."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "The 'u' in Japanese is pronounced without rounding your lips. Keep your lips flat and close together. 'Pu' is the unvoiced version of 'bu'. The handakuten turns the 'f' sound into a 'p' sound.",
+          "mnemonics": "The circle is like a 'puff' of air. When you see it, you puff out a 'p' sound! Think of 'pudding' (pu-dding) to remember it.",
+          "commonMistakes": "Rounding the lips too much for the 'u' sound. Also, confusing ぷ with ぶ (bu). Remember: the circle means 'p', the two strokes mean 'b'.",
+          "exampleWords": [
+            { "japanese": "ぷれぜんと", "romaji": "purezento", "english": "present / gift" },
+            { "japanese": "ぷろぐらむ", "romaji": "puroguramu", "english": "program" }
+          ]
+        },
+         "ぺ": {
+          "romaji": "pe",
+          "strokeCount": 3,
+          "pronunciation": "Like 'pe' in 'pen'. A short, sharp unvoiced sound.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'he' - the sweeping horizontal curve from left to right.",
+            "2. Draw the second stroke of 'he' - the hook that curves down and to the right.",
+            "3. Draw the third stroke of 'he' - the final curve that loops back.",
+            "4. Add the small circle (handakuten) in the top right corner."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'Pe' is a crisp sound. The handakuten is placed in the same spot as with other H-row characters. Make it neat.",
+          "mnemonics": "Think of a 'pen' (Pe-n). The circle is the tip of the pen!",
+          "commonMistakes": "Drawing the handakuten too low or too far left. It should be in the upper right area.",
+          "exampleWords": [
+            { "japanese": "ぺん", "romaji": "pen", "english": "pen" },
+            { "japanese": "ぺらぺら", "romaji": "perapera", "english": "fluent (speaking)" }
+          ]
+        },
+        "ぽ": {
+          "romaji": "po",
+          "strokeCount": 3,
+          "pronunciation": "Like 'po' in 'polar'. A longer, unvoiced sound.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'ho' - the short horizontal line at the top.",
+            "2. Draw the second stroke of 'ho' - the vertical line from top to bottom.",
+            "3. Draw the third stroke of 'ho' - the sweeping hook that curves to the right.",
+            "4. Add the small circle (handakuten) in the top right corner."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'Po' has a longer 'o' sound. The handakuten makes it a clean 'p'.",
+          "mnemonics": "Think of a 'pole' (Po-le). The circle is the pole's end!",
+          "commonMistakes": "Forgetting the circle and writing the character as 'ho'. Also, making the circle too small to see clearly.",
+          "exampleWords": [
+            { "japanese": "ぽすと", "romaji": "posuto", "english": "mailbox / post" },
+            { "japanese": "ぽけっと", "romaji": "poketto", "english": "pocket" }
+          ]
+        }
+      }
+    }
+  ]
+}

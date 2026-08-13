@@ -1,0 +1,473 @@
+{
+  "hiraganaDakuten": [
+    {
+      "title": "G-Row",
+      "description": "The 'G' row is created by adding two small strokes (dakuten) to the K-row characters. This changes the unvoiced 'K' sound into a voiced 'G' sound.",
+      "characters": {
+        "が": {
+          "romaji": "ga",
+          "strokeCount": 5,
+          "pronunciation": "Like 'ga' in 'garden'. It is a single, voiced consonant sound followed by an 'a'.",
+          "writingPattern": [
+            "1. Start with the top horizontal stroke of the 'ka' character, drawing from left to right.",
+            "2. Draw the vertical stroke from top to bottom, slightly curving it.",
+            "3. Finish the 'ka' by drawing the sweeping hook stroke at the bottom.",
+            "4. Add the first small dash (dakuten) in the top right area, angling slightly down.",
+            "5. Add the second small dash below the first one, parallel to it."
+          ],
+          "animation": [
+            "M24.62,38.62c1.88,1.62,4.65,2.33,8.62,1c25.5-8.5,29.5-4.13,29.5,7.62c0,9.38-1.24,17.46-4.25,25.25c-7.62,19.76-10.87,17.39-16.12,10.89",
+            "M48.5,17.5c1,1.38,1.29,4.7,0.5,7.12c-5,15.25-18.02,40.93-19.62,43.88c-3.12,5.75-6.38,11.88-9.38,16.25",
+            "M77.37,31.62c7.5,6.88,13.25,15.75,15,24.88",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75"
+          ],
+          "tips": "The dakuten (the two small strokes) are like a 'voice' marker. Remember to pronounce the consonant with your vocal cords vibrating. For 'ga', your mouth should start closed and open to the 'a' sound.",
+          "mnemonics": "Imagine a 'G' sitting in a 'garden' under the 'ga' sound. Think of a green bottle of 'Gatorade' (Ga-torade).",
+          "commonMistakes": "Confusing the stroke order of the dakuten with the main character; the main character must be completed first. Also, making the dakuten strokes too large.",
+          "exampleWords": [
+            { "japanese": "がっこう", "romaji": "gakkou", "english": "school" },
+            { "japanese": "がくせい", "romaji": "gakusei", "english": "student" }
+          ]
+        },
+        "ぎ": {
+          "romaji": "gi",
+          "strokeCount": 6,
+          "pronunciation": "Like 'gi' in 'guitar'. The mouth is more closed than 'ga', as it uses an 'ee' sound.",
+          "writingPattern": [
+            "1. Draw the top horizontal line of 'ki'.",
+            "2. Draw the vertical stroke of 'ki' with a slight curve.",
+            "3. Draw the final sweeping hook of 'ki'.",
+            "4. Add the first dakuten stroke in the top right.",
+            "5. Add the second dakuten stroke below it.",
+            "6. Ensure the dakuten are aligned neatly."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "The 'i' sound in Japanese is shorter and sharper than the English 'ee'. Pronounce it like the 'i' in 'guitar'.",
+          "mnemonics": "Think of a 'G' string on a 'guitar' (Gi-tar) that you pluck to make a sound.",
+          "commonMistakes": "Making the dakuten strokes too horizontal. They should be diagonal, similar to small checkmarks.",
+          "exampleWords": [
+            { "japanese": "ぎんこう", "romaji": "ginkou", "english": "bank" },
+            { "japanese": "ぎゅうにゅう", "romaji": "gyuunyuu", "english": "milk" }
+          ]
+        },
+        "ぐ": {
+          "romaji": "gu",
+          "strokeCount": 4,
+          "pronunciation": "Like 'gu' in 'good'. It's a voiced, hard 'G' sound followed by a short 'u'.",
+          "writingPattern": [
+            "1. Draw the first sweeping stroke of 'ku' from top to bottom.",
+            "2. Draw the second stroke of 'ku' that curves slightly upward.",
+            "3. Add the first dakuten stroke in the top right.",
+            "4. Add the second dakuten stroke below the first."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "The 'u' in 'gu' is pronounced without rounding your lips as much as in English. Keep your lips relatively flat.",
+          "mnemonics": "Think of a 'good' (Gu-ood) feeling. Or a 'guitar' string that is 'good'.",
+          "commonMistakes": "Forgetting that 'ku' has only two strokes, so the dakuten needs to fit neatly in the top right area.",
+          "exampleWords": [
+            { "japanese": "ぐんたい", "romaji": "guntai", "english": "military" },
+            { "japanese": "ぐあい", "romaji": "guai", "english": "condition" }
+          ]
+        },
+        "げ": {
+          "romaji": "ge",
+          "strokeCount": 5,
+          "pronunciation": "Like 'ge' in 'get'. It is a short, voiced consonant sound.",
+          "writingPattern": [
+            "1. Draw the top horizontal line of 'ke'.",
+            "2. Draw the vertical stroke.",
+            "3. Finish the 'ke' with the sweeping hook.",
+            "4. Add the first dakuten stroke.",
+            "5. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'Ge' is a short sound. Be careful not to drag it out like 'gay'.",
+          "mnemonics": "Think of 'get' (Ge-t). You are 'getting' ready to write it.",
+          "commonMistakes": "Placing the dakuten too low or too far to the right.",
+          "exampleWords": [
+            { "japanese": "げんき", "romaji": "genki", "english": "healthy / energetic" },
+            { "japanese": "げつようび", "romaji": "getsuyoubi", "english": "Monday" }
+          ]
+        },
+        "ご": {
+          "romaji": "go",
+          "strokeCount": 4,
+          "pronunciation": "Like 'go' in 'go'. It uses a long 'o' sound.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'ko', a short vertical line with a curve.",
+            "2. Draw the second stroke of 'ko', the sweeping hook.",
+            "3. Add the first dakuten stroke.",
+            "4. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "Remember that 'ko' is two strokes. The dakuten are applied to the top part of the character.",
+          "mnemonics": "Think of the word 'go' (Go). The character ご is used in 'go-han' (meal).",
+          "commonMistakes": "Confusing 'ご' with 'こ' without the dakuten. Always double-check!",
+          "exampleWords": [
+            { "japanese": "ごはん", "romaji": "gohan", "english": "rice / meal" },
+            { "japanese": "ごご", "romaji": "gogo", "english": "afternoon" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "Z-Row",
+      "description": "The 'Z' row is formed by adding dakuten to the S-row characters. The voiceless 'S' sounds become the voiced 'Z' sounds.",
+      "characters":{
+        "ざ": {
+          "romaji": "za",
+          "strokeCount": 6,
+          "pronunciation": "Like 'za' in 'pizza'. The sound is a voiced 'z' followed by an 'a'.",
+          "writingPattern": [
+            "1. Draw the top horizontal stroke of 'sa'.",
+            "2. Draw the second stroke, the long sweeping curve of 'sa'.",
+            "3. Draw the final stroke of 'sa' (the hook).",
+            "4. Add the first dakuten stroke.",
+            "5. Add the second dakuten stroke.",
+            "6. Ensure the dakuten are placed neatly in the upper right of the character's center."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "The 'z' sound is made by vibrating your vocal cords. Place the tip of your tongue near the ridge behind your top teeth.",
+          "mnemonics": "Imagine a large 'pizza' (Za) with a big 'Z' on it.",
+          "commonMistakes": "The 'sa' character is 3 strokes. A common mistake is to add the dakuten before completing the main character.",
+          "exampleWords": [
+            { "japanese": "ざっし", "romaji": "zasshi", "english": "magazine" },
+            { "japanese": "ざる", "romaji": "zaru", "english": "bamboo strainer" }
+          ]
+        },
+        "じ": {
+          "romaji": "ji",
+          "strokeCount": 5,
+          "pronunciation": "Like 'ji' in 'jeep'. It is a voiced 'z' sound that becomes 'j' in English.",
+          "writingPattern": [
+            "1. Draw the two short horizontal strokes of 'shi'.",
+            "2. Draw the sweeping curve of 'shi' from top to bottom.",
+            "3. Add the first dakuten stroke.",
+            "4. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "While it is in the 'Z' row, in modern Japanese 'じ' is pronounced as 'ji'. The tongue is flat against the roof of the mouth.",
+          "mnemonics": "Think of a 'jeep' (Ji-p) driving along. The 'ji' is the sound of the horn.",
+          "commonMistakes": "Pronouncing it as 'zi'. In standard Japanese, it's always 'ji'.",
+          "exampleWords": [
+            { "japanese": "じかん", "romaji": "jikan", "english": "time" },
+            { "japanese": "じてんしゃ", "romaji": "jitensha", "english": "bicycle" }
+          ]
+        },
+        "ず": {
+          "romaji": "zu",
+          "strokeCount": 4,
+          "pronunciation": "Like 'zu' in 'zoo'. It is a simple, voiced 'z' sound.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'su', the short horizontal line.",
+            "2. Draw the second stroke of 'su', the sweeping curve.",
+            "3. Add the first dakuten stroke.",
+            "4. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "The 'u' sound is pronounced with flat lips. Avoid rounding them to an 'oo'.",
+          "mnemonics": "Think of a 'zoo' (Zu). The character ず is in the word 'mizu' (water).",
+          "commonMistakes": "Drawing the dakuten too close together or too far apart.",
+          "exampleWords": [
+            { "japanese": "みず", "romaji": "mizu", "english": "water" },
+            { "japanese": "ずっと", "romaji": "zutto", "english": "all the time" }
+          ]
+        },
+        "ぜ": {
+          "romaji": "ze",
+          "strokeCount": 6,
+          "pronunciation": "Like 'ze' in 'zero'. It is a voiced 'z' with a short 'e'.",
+          "writingPattern": [
+            "1. Draw the top horizontal line of 'se'.",
+            "2. Draw the vertical stroke.",
+            "3. Finish the 'se' with the sweeping hook.",
+            "4. Add the first dakuten stroke.",
+            "5. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'Ze' is a sharp sound. Make sure the 'e' is short and crisp.",
+          "mnemonics": "Think of the number 'zero' (Ze-ro) and imagine a big 'Z' next to it.",
+          "commonMistakes": "Writing the main 'se' character incorrectly (which is 3 strokes) and misplacing the dakuten.",
+          "exampleWords": [
+            { "japanese": "ぜんぶ", "romaji": "zenbu", "english": "all" },
+            { "japanese": "ぜんぜん", "romaji": "zenzen", "english": "not at all" }
+          ]
+        },
+        "ぞ": {
+          "romaji": "zo",
+          "strokeCount": 4,
+          "pronunciation": "Like 'zo' in 'zone'. It's a voiced 'z' with a long 'o'.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'so' (the horizontal hook).",
+            "2. Draw the second stroke of 'so' (the sweeping curve).",
+            "3. Add the first dakuten stroke.",
+            "4. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "The 'so' character is one of the trickiest to write. Practice the curve before adding the dakuten.",
+          "mnemonics": "Think of a 'zone' (Zo-ne). The elephant 'zou' is written with this character.",
+          "commonMistakes": "Confusing ぞ with そ without the dakuten. Also, pronouncing the 'o' too short.",
+          "exampleWords": [
+            { "japanese": "ぞう", "romaji": "zou", "english": "elephant" },
+            { "japanese": "ぞく", "romaji": "zoku", "english": "tribe / family" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "D-Row",
+      "description": "The 'D' row is made by adding dakuten to the T-row characters. The unvoiced 'T' sounds become the voiced 'D' sounds. Note the exceptions with ぢ and づ.",
+      "characters": {
+        "だ": {
+          "romaji": "da",
+          "strokeCount": 7,
+          "pronunciation": "Like 'da' in 'dark'. A voiced, hard consonant sound.",
+          "writingPattern": [
+            "1. Start with the top stroke of 'ta' (the short line).",
+            "2. Draw the second stroke (the longer horizontal line).",
+            "3. Draw the third stroke (the sweeping curve).",
+            "4. Finish the 'ta' with the final hook stroke.",
+            "5. Add the first dakuten stroke.",
+            "6. Add the second dakuten stroke.",
+            "7. Ensure the dakuten are balanced."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'Ta' has 4 strokes. It's important to write them in order for the best shape.",
+          "mnemonics": "Think of 'dark' (Da-rk). 'Daigaku' (university) is a 'da' word.",
+          "commonMistakes": "Making the dakuten strokes too long and interfering with the shape of 'ta'.",
+          "exampleWords": [
+            { "japanese": "だいがく", "romaji": "daigaku", "english": "university" },
+            { "japanese": "だいじょうぶ", "romaji": "daijoubu", "english": "okay / all right" }
+          ]
+        },
+        "ぢ": {
+          "romaji": "ji",
+          "strokeCount": 5,
+          "pronunciation": "In standard Japanese, it is usually pronounced like 'ji', similar to じ.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'chi' (the small horizontal line).",
+            "2. Draw the second stroke of 'chi' (the sweeping curve).",
+            "3. Draw the third stroke of 'chi' (the hook).",
+            "4. Add the first dakuten stroke.",
+            "5. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'ぢ' is rarely used. It appears in some compound words and is a result of 'chi' becoming voiced.",
+          "mnemonics": "Think of it as the 'dakuten version of chi'. It's used in words like 'chijimu' (to shrink).",
+          "commonMistakes": "Confusing it with じ. While they sound the same, they are used in different contexts.",
+          "exampleWords": [
+            { "japanese": "はなぢ", "romaji": "hanaji", "english": "nosebleed" },
+            { "japanese": "ちぢむ", "romaji": "chijimu", "english": "to shrink" }
+          ]
+        },
+        "づ": {
+          "romaji": "zu",
+          "strokeCount": 4,
+          "pronunciation": "In standard Japanese, it is usually pronounced like 'zu', similar to ず.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'tsu' (the short line).",
+            "2. Draw the second stroke of 'tsu' (the sweeping curve).",
+            "3. Add the first dakuten stroke.",
+            "4. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'づ' is also rarely used. It appears in words like 'tsuzuku'.",
+          "mnemonics": "Think of it as the 'dakuten version of tsu'. It's a voiced sound.",
+          "commonMistakes": "Confusing it with ず. They sound the same but are used in different words.",
+          "exampleWords": [
+            { "japanese": "つづく", "romaji": "tsuzuku", "english": "to continue" },
+            { "japanese": "つづける", "romaji": "tsuzukeru", "english": "to continue" }
+          ]
+        },
+        "で": {
+          "romaji": "de",
+          "strokeCount": 5,
+          "pronunciation": "Like 'de' in 'desk'. A voiced, sharp consonant sound.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'te' (the vertical line).",
+            "2. Draw the second stroke of 'te' (the sweeping hook).",
+            "3. Draw the third stroke of 'te' (the final hook).",
+            "4. Add the first dakuten stroke.",
+            "5. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'Te' is 3 strokes. The dakuten turns it into a 'd' sound.",
+          "mnemonics": "Think of a 'desk' (De-sk). The word 'densha' (train) uses this character.",
+          "commonMistakes": "Not making the sweeping hook of 'te' long enough, which makes the dakuten placement look messy.",
+          "exampleWords": [
+            { "japanese": "でんわ", "romaji": "denwa", "english": "telephone" },
+            { "japanese": "でんしゃ", "romaji": "densha", "english": "train" }
+          ]
+        },
+        "ど": {
+          "romaji": "do",
+          "strokeCount": 5,
+          "pronunciation": "Like 'do' in 'door'. A voiced, deep sound.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'to' (the short horizontal line).",
+            "2. Draw the second stroke of 'to' (the sweeping vertical curve).",
+            "3. Draw the third stroke of 'to' (the final hook).",
+            "4. Add the first dakuten stroke.",
+            "5. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'To' is 3 strokes. The dakuten is placed in the upper right to make 'do'.",
+          "mnemonics": "Think of a 'door' (Do-or). 'Doko' (where) is a key word.",
+          "commonMistakes": "Rushing the second stroke of 'to' and making it look like a 'no'.",
+          "exampleWords": [
+            { "japanese": "どうぶつ", "romaji": "doubutsu", "english": "animal" },
+            { "japanese": "どこ", "romaji": "doko", "english": "where" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "B-Row",
+      "description": "The 'B' row is created by adding dakuten to the H-row characters. The voiceless 'H' sounds become the voiced 'B' sounds. The dakuten is written in the same position.",
+      "characters":{
+        "ば": {
+          "romaji": "ba",
+          "strokeCount": 7,
+          "pronunciation": "Like 'ba' in 'bar'. A voiced, bilabial (lip) sound.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'ha' (the horizontal line).",
+            "2. Draw the second stroke of 'ha' (the vertical line).",
+            "3. Draw the third stroke of 'ha' (the sweeping hook).",
+            "4. Draw the fourth stroke of 'ha' (the final curve).",
+            "5. Add the first dakuten stroke.",
+            "6. Add the second dakuten stroke.",
+            "7. Check the balance of the dakuten."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'Ha' has 4 strokes. Remember to close your lips completely to make the 'b' sound.",
+          "mnemonics": "Think of a 'bar' (Ba-r). 'Basu' (bus) uses this character.",
+          "commonMistakes": "Making the second stroke of 'ha' too long, which crowds the dakuten.",
+          "exampleWords": [
+            { "japanese": "ばす", "romaji": "basu", "english": "bus" },
+            { "japanese": "ばんごはん", "romaji": "bangohan", "english": "dinner" }
+          ]
+        },
+        "び": {
+          "romaji": "bi",
+          "strokeCount": 6,
+          "pronunciation": "Like 'bi' in 'beat'. The 'i' is a sharp, short sound.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'hi' (the horizontal line).",
+            "2. Draw the second stroke of 'hi' (the curved vertical).",
+            "3. Draw the third stroke of 'hi' (the hook).",
+            "4. Draw the fourth stroke of 'hi' (the final curve).",
+            "5. Add the first dakuten stroke.",
+            "6. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'Hi' is a tricky character to write. The dakuten transforms it into a 'b'.",
+          "mnemonics": "Think of 'beat' (Bi-t). 'Byouin' (hospital) starts with this.",
+          "commonMistakes": "Not closing the lips for the 'b' sound and pronouncing it as 'p'.",
+          "exampleWords": [
+            { "japanese": "びょういん", "romaji": "byouin", "english": "hospital" },
+            { "japanese": "びじゅつ", "romaji": "bijutsu", "english": "art" }
+          ]
+        },
+        "ぶ": {
+          "romaji": "bu",
+          "strokeCount": 5,
+          "pronunciation": "Like 'bu' in 'book' (but with a flat 'u' sound).",
+          "writingPattern": [
+            "1. Draw the first stroke of 'fu' (the small curve).",
+            "2. Draw the second stroke of 'fu' (the sweeping curve).",
+            "3. Draw the third stroke of 'fu' (the hook).",
+            "4. Add the first dakuten stroke.",
+            "5. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'Fu' becomes 'bu'. The lips are pressed together for the 'b' sound.",
+          "mnemonics": "Think of 'book' (Bu-k). 'Buta' (pig) is a common word.",
+          "commonMistakes": "Pronouncing 'fu' and 'bu' interchangeably. They are different!",
+          "exampleWords": [
+            { "japanese": "ぶた", "romaji": "buta", "english": "pig" },
+            { "japanese": "ぶんか", "romaji": "bunka", "english": "culture" }
+          ]
+        },
+        "べ": {
+          "romaji": "be",
+          "strokeCount": 5,
+          "pronunciation": "Like 'be' in 'bed'. A short, voiced sound.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'he' (the sweeping horizontal curve).",
+            "2. Draw the second stroke of 'he' (the hook).",
+            "3. Draw the third stroke of 'he' (the final curve).",
+            "4. Add the first dakuten stroke.",
+            "5. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'He' is 3 strokes. The dakuten makes it a 'b' sound.",
+          "mnemonics": "Think of 'bed' (Be-d). 'Benkyou' (study) uses this.",
+          "commonMistakes": "Writing the first stroke of 'he' too short, which ruins the balance.",
+          "exampleWords": [
+            { "japanese": "べんきょう", "romaji": "benkyou", "english": "study" },
+            { "japanese": "べんり", "romaji": "benri", "english": "convenient" }
+          ]
+        },
+        "ぼ": {
+          "romaji": "bo",
+          "strokeCount": 5,
+          "pronunciation": "Like 'bo' in 'boat'. A longer, voiced sound.",
+          "writingPattern": [
+            "1. Draw the first stroke of 'ho' (the horizontal line).",
+            "2. Draw the second stroke of 'ho' (the vertical line).",
+            "3. Draw the third stroke of 'ho' (the hook).",
+            "4. Add the first dakuten stroke.",
+            "5. Add the second dakuten stroke."
+          ],
+          "animation": [
+            ""
+          ],
+          "tips": "'Ho' is 3 strokes. The dakuten creates a 'b' sound.",
+          "mnemonics": "Think of a 'boat' (Bo-at). 'Boushi' (hat) starts with this.",
+          "commonMistakes": "Making the dakuten strokes too vertical. They should be angled.",
+          "exampleWords": [
+            { "japanese": "ぼうし", "romaji": "boushi", "english": "hat" },
+            { "japanese": "ぼく", "romaji": "boku", "english": "I / me (male)" }
+          ]
+        }
+      }
+    }
+  ]
+}
