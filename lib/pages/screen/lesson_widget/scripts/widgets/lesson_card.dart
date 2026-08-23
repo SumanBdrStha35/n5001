@@ -7,13 +7,17 @@ import '../../../../../widgets/app_card_container.dart';
 class LessonCard extends StatelessWidget {
   final LessonData lesson;
   final VoidCallback? onTap;
+  final VoidCallback? onComplete;
   final int lessonNumber;
+  final bool showCompleteButton;
 
   const LessonCard({
     super.key,
     required this.lesson,
     this.onTap,
+    this.onComplete,
     required this.lessonNumber,
+    this.showCompleteButton = false,
   });
 
   @override
@@ -47,7 +51,8 @@ class LessonCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Lesson $lessonNumber',
+                      // 'Lesson $lessonNumber',
+                      '$lesson.lessonId',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
@@ -69,61 +74,18 @@ class LessonCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              Text(
-                _statusLabel(status),
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: _statusTextColor(status, t),
+              // if (showCompleteButton && status == 'Opened')
+              if (!showCompleteButton || status != 'Opened')
+                Text(
+                  _statusLabel(status),
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: _statusTextColor(status, t),
+                  ),
                 ),
-              ),
             ],
           ),
-
-          const SizedBox(height: 12),
-
-          /// Characters row
-          // Row(
-          //   children: lesson.characterKeys.map((char) {
-          //     return Expanded(
-          //       child: Container(
-          //         margin: const EdgeInsets.symmetric(horizontal: 2),
-          //         padding: const EdgeInsets.symmetric(vertical: 8),
-          //         alignment: Alignment.center,
-          //         decoration: BoxDecoration(
-          //           color: t.primary.withValues(alpha: 0.08),
-          //           borderRadius: BorderRadius.circular(8),
-          //         ),
-          //         child: Text(
-          //           char,
-          //           style: TextStyle(
-          //             fontSize: 22,
-          //             fontWeight: FontWeight.bold,
-          //             color: t.primary,
-          //           ),
-          //         ),
-          //       ),
-          //     );
-          //   }).toList(),
-          // ),
-          // const SizedBox(height: 4),
-
-          /// Romaji row
-          // Row(
-          //   children: lesson.characterKeys.map((char) {
-          //     return Expanded(
-          //       child: Container(
-          //         margin: const EdgeInsets.symmetric(horizontal: 2),
-          //         padding: const EdgeInsets.only(bottom: 4),
-          //         alignment: Alignment.center,
-          //         child: Text(
-          //           lesson.characters[char] ?? '',
-          //           style: TextStyle(fontSize: 11, color: t.textMuted),
-          //         ),
-          //       ),
-          //     );
-          //   }).toList(),
-          // ),
         ],
       ),
     );
@@ -155,20 +117,6 @@ class LessonCard extends StatelessWidget {
     }
   }
 
-  Color _statusColor(String status, AppColorTheme t) {
-    switch (status) {
-      case 'Completed':
-        return t.success;
-      case 'In Progress':
-        return t.primary;
-      case 'Opened':
-        return Colors.orange;
-      case 'Locked':
-      default:
-        return t.textMuted;
-    }
-  }
-
   Color _backgroundColor(String status, AppColorTheme t) {
     switch (status) {
       case 'Completed':
@@ -177,8 +125,6 @@ class LessonCard extends StatelessWidget {
         return t.primary.withValues(alpha: 0.05);
       case 'Opened':
         return t.card;
-      // return Colors.orange.withValues(alpha: 0.05);
-      case 'Locked':
       default:
         return t.surface;
     }
@@ -191,7 +137,7 @@ class LessonCard extends StatelessWidget {
       case 'In Progress':
         return t.primary;
       case 'Opened':
-        return t.border;
+        return t.primary.withValues(alpha: 0.3);
       default:
         return t.border;
     }
@@ -204,7 +150,7 @@ class LessonCard extends StatelessWidget {
       case 'In Progress':
         return t.primary;
       case 'Opened':
-        return Colors.blueGrey.shade200;
+        return t.primary;
       default:
         return Colors.grey;
     }
@@ -217,7 +163,7 @@ class LessonCard extends StatelessWidget {
       case 'In Progress':
         return t.primary;
       case 'Opened':
-        return Colors.grey.shade300;
+        return t.primary;
       default:
         return Colors.grey;
     }

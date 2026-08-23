@@ -112,11 +112,12 @@ class HeaderCard extends StatelessWidget {
                 style: TextStyle(
                   color: t.textPrimary,
                   fontSize: 15,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
+              const SizedBox(height: 4),
               Text(
-                '${(summary.progress * 100).toInt()}%',
+                '${summary.completedLessons} of ${summary.totalLessons} lessons',
                 style: TextStyle(
                   color: summary.completedLessons == 0
                       ? t.textMuted
@@ -131,10 +132,10 @@ class HeaderCard extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: LinearProgressIndicator(
-              value: summary.progress,
+              value: summary.progress.clamp(0.0, 1.0),
               minHeight: 8,
               backgroundColor: t.border,
-              valueColor: AlwaysStoppedAnimation(
+              valueColor: AlwaysStoppedAnimation<Color>(
                 summary.completedLessons == 0
                     ? t.textMuted.withValues(alpha: 0.3)
                     : t.primary,
@@ -142,24 +143,6 @@ class HeaderCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          // SizedBox(
-          //   width: double.infinity,
-          //   child: ElevatedButton.icon(
-          //     onPressed: onPressed,
-          //     icon: const Icon(Icons.play_arrow_rounded),
-          //     label: Text(summary.actionText),
-          //     style: ElevatedButton.styleFrom(
-          //       backgroundColor: t.primary,
-          //       foregroundColor: t.brightness == Brightness.dark
-          //           ? t.textPrimary
-          //           : Colors.white,
-          //       padding: const EdgeInsets.symmetric(vertical: 14),
-          //       shape: RoundedRectangleBorder(
-          //         borderRadius: BorderRadius.circular(12),
-          //       ),
-          //     ),
-          //   ),
-          // ),
           Row(
             children: [
               Expanded(
@@ -201,7 +184,11 @@ class HeaderCard extends StatelessWidget {
                     elevation: 0,
                   ),
                   child: Text(
-                    summary.completedLessons == 0 ? 'Start' : 'Continue',
+                    summary.completedLessons == 0
+                        ? 'Start'
+                        : summary.completedLessons == 10
+                        ? 'Completed'
+                        : 'Continue',
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),

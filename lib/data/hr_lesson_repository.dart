@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:isar/isar.dart';
+import 'package:logger/logger.dart';
 
+import '../model/sript_data.dart';
 import '../model/sript_lesson.dart';
 import 'hr_lesson_progress.dart';
 
@@ -86,37 +88,30 @@ class LessonRepository {
   }) async {
     final definitions = await _loadLessonDefinitions(scriptType);
     final progressMap = await _loadProgressMap();
-
     final scriptPrefix = scriptType.name;
 
     return definitions.asMap().entries.map((entry) {
       final idx = entry.key;
       final def = entry.value;
       final id = def['id'] as String;
-      // Check if previous lesson is completed
-      bool previousCompleted = false;
-      if (idx > 0) {
-        final prevId = '${scriptPrefix}_lesson_$idx';
-        final prevStatus = progressMap[prevId] ?? 'Locked';
-        previousCompleted = prevStatus == 'Completed';
-      }
 
-      // Determine status
+      // Get status from progress map or determine default
       String status;
-      if (idx == 0) {
-        // First lesson always starts as 'Opened' if not completed
-        status = progressMap[id] ?? 'Opened';
-      } else if (previousCompleted) {
-        // If previous lesson is completed, this one is 'Opened'
-        status = progressMap[id] ?? 'Opened';
+      if (progressMap.containsKey(id)) {
+        status = progressMap[id]!;
+      } else if (idx == 0) {
+        // First lesson always starts as 'Opened'
+        status = 'Opened';
       } else {
-        // Otherwise locked
-        status = progressMap[id] ?? 'Locked';
+        // Check if previous lesson is completed to unlock this one
+        bool previousCompleted = false;
+        if (idx > 0) {
+          final prevId = '${scriptPrefix}_lesson_$idx';
+          final prevStatus = progressMap[prevId] ?? 'Locked';
+          previousCompleted = prevStatus == 'Completed';
+        }
+        status = previousCompleted ? 'Opened' : 'Locked';
       }
-
-      // // Default: first lesson is "Opened", others are "Locked"
-      // final defaultStatus = (idx == 0) ? 'Opened' : 'Locked';
-      // final status = progressMap[id] ?? defaultStatus;
 
       return LessonData(
         section: def['section'] as String? ?? '',
@@ -126,8 +121,58 @@ class LessonRepository {
         statusText: status,
         icon: _iconFromStatus(status),
         lessonId: id,
+        // Add these fields for easier navigation
+        scriptType: scriptType,
+        lessonNumber: idx + 1,
       );
     }).toList();
+  }
+
+  /// Get a specific lesson by ID
+  Future<LessonData?> getLessonById({
+    required String lessonId,
+    required ScriptType scriptType,
+  }) async {
+    final lessons = await getLessons(scriptType: scriptType);
+    try {
+      return lessons.firstWhere((l) => l.lessonId == lessonId);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Get the next lesson ID and status
+  Future<Map<String, dynamic>?> getNextLessonInfo({
+    required String currentLessonId,
+    required ScriptType scriptType,
+  }) async {
+    final lessons = await getLessons(scriptType: scriptType);
+    final currentIndex = lessons.indexWhere(
+      (l) => l.lessonId == currentLessonId,
+    );
+
+    if (currentIndex >= 0 && currentIndex < lessons.length - 1) {
+      final nextLesson = lessons[currentIndex + 1];
+      return {
+        'lessonId': nextLesson.lessonId,
+        'status': nextLesson.statusText,
+        'lessonNumber': nextLesson.lessonNumber,
+        'section': nextLesson.section,
+      };
+    }
+    return null;
+  }
+
+  /// Get first uncompleted lesson
+  Future<LessonData?> getFirstUncompletedLesson({
+    required ScriptType scriptType,
+  }) async {
+    final lessons = await getLessons(scriptType: scriptType);
+    // Find first lesson that is not completed
+    final uncompleted = lessons
+        .where((l) => l.statusText != 'Completed')
+        .toList();
+    return uncompleted.isNotEmpty ? uncompleted.first : null;
   }
 
   /// Updates (or inserts) the progress for a given lesson.
@@ -158,18 +203,93 @@ class LessonRepository {
     required String lessonId,
     required ScriptType scriptType,
   }) async {
+    Logger().d(
+      "Completing lesson: $lessonId",
+    ); //Completing lesson: hiragana_lesson_4
     // Mark current lesson as completed
     await updateProgress(lessonId: lessonId, status: 'Completed');
-
+    Logger().d(
+      'Marked $lessonId as Completed',
+    ); //Completing lesson: hiragana_lesson_4
     // Get all lessons to find the next one
     final allLessons = await getLessons(scriptType: scriptType);
-    final currentIndex = allLessons.indexWhere((l) => l.lessonId == lessonId);
-
-    // Unlock next lesson if it exists
-    if (currentIndex >= 0 && currentIndex < allLessons.length - 1) {
-      final nextLesson = allLessons[currentIndex + 1];
-      await updateProgress(lessonId: nextLesson.lessonId, status: 'Opened');
+    final currentIndex = allLessons.indexWhere(
+      (lesson) => lesson.lessonId == lessonId,
+    );
+    Logger().d('Current lesson index: $currentIndex');
+    if (currentIndex == -1) {
+      Logger().e('Could not find lesson: $lessonId');
+      return;
     }
+    // Unlock next lesson
+    if (currentIndex >= 0 && currentIndex < allLessons.length - 1) {
+      Logger().d("Completing lesson: $currentIndex"); //Completing lesson: 3
+      final nextLesson = allLessons[currentIndex + 1];
+      Logger().d(
+        'Next lesson: ${nextLesson.lessonId}',
+      ); //Completing lesson: Instance of 'LessonData'
+      Logger().d('Next lesson status: ${nextLesson.statusText}');
+      if (nextLesson.statusText == 'Locked') {
+        await updateProgress(lessonId: nextLesson.lessonId, status: 'Opened');
+        Logger().d('Unlocked lesson: ${nextLesson.lessonId}');
+      }
+    }
+    // Reload lessons after unlocking so summary uses latest data.
+    final updatedLessons = await getLessons(scriptType: scriptType);
+
+    // Calculate summary from latest data
+    final totalLessons = updatedLessons.length;
+    final completedLessons = updatedLessons
+        .where((lesson) => lesson.statusText == 'Completed')
+        .length;
+
+    final inProgressLessons = updatedLessons
+        .where((lesson) => lesson.statusText == 'In Progress')
+        .length;
+
+    final openedLessons = updatedLessons
+        .where((lesson) => lesson.statusText == 'Opened')
+        .length;
+
+    final progress = totalLessons == 0 ? 0.0 : completedLessons / totalLessons;
+  }
+
+  /// Get summary statistics for a script
+  Future<ScriptSummary> getScriptSummary({
+    required ScriptType scriptType,
+  }) async {
+    final lessons = await getLessons(scriptType: scriptType);
+    final totalLessons = lessons.length;
+    final completed = lessons.where((e) => e.statusText == 'Completed').length;
+    final inProgress = lessons
+        .where((e) => e.statusText == 'In Progress')
+        .length;
+    final opened = lessons.where((e) => e.statusText == 'Opened').length;
+
+    final progress = totalLessons == 0 ? 0.0 : completed / totalLessons;
+    final totalChars = lessons.fold<int>(
+      0,
+      (sum, lesson) => sum + lesson.characterCount,
+    );
+
+    String actionText;
+    if (completed == totalLessons && totalLessons > 0) {
+      actionText = 'Review';
+    } else if (inProgress > 0 || opened > 0) {
+      actionText = 'Continue Learning';
+    } else {
+      actionText = 'Start Learning';
+    }
+
+    return ScriptSummary(
+      title: scriptType.name.toUpperCase(),
+      totalCharacters: totalChars,
+      totalLessons: totalLessons,
+      completedLessons: completed,
+      progress: progress,
+      actionText: actionText,
+      nextLesson: await getFirstUncompletedLesson(scriptType: scriptType),
+    );
   }
 
   /// Maps lesson status to the appropriate Flutter [IconData].

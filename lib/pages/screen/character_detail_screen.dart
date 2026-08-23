@@ -19,16 +19,14 @@ import '../../utils/simple_svg_path_parser.dart';
 /// [characters] with the full [CharacterDetail] list,
 /// and optionally [initialIndex] to start at a specific character.
 class HiraganaLessonPage extends StatefulWidget {
-  final LessonData lesson;
+  final LessonData? lesson;
   final List<CharacterDetail> characters;
   final int initialIndex;
-  final VoidCallback? onLessonComplete;
   const HiraganaLessonPage({
     super.key,
     required this.lesson,
     required this.characters,
     this.initialIndex = 0,
-    this.onLessonComplete,
   });
   @override
   State<HiraganaLessonPage> createState() => _HiraganaLessonPageState();
@@ -158,8 +156,8 @@ class _HiraganaLessonPageState extends State<HiraganaLessonPage> {
   }
 
   PreferredSizeWidget _buildAppBar(AppColorTheme t) {
-    final lessonTitle = widget.lesson.section.isNotEmpty
-        ? widget.lesson.section
+    final lessonTitle = widget.lesson?.section.isNotEmpty == true
+        ? widget.lesson!.section
         : 'Lesson';
     return AppBar(
       backgroundColor: t.surface,
@@ -249,9 +247,9 @@ class _HiraganaLessonPageState extends State<HiraganaLessonPage> {
             // Next / Complete Button
             Expanded(
               child: ElevatedButton.icon(
-                onPressed: () {
+                onPressed: () async {
                   if (_isLast) {
-                    _onLessonComplete();
+                    await _onLessonComplete();
                   } else {
                     _goToCharacter(_currentIndex + 1);
                   }
@@ -279,17 +277,14 @@ class _HiraganaLessonPageState extends State<HiraganaLessonPage> {
     );
   }
 
-  // void _onLessonComplete() {
-  //   widget.onLessonComplete?.call();
-  //   _showSnack('🎉 Lesson complete!');
-  //   Navigator.of(context).pop();
-  // }
-  void _onLessonComplete() async {
+  Future<void> _onLessonComplete() async {
+    Logger().d('Completing lesson... ${widget.lesson?.lessonId}');
     try {
       // Determine script type from lesson ID
-      final scriptType = widget.lesson.lessonId.startsWith('hiragana')
+      final scriptType = widget.lesson?.lessonId.startsWith('hiragana') == true
           ? ScriptType.hiragana
           : ScriptType.katakana;
+      Logger().d('Script type: $scriptType');
 
       // Complete the lesson and unlock next
       final repository = LessonRepository(
@@ -297,18 +292,20 @@ class _HiraganaLessonPageState extends State<HiraganaLessonPage> {
       );
 
       await repository.completeLesson(
-        lessonId: widget.lesson.lessonId,
+        lessonId: widget.lesson!.lessonId,
         scriptType: scriptType,
       );
-
-      widget.onLessonComplete?.call();
+      Logger().d('Lesson completed: ${widget.lesson!.lessonId}');
       _showSnack('🎉 Lesson complete! Next lesson unlocked!');
-
-      // Pop with success flag
-      Navigator.of(context).pop(true);
+      // Return true to Lesson List
+      if (mounted) {
+        Navigator.of(context).pop(true);
+      }
     } catch (e) {
       Logger().e('Error completing lesson: $e');
-      _showSnack('❌ Error completing lesson');
+      if (mounted) {
+        _showSnack('❌ Error completing lesson');
+      }
     }
   }
 }
@@ -1675,45 +1672,40 @@ class _PracticePainter extends CustomPainter {
 // ---------------------------------------------------------------------------
 // Navigation helper – used by lesson_list.dart
 // ---------------------------------------------------------------------------
-
-/// Navigates to the character detail page with full lesson context.
-///
-/// Loads all [CharacterDetail] objects for the given lesson's characters
-/// and opens [HiraganaLessonPage] with a modern swipeable UI.
-Future<void> navigateToCharacterDetail({
+Future<bool?> navigateToCharacterDetail({
   required BuildContext context,
   required String character,
   required ScriptType scriptType,
   LessonData? lesson,
-  VoidCallback? onLessonComplete,
+  // VoidCallback? onLessonComplete,
 }) async {
-  if (lesson == null) return;
+  if (lesson == null) false;
 
   final characters = await CharacterDetailService.loadLessonCharacters(
-    characterKeys: lesson.characterKeys,
+    characterKeys: lesson?.characterKeys ?? [],
     scriptType: scriptType,
   );
 
-  if (!context.mounted) return;
+  if (!context.mounted) false;
 
   if (characters.isEmpty) {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Character details not found')),
     );
-    return;
+    return false;
   }
 
   // Find the initial index matching the requested character
   final initialIndex = characters.indexWhere((c) => c.character == character);
 
-  Navigator.of(context).push(
+  final result = await Navigator.of(context).push<bool>(
     MaterialPageRoute(
       builder: (_) => HiraganaLessonPage(
         lesson: lesson,
         characters: characters,
         initialIndex: initialIndex >= 0 ? initialIndex : 0,
-        onLessonComplete: onLessonComplete,
       ),
     ),
   );
+  return result;
 }

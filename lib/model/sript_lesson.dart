@@ -1,36 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:isar/isar.dart';
+
+import '../data/hr_lesson_repository.dart';
 
 /// Represents a single lesson (a section/group of characters).
+@embedded
 class LessonData {
-  /// Section title e.g. "Vowels (あいうえお)"
-  final String section;
+  String section;
+  String description;
+  Map<String, String> characters;
+  List<String> characterKeys;
+  String statusText;
+  IconData icon;
+  String lessonId;
 
-  /// Description of the lesson
-  final String description;
+  // New fields for easier navigation
+  ScriptType? scriptType;
+  int? lessonNumber;
 
-  /// Characters in this lesson as a map: character -> romaji
-  final Map<String, String> characters;
-
-  /// Ordered list of character keys
-  final List<String> characterKeys;
-
-  /// Status text: "Opened", "Locked", "In Progress", "Completed"
-  final String statusText;
-
-  /// Icon for status
-  final IconData icon;
-
-  /// Unique identifier for progress tracking
-  final String lessonId;
-
-  const LessonData({
-    required this.section,
-    required this.description,
-    required this.characters,
-    required this.characterKeys,
-    required this.statusText,
-    required this.icon,
-    required this.lessonId,
+  LessonData({
+    this.section = '',
+    this.description = '',
+    this.characters = const {},
+    this.characterKeys = const [],
+    this.statusText = 'Locked',
+    this.icon = Icons.lock_outline,
+    this.lessonId = '',
+    this.scriptType,
+    this.lessonNumber,
   });
 
   /// Convenience getter for the first character title

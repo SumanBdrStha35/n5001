@@ -28,10 +28,39 @@ class _ScriptsSectionState extends State<ScriptsSection> {
   late final PageController _pageController;
   int _currentIndex = 0;
 
+  // Track updated lessons to refresh UI
+  List<LessonData> _hiraganaLessons = [];
+  List<LessonData> _katakanaLessons = [];
+  bool _isLoadingHiragana = true;
+  bool _isLoadingKatakana = true;
+
   @override
   void initState() {
     super.initState();
     _pageController = PageController();
+    _hiraganaLessons = widget.hiraganaLessons;
+    _katakanaLessons = widget.katakanaLessons;
+    _isLoadingHiragana = widget.isLoadingHiragana;
+    _isLoadingKatakana = widget.isLoadingKatakana;
+  }
+
+  @override
+  void didUpdateWidget(ScriptsSection oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.hiraganaLessons != widget.hiraganaLessons ||
+        oldWidget.isLoadingHiragana != widget.isLoadingHiragana) {
+      setState(() {
+        _hiraganaLessons = widget.hiraganaLessons;
+        _isLoadingHiragana = widget.isLoadingHiragana;
+      });
+    }
+    if (oldWidget.katakanaLessons != widget.katakanaLessons ||
+        oldWidget.isLoadingKatakana != widget.isLoadingKatakana) {
+      setState(() {
+        _katakanaLessons = widget.katakanaLessons;
+        _isLoadingKatakana = widget.isLoadingKatakana;
+      });
+    }
   }
 
   @override
@@ -48,6 +77,11 @@ class _ScriptsSectionState extends State<ScriptsSection> {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
+  }
+
+  void _handleProgressUpdate() {
+    // This will trigger a rebuild of the page
+    setState(() {});
   }
 
   @override
@@ -75,12 +109,14 @@ class _ScriptsSectionState extends State<ScriptsSection> {
               },
               children: [
                 HiraganaPage(
-                  lessons: widget.hiraganaLessons,
-                  isLoading: widget.isLoadingHiragana,
+                  lessons: _hiraganaLessons,
+                  isLoading: _isLoadingHiragana,
+                  onProgressUpdate: _handleProgressUpdate,
                 ),
                 KatakanaPage(
-                  lessons: widget.katakanaLessons,
-                  isLoading: widget.isLoadingKatakana,
+                  lessons: _katakanaLessons,
+                  isLoading: _isLoadingKatakana,
+                  onProgressUpdate: _handleProgressUpdate,
                 ),
               ],
             ),

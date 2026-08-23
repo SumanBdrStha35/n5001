@@ -1,60 +1,144 @@
 import 'package:flutter/material.dart';
 
 import '../../../../data/hr_lesson_repository.dart';
+import '../../../../data/isar_service.dart';
 import '../../../../model/sript_data.dart';
 import '../../../../model/sript_lesson.dart';
 import 'widgets/header_card.dart';
 import 'widgets/lesson_list.dart';
 
-class HiraganaPage extends StatelessWidget {
+class HiraganaPage extends StatefulWidget {
   final List<LessonData> lessons;
   final bool isLoading;
+  final Function? onProgressUpdate;
 
   const HiraganaPage({
     super.key,
     required this.lessons,
     required this.isLoading,
+    this.onProgressUpdate,
   });
 
-  ScriptSummary _buildSummary() {
-    final totalLessons = lessons.length;
-    final completed = lessons.where((e) => e.statusText == 'Completed').length;
-    final studying = lessons.where((e) => e.statusText == 'In Progress').length;
-    final unlocked = lessons.where((e) => e.statusText == 'Opened').length;
-    final progress = totalLessons == 0 ? 0.0 : completed / totalLessons;
-    final totalChars = lessons.fold<int>(0, (sum, l) => sum + l.characterCount);
-    String actionText;
-    if (completed == totalLessons && totalLessons > 0) {
-      actionText = 'Review';
-    } else if (completed > 0 || studying > 0 || unlocked > 0) {
-      actionText = 'Continue Learning';
-    } else {
-      actionText = 'Start Learning';
+  @override
+  State<HiraganaPage> createState() => _HiraganaPageState();
+}
+
+class _HiraganaPageState extends State<HiraganaPage> {
+  late LessonRepository _lessonRepo;
+  List<LessonData> _lessons = [];
+  ScriptSummary _summary = const ScriptSummary(
+    title: 'Hiragana',
+    totalCharacters: 0,
+    totalLessons: 0,
+    completedLessons: 0,
+    progress: 0,
+    actionText: 'Start Learning',
+  );
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _lessons = widget.lessons;
+    _initRepo();
+  }
+
+  Future<void> _initRepo() async {
+    _lessonRepo = LessonRepository(isar: await IsarService.instance);
+    await _refreshData();
+  }
+
+  Future<void> _refreshData() async {
+    if (!mounted) return;
+
+    // Don't show loading indicator to avoid flicker
+    // setState(() => _isLoading = true);
+
+    try {
+      final summary = await _lessonRepo.getScriptSummary(
+        scriptType: ScriptType.hiragana,
+      );
+      final lessons = await _lessonRepo.getLessons(
+        scriptType: ScriptType.hiragana,
+      );
+
+      if (!mounted) return;
+
+      setState(() {
+        _lessons = lessons;
+        _summary = summary;
+        _isLoading = false; // Only set this if you set it to true above
+      });
+    } catch (e) {
+      if (!mounted) return;
+      setState(() => _isLoading = false);
+      // Handle error
     }
-    return ScriptSummary(
-      title: 'Hiragana',
-      totalCharacters: totalChars,
-      totalLessons: totalLessons,
-      completedLessons: completed,
-      progress: progress,
-      actionText: actionText,
-    );
+
+    if (widget.onProgressUpdate != null) {
+      widget.onProgressUpdate!();
+    }
+  }
+
+  @override
+  void didUpdateWidget(HiraganaPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.lessons != widget.lessons) {
+      _lessons = widget.lessons;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_isLoading || widget.isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
     return Column(
       children: [
-        HeaderCard(summary: _buildSummary(), lessons: lessons),
+        HeaderCard(
+          summary: _summary,
+          lessons: _lessons,
+          onPressed: () => _handleContinueOrStart(),
+          onViewAll: () => _handleViewAll(),
+        ),
         const SizedBox(height: 20),
         Expanded(
           child: LessonList(
-            lessons: lessons,
-            isLoading: isLoading,
+            lessons: _lessons,
+            isLoading: false,
             scriptType: ScriptType.hiragana,
+            onLessonUpdated: _refreshData,
           ),
         ),
       ],
+    );
+  }
+
+  void _handleContinueOrStart() {
+    // Find the next uncompleted lesson
+    final nextLesson = _summary.nextLesson;
+    if (nextLesson != null) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Opening: ${nextLesson.section}')));
+    } else if (_summary.isCompleted) {
+      // All lessons completed - show review option
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('All lessons completed! Time to review! 🎉'),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('No lessons available')));
+    }
+  }
+
+  void _handleViewAll() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('View all ${_lessons.length} lessons')),
     );
   }
 }

@@ -1,22 +1,4 @@
-// class ScriptCardData {
-//   final String title;
-//   final String charCount;
-//   final List<String> characters;
-//   final String progressText;
-//   final double progressPercent;
-//   final String actionText;
-//   final bool isStarted;
-
-//   const ScriptCardData({
-//     required this.title,
-//     required this.charCount,
-//     required this.characters,
-//     required this.progressText,
-//     required this.progressPercent,
-//     required this.actionText,
-//     required this.isStarted,
-//   });
-// }
+import 'sript_lesson.dart';
 
 /// Summary information for a script (Hiragana / Katakana)
 /// displayed in the header card.
@@ -38,6 +20,7 @@ class ScriptSummary {
 
   /// Button text
   final String actionText;
+  final LessonData? nextLesson;
 
   const ScriptSummary({
     required this.title,
@@ -46,6 +29,7 @@ class ScriptSummary {
     required this.completedLessons,
     required this.progress,
     required this.actionText,
+    this.nextLesson,
   });
 
   bool get isCompleted => completedLessons == totalLessons && totalLessons > 0;
