@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../data/hr_lesson_repository.dart';
 import '../../../../../model/sript_data.dart';
 import '../../../../../model/sript_lesson.dart';
 import '../../../../../other/app_colors_theme.dart';
@@ -10,6 +11,7 @@ class HeaderCard extends StatelessWidget {
   final VoidCallback? onPressed;
   final VoidCallback? onViewAll;
   final List<LessonData> lessons;
+  final ScriptType? scriptType;
 
   const HeaderCard({
     super.key,
@@ -17,6 +19,7 @@ class HeaderCard extends StatelessWidget {
     this.onPressed,
     this.onViewAll,
     required this.lessons,
+    this.scriptType,
   });
 
   @override
@@ -84,23 +87,7 @@ class HeaderCard extends StatelessWidget {
             const SizedBox(height: 20),
           ],
 
-          /// Lesson Statistics
-          // Row(
-          //   children: [
-          //     Expanded(
-          //       child: _InfoTile(
-          //         title: 'Lessons',
-          //         value: '${summary.completedLessons}/${summary.totalLessons}',
-          //       ),
-          //     ),
-          //     Expanded(
-          //       child: _InfoTile(
-          //         title: 'Progress',
-          //         value: '${(summary.progress * 100).toInt()}%',
-          //       ),
-          //     ),
-          //   ],
-          // ),
+          /// Lesson progress and buttons
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -143,6 +130,8 @@ class HeaderCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
+
+          /// Buttons Row
           Row(
             children: [
               Expanded(
@@ -187,7 +176,7 @@ class HeaderCard extends StatelessWidget {
                     summary.completedLessons == 0
                         ? 'Start'
                         : summary.completedLessons == 10
-                        ? 'Completed'
+                        ? 'Review'
                         : 'Continue',
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),

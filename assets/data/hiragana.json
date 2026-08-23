@@ -764,6 +764,21 @@
             { "japanese": "やさい", "romaji": "yasai", "english": "vegetable" }
           ]
         },
+        "":{
+          "romaji": "",
+          "strokeCount": 0,
+          "pronunciation": "",
+          "writingPattern": [
+          ],
+          "animation": [
+          ],
+          "tips": "",
+          "mnemonics": "",
+          "exampleWords": [
+            { "japanese": "", "romaji": "", "english": "" },
+            { "japanese": "", "romaji": "", "english": "" }
+          ]
+        },
         "ゆ": {
           "romaji": "yu",
           "strokeCount": 2,
@@ -781,6 +796,21 @@
           "exampleWords": [
             { "japanese": "ゆき", "romaji": "yuki", "english": "snow" },
             { "japanese": "ゆめ", "romaji": "yume", "english": "dream" }
+          ]
+        },
+        " ":{
+          "romaji": "",
+          "strokeCount": 0,
+          "pronunciation": "",
+          "writingPattern": [
+          ],
+          "animation": [
+          ],
+          "tips": "",
+          "mnemonics": "",
+          "exampleWords": [
+            { "japanese": "", "romaji": "", "english": "" },
+            { "japanese": "", "romaji": "", "english": "" }
           ]
         },
         "よ": {
@@ -906,8 +936,8 @@
       }
     },
     {
-      "title": "W-Row (わをん)",
-      "description": "The final hiragana characters — 'wa', 'wo', and 'n'.",
+      "title": "W-Row (わを)",
+      "description": "The 'w' consonant sounds — only two characters.",
       "characters": {
         "わ": {
           "romaji": "wa",
@@ -927,6 +957,51 @@
           "exampleWords": [
             { "japanese": "わたし", "romaji": "watashi", "english": "I / me" },
             { "japanese": "わに", "romaji": "wani", "english": "alligator" }
+          ]
+        },
+        "":{
+          "romaji": "",
+          "strokeCount": 0,
+          "pronunciation": "",
+          "writingPattern": [
+          ],
+          "animation": [
+          ],
+          "tips": "",
+          "mnemonics": "",
+          "exampleWords": [
+            { "japanese": "", "romaji": "", "english": "" },
+            { "japanese": "", "romaji": "", "english": "" }
+          ]
+        },
+        " ":{
+          "romaji": "",
+          "strokeCount": 0,
+          "pronunciation": "",
+          "writingPattern": [
+          ],
+          "animation": [
+          ],
+          "tips": "",
+          "mnemonics": "",
+          "exampleWords": [
+            { "japanese": "", "romaji": "", "english": "" },
+            { "japanese": "", "romaji": "", "english": "" }
+          ]
+        },
+        "  ":{
+          "romaji": "",
+          "strokeCount": 0,
+          "pronunciation": "",
+          "writingPattern": [
+          ],
+          "animation": [
+          ],
+          "tips": "",
+          "mnemonics": "",
+          "exampleWords": [
+            { "japanese": "", "romaji": "", "english": "" },
+            { "japanese": "", "romaji": "", "english": "" }
           ]
         },
         "を": {
@@ -949,7 +1024,13 @@
             { "japanese": "を (particle)", "romaji": "wo", "english": "object marker particle" },
             { "japanese": "をみる", "romaji": "womiru", "english": "to see (classical)" }
           ]
-        },
+        }
+      }
+    },
+    {
+      "title": "N-Row (ん)",
+      "description": "The final hiragana character — 'n'.",
+      "characters": {
         "ん": {
           "romaji": "n",
           "strokeCount": 3,

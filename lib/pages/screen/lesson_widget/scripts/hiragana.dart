@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:n5001/pages/screen/all_lesson_screen.dart';
 
 import '../../../../data/hr_lesson_repository.dart';
 import '../../../../data/isar_service.dart';
 import '../../../../model/sript_data.dart';
 import '../../../../model/sript_lesson.dart';
+import '../../character_detail_screen.dart';
 import 'widgets/header_card.dart';
 import 'widgets/lesson_list.dart';
 
@@ -119,6 +121,17 @@ class _HiraganaPageState extends State<HiraganaPage> {
     // Find the next uncompleted lesson
     final nextLesson = _summary.nextLesson;
     if (nextLesson != null) {
+      // Navigate to the lesson detail
+      navigateToCharacterDetail(
+        context: context,
+        character: nextLesson.title,
+        scriptType: ScriptType.hiragana,
+        lesson: nextLesson,
+      ).then((result) {
+        if (result == true) {
+          _refreshData();
+        }
+      });
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text('Opening: ${nextLesson.section}')));
@@ -137,8 +150,19 @@ class _HiraganaPageState extends State<HiraganaPage> {
   }
 
   void _handleViewAll() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('View all ${_lessons.length} lessons')),
-    );
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(content: Text('View all ${_lessons.length} lessons')),
+    // );
+    // navigate to all_lesson_screen.dar
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            AllLessonScreen(lessons: _lessons, scriptType: ScriptType.hiragana),
+      ),
+    ).then((_) {
+      // Refresh data when coming back from AllLessonsPage
+      _refreshData();
+    });
   }
 }
