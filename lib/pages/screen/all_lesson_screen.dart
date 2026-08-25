@@ -9,11 +9,13 @@ import '../../other/app_colors_theme.dart';
 class AllLessonScreen extends StatefulWidget {
   final List<LessonData> lessons;
   final ScriptType scriptType;
+  final Map<ScriptType, List<LessonData>> additionalLessons;
 
   const AllLessonScreen({
     super.key,
     required this.lessons,
     required this.scriptType,
+    this.additionalLessons = const {},
   });
 
   @override
@@ -40,7 +42,12 @@ class _AllLessonScreenState extends State<AllLessonScreen> {
     // Build the grid
     final List<List<KanaCell>> grid = [];
 
-    for (final lesson in widget.lessons) {
+    final allLessons = [
+      ...widget.lessons,
+      ...widget.additionalLessons.values.expand((lessons) => lessons),
+    ];
+
+    for (final lesson in allLessons) {
       final List<KanaCell> rowCells = [];
       for (final char in lesson.characterKeys) {
         if (char.isEmpty || char.trim().isEmpty) {

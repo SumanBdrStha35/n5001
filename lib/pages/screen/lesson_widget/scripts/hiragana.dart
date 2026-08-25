@@ -60,9 +60,7 @@ class _HiraganaPageState extends State<HiraganaPage> {
       final summary = await _lessonRepo.getScriptSummary(
         scriptType: ScriptType.hiragana,
       );
-      final lessons = await _lessonRepo.getLessons(
-        scriptType: ScriptType.hiragana,
-      );
+      final lessons = await _lessonRepo.getHiraganaCurriculum();
 
       if (!mounted) return;
 
@@ -96,24 +94,24 @@ class _HiraganaPageState extends State<HiraganaPage> {
       return const Center(child: CircularProgressIndicator());
     }
 
-    return Column(
-      children: [
-        HeaderCard(
-          summary: _summary,
-          lessons: _lessons,
-          onPressed: () => _handleContinueOrStart(),
-          onViewAll: () => _handleViewAll(),
-        ),
-        const SizedBox(height: 20),
-        Expanded(
-          child: LessonList(
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          HeaderCard(
+            summary: _summary,
+            lessons: _lessons,
+            onPressed: () => _handleContinueOrStart(),
+            onViewAll: () => _handleViewAll(),
+          ),
+          const SizedBox(height: 20),
+          LessonList(
             lessons: _lessons,
             isLoading: false,
             scriptType: ScriptType.hiragana,
             onLessonUpdated: _refreshData,
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

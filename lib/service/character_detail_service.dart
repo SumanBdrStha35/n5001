@@ -152,6 +152,22 @@ class CharacterDetailService {
         assetPath = 'assets/data/katakana.json';
         jsonKey = 'katakanaLessons';
         break;
+      case ScriptType.hdakuon:
+        assetPath = 'assets/data/hiragana_dakuon.json';
+        jsonKey = 'hiraganaDakuon';
+        break;
+      case ScriptType.hhandakuon:
+        assetPath = 'assets/data/hiragana_handakuon.json';
+        jsonKey = 'hiraganaHandakuon';
+        break;
+      case ScriptType.kdakuon:
+        assetPath = 'assets/data/katakana_dakuon.json';
+        jsonKey = 'katakanaDakuon';
+        break;
+      case ScriptType.khandakuon:
+        assetPath = 'assets/data/katakana_handakuon.json';
+        jsonKey = 'katakanaHandakuon';
+        break;
     }
 
     final jsonString = await rootBundle.loadString(assetPath);

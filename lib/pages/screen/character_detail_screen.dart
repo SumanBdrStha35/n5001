@@ -280,10 +280,7 @@ class _HiraganaLessonPageState extends State<HiraganaLessonPage> {
   Future<void> _onLessonComplete() async {
     Logger().d('Completing lesson... ${widget.lesson?.lessonId}');
     try {
-      // Determine script type from lesson ID
-      final scriptType = widget.lesson?.lessonId.startsWith('hiragana') == true
-          ? ScriptType.hiragana
-          : ScriptType.katakana;
+      final scriptType = widget.lesson?.scriptType ?? ScriptType.hiragana;
       Logger().d('Script type: $scriptType');
 
       // Complete the lesson and unlock next

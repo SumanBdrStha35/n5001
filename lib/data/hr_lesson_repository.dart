@@ -10,7 +10,7 @@ import '../model/sript_lesson.dart';
 import 'hr_lesson_progress.dart';
 
 /// Supported Japanese scripts for lessons.
-enum ScriptType { hiragana, katakana }
+enum ScriptType { hiragana, katakana, hdakuon, hhandakuon, kdakuon, khandakuon }
 
 /// Provides lesson definitions (from JSON) merged with user progress (from Isar).
 class LessonRepository {
@@ -30,13 +30,31 @@ class LessonRepository {
     final String jsonKey;
 
     switch (scriptType) {
+      // hiragana
       case ScriptType.hiragana:
         assetPath = 'assets/data/hiragana.json';
         jsonKey = 'hiraganaLessons';
         break;
+      case ScriptType.hdakuon:
+        assetPath = 'assets/data/hiragana_dakuon.json';
+        jsonKey = 'hiraganaDakuon';
+        break;
+      case ScriptType.hhandakuon:
+        assetPath = 'assets/data/hiragana_handakuon.json';
+        jsonKey = 'hiraganaHandakuon';
+        break;
+      // katakana
       case ScriptType.katakana:
         assetPath = 'assets/data/katakana.json';
         jsonKey = 'katakanaLessons';
+        break;
+      case ScriptType.kdakuon:
+        assetPath = 'assets/data/katakana_dakuon.json';
+        jsonKey = 'katakanaDakuon';
+        break;
+      case ScriptType.khandakuon:
+        assetPath = 'assets/data/katakana_handakuon.json';
+        jsonKey = 'katakanaHandakuon';
         break;
     }
 
@@ -45,7 +63,8 @@ class LessonRepository {
         json.decode(jsonString) as Map<String, dynamic>;
     final List<dynamic> sections = decoded[jsonKey] as List<dynamic>;
 
-    final scriptPrefix = scriptType.name; // e.g. "hiragana" or "katakana"
+    final scriptPrefix = scriptType
+        .name; // e.g. "hiragana", "katakana", or "dakuon" or "handakuon"
     final List<Map<String, dynamic>> result = [];
 
     for (int sectionIdx = 0; sectionIdx < sections.length; sectionIdx++) {
@@ -124,6 +143,48 @@ class LessonRepository {
         // Add these fields for easier navigation
         scriptType: scriptType,
         lessonNumber: idx + 1,
+      );
+    }).toList();
+  }
+
+  /// Returns the complete hiragana curriculum in learning order.
+  ///
+  /// Dakuon and handakuon begin only after all preceding groups are complete.
+  Future<List<LessonData>> getHiraganaCurriculum() async {
+    final definitions = [
+      for (final scriptType in [
+        ScriptType.hiragana,
+        ScriptType.hdakuon,
+        ScriptType.hhandakuon,
+      ])
+        ...(await _loadLessonDefinitions(scriptType)).map(
+          (definition) => (scriptType: scriptType, definition: definition),
+        ),
+    ];
+    final progressMap = await _loadProgressMap();
+
+    return definitions.asMap().entries.map((entry) {
+      final index = entry.key;
+      final scriptType = entry.value.scriptType;
+      final definition = entry.value.definition;
+      final lessonId = definition['id'] as String;
+      final savedStatus = progressMap[lessonId];
+      final previousCompleted =
+          index == 0 ||
+          progressMap[definitions[index - 1].definition['id'] as String] ==
+              'Completed';
+      final status = savedStatus ?? (previousCompleted ? 'Opened' : 'Locked');
+
+      return LessonData(
+        section: definition['section'] as String? ?? '',
+        description: definition['description'] as String? ?? '',
+        characters: (definition['characters'] as Map<String, String>?) ?? {},
+        characterKeys: (definition['characterKeys'] as List<String>?) ?? [],
+        statusText: status,
+        icon: _iconFromStatus(status),
+        lessonId: lessonId,
+        scriptType: scriptType,
+        lessonNumber: index + 1,
       );
     }).toList();
   }
@@ -211,8 +272,14 @@ class LessonRepository {
     Logger().d(
       'Marked $lessonId as Completed',
     ); //Completing lesson: hiragana_lesson_4
-    // Get all lessons to find the next one
-    final allLessons = await getLessons(scriptType: scriptType);
+    // Use the shared hiragana sequence so dakuon and handakuon stay locked
+    // until the preceding group is complete.
+    final allLessons =
+        scriptType == ScriptType.hiragana ||
+            scriptType == ScriptType.hdakuon ||
+            scriptType == ScriptType.hhandakuon
+        ? await getHiraganaCurriculum()
+        : await getLessons(scriptType: scriptType);
     final currentIndex = allLessons.indexWhere(
       (lesson) => lesson.lessonId == lessonId,
     );
@@ -258,7 +325,9 @@ class LessonRepository {
   Future<ScriptSummary> getScriptSummary({
     required ScriptType scriptType,
   }) async {
-    final lessons = await getLessons(scriptType: scriptType);
+    final lessons = scriptType == ScriptType.hiragana
+        ? await getHiraganaCurriculum()
+        : await getLessons(scriptType: scriptType);
     final totalLessons = lessons.length;
     final completed = lessons.where((e) => e.statusText == 'Completed').length;
     final inProgress = lessons
@@ -288,7 +357,7 @@ class LessonRepository {
       completedLessons: completed,
       progress: progress,
       actionText: actionText,
-      nextLesson: await getFirstUncompletedLesson(scriptType: scriptType),
+      nextLesson: lessons.where((e) => e.statusText != 'Completed').firstOrNull,
     );
   }
 

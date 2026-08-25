@@ -175,7 +175,7 @@ class HeaderCard extends StatelessWidget {
                   child: Text(
                     summary.completedLessons == 0
                         ? 'Start'
-                        : summary.completedLessons == 10
+                        : summary.completedLessons == summary.totalLessons
                         ? 'Review'
                         : 'Continue',
                     style: const TextStyle(fontWeight: FontWeight.bold),

@@ -53,9 +53,9 @@ class _LessonListState extends State<LessonList> {
 
   Future<void> _refreshLessons() async {
     Logger().d('Refreshing lesson list...');
-    final updatedLessons = await _lessonRepo.getLessons(
-      scriptType: widget.scriptType,
-    );
+    final updatedLessons = widget.scriptType == ScriptType.hiragana
+        ? await _lessonRepo.getHiraganaCurriculum()
+        : await _lessonRepo.getLessons(scriptType: widget.scriptType);
 
     for (final lesson in updatedLessons) {
       Logger().d('${lesson.lessonId} => ${lesson.statusText}');
@@ -99,7 +99,7 @@ class _LessonListState extends State<LessonList> {
       // Complete the lesson
       await _lessonRepo.completeLesson(
         lessonId: lesson.lessonId,
-        scriptType: widget.scriptType,
+        scriptType: lesson.scriptType ?? widget.scriptType,
       );
 
       await _refreshLessons();
@@ -148,7 +148,7 @@ class _LessonListState extends State<LessonList> {
               final result = await navigateToCharacterDetail(
                 context: context,
                 character: lesson.title,
-                scriptType: widget.scriptType,
+                scriptType: lesson.scriptType ?? widget.scriptType,
                 lesson: lesson,
               );
               // This will be true when the lesson is completed from the detail screen

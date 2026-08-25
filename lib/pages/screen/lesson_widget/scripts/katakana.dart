@@ -4,6 +4,8 @@ import '../../../../data/hr_lesson_repository.dart';
 import '../../../../data/isar_service.dart';
 import '../../../../model/sript_data.dart';
 import '../../../../model/sript_lesson.dart';
+import '../../all_lesson_screen.dart';
+import '../../character_detail_screen.dart';
 import 'widgets/header_card.dart';
 import 'widgets/lesson_list.dart';
 
@@ -51,23 +53,26 @@ class _KatakanaPageState extends State<KatakanaPage> {
   Future<void> _refreshData() async {
     if (!mounted) return;
 
-    setState(() => _isLoading = true);
+    // setState(() => _isLoading = true);
+    try {
+      final summary = await _lessonRepo.getScriptSummary(
+        scriptType: ScriptType.katakana,
+      );
+      final lessons = await _lessonRepo.getLessons(
+        scriptType: ScriptType.katakana,
+      );
 
-    final summary = await _lessonRepo.getScriptSummary(
-      scriptType: ScriptType.katakana,
-    );
-    final lessons = await _lessonRepo.getLessons(
-      scriptType: ScriptType.katakana,
-    );
+      if (!mounted) return;
 
-    if (!mounted) return;
-
-    setState(() {
-      _lessons = lessons;
-      _summary = summary;
-      _isLoading = false;
-    });
-
+      setState(() {
+        _lessons = lessons;
+        _summary = summary;
+        _isLoading = false;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      setState(() => _isLoading = false);
+    }
     if (widget.onProgressUpdate != null) {
       widget.onProgressUpdate!();
     }
@@ -111,6 +116,17 @@ class _KatakanaPageState extends State<KatakanaPage> {
   void _handleContinueOrStart() {
     final nextLesson = _summary.nextLesson;
     if (nextLesson != null) {
+      // Navigate to the lesson detail
+      navigateToCharacterDetail(
+        context: context,
+        character: nextLesson.title,
+        scriptType: ScriptType.katakana,
+        lesson: nextLesson,
+      ).then((result) {
+        if (result == true) {
+          _refreshData();
+        }
+      });
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text('Opening: ${nextLesson.section}')));
@@ -128,8 +144,18 @@ class _KatakanaPageState extends State<KatakanaPage> {
   }
 
   void _handleViewAll() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('View all ${_lessons.length} lessons')),
-    );
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   SnackBar(content: Text('View all ${_lessons.length} lessons')),
+    // );
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            AllLessonScreen(lessons: _lessons, scriptType: ScriptType.katakana),
+      ),
+    ).then((_) {
+      // Refresh data when coming back from AllLessonsPage
+      _refreshData();
+    });
   }
 }
