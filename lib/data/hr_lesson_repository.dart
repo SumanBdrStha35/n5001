@@ -40,8 +40,8 @@ class LessonRepository {
         jsonKey = 'hiraganaDakuon';
         break;
       case ScriptType.hhandakuon:
-        assetPath = 'assets/data/hiragana_handakuon.json';
-        jsonKey = 'hiraganaHandakuon';
+        assetPath = 'assets/data/hiragana_combos.json';
+        jsonKey = 'hiraganaCombos';
         break;
       // katakana
       case ScriptType.katakana:

@@ -1,0 +1,856 @@
+{
+  "hiraganaCombos": [
+    {
+      "title": "K-Combinations (きゃ きゅ きょ)",
+      "description": "Combining き (ki) with small ゃ (ya), ゅ (yu), ょ (yo) to create contracted sounds.",
+      "characters": {
+        "きゃ": {
+          "romaji": "kya",
+          "strokeCount": 5,
+          "pronunciation": "Like 'kya' in 'Kyan' - a single syllable with a 'y' sound inserted.",
+          "writingPattern": [
+            "1. Write き (ki) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [     
+            "M30.5,30.25c1.88,0.75,4.64,1.06,5.88,0.88c6.75-1,22.25-4.5,26.5-6c2.17-0.76,3.5-1.25,4.88-2.12",
+            "M36.25,48.7c2.01,0.85,4.97,1.2,6.29,0.99c7.23-1.13,23.82-5.09,28.37-6.79c2.32-0.86,3.75-1.41,5.22-2.4",
+            "M42,14.12c1.5,0.88,3.13,2.94,4,5.12c5.5,13.76,16,29.26,26.37,40.76c7.64,8.47,9.12,9.38-6,3.88",
+            "M33.75,83.25c10.62,9.75,27.25,8.62,38.12,5",
+            "M57.00,69.69c0.94,0.81,2.62,1.25,4.31,0.44c9.26,-4.44,17.88,-9.69,25.41,-9.63c4.51,0.07,8.01,2.06,7.96,6.14c0.00,4.17,-5.44,8.29,-12.25,8.91",
+            "M71.56,52.94c2.56,0.44,5.21,2.02,5.75,3.31c1.06,2.50,-0.50,1.19,-1.44,1.31",
+            "M63.00,57.19c1.19,0.94,1.64,1.44,1.94,2.62c1.31,5.25,5.56,20.56,7.38,26.25c0.33,1.02,0.94,3.12,1.44,4.69"
+          ],
+          "tips": "The small ゃ is written smaller and positioned in the bottom-right corner of き.",
+          "mnemonics": "Think of 'Kya' as 'ki' + 'ya' compressed into one sound.",
+          "commonMistakes": "Writing the ゃ at full size instead of small (subscript).",
+          "exampleWords": [
+            { "japanese": "きゃく", "romaji": "kyaku", "english": "guest/customer" },
+            { "japanese": "きゃべつ", "romaji": "kyabetsu", "english": "cabbage" }
+          ]
+        },
+        "きゅ": {
+          "romaji": "kyu",
+          "strokeCount": 5,
+          "pronunciation": "Like 'kyu' in 'cute' - compressed 'ki' + 'yu' sound.",
+          "writingPattern": [
+            "1. Write き (ki) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M30.5,30.25c1.88,0.75,4.64,1.06,5.88,0.88c6.75-1,22.25-4.5,26.5-6c2.17-0.76,3.5-1.25,4.88-2.12",
+            "M36.25,48.7c2.01,0.85,4.97,1.2,6.29,0.99c7.23-1.13,23.82-5.09,28.37-6.79c2.32-0.86,3.75-1.41,5.22-2.4",
+            "M42,14.12c1.5,0.88,3.13,2.94,4,5.12c5.5,13.76,16,29.26,26.37,40.76c7.64,8.47,9.12,9.38-6,3.88",
+            "M33.75,83.25c10.62,9.75,27.25,8.62,38.12,5",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "The small ゅ is positioned in the bottom-right area, smaller than normal.",
+          "mnemonics": "Think of 'Kyuu' as 'ki' + 'yu' - like saying 'cute' but with a 'k'.",
+          "commonMistakes": "Pronouncing it as 'ki-yu' with two separate syllables instead of one.",
+          "exampleWords": [
+            { "japanese": "きゅう", "romaji": "kyuu", "english": "nine/emergency" },
+            { "japanese": "きゅうり", "romaji": "kyuuri", "english": "cucumber" }
+          ]
+        },
+        "きょ": {
+          "romaji": "kyo",
+          "strokeCount": 5,
+          "pronunciation": "Like 'kyo' in 'Kyoto' - compressed 'ki' + 'yo' sound.",
+          "writingPattern": [
+            "1. Write き (ki) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M30.5,30.25c1.88,0.75,4.64,1.06,5.88,0.88c6.75-1,22.25-4.5,26.5-6c2.17-0.76,3.5-1.25,4.88-2.12",
+            "M36.25,48.7c2.01,0.85,4.97,1.2,6.29,0.99c7.23-1.13,23.82-5.09,28.37-6.79c2.32-0.86,3.75-1.41,5.22-2.4",
+            "M42,14.12c1.5,0.88,3.13,2.94,4,5.12c5.5,13.76,16,29.26,26.37,40.76c7.64,8.47,9.12,9.38-6,3.88",
+            "M33.75,83.25c10.62,9.75,27.25,8.62,38.12,5",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "The small ょ is the smallest of the y-column, positioned at the bottom-right.",
+          "mnemonics": "Think of 'Kyo' as 'ki' + 'yo' - like 'Kyoto'.",
+          "commonMistakes": "Making the ょ too large - it should be noticeably smaller than よ.",
+          "exampleWords": [
+            { "japanese": "きょう", "romaji": "kyou", "english": "today" },
+            { "japanese": "きょねん", "romaji": "kyonen", "english": "last year" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "G-Combinations (ぎゃ ぎゅ ぎょ)",
+      "description": "Combining ぎ (gi) with small ゃ (ya), ゅ (yu), ょ (yo) to create voiced contracted sounds.",
+      "characters": {
+        "ぎゃ": {
+          "romaji": "gya",
+          "strokeCount": 7,
+          "pronunciation": "Like 'gya' in 'gyaat' - voiced 'kya'.",
+          "writingPattern": [
+            "1. Write ぎ (gi) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [
+            "M30.5,30.25c1.88,0.75,4.64,1.06,5.88,0.88c6.75-1,22.25-4.5,26.5-6c2.17-0.76,3.5-1.25,4.88-2.12",
+            "M36.25,48.7c2.01,0.85,4.97,1.2,6.29,0.99c7.23-1.13,23.82-5.09,28.37-6.79c2.32-0.86,3.75-1.41,5.22-2.4",
+            "M42,14.12c1.5,0.88,3.13,2.94,4,5.12c5.5,13.76,16,29.26,26.37,40.76c7.64,8.47,9.12,9.38-6,3.88",
+            "M33.75,83.25c10.62,9.75,27.25,8.62,38.12,5",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M60,40c1,1.38,1.29,4.7,0.5,7.12c-3,12-8,18-12,22"
+          ],
+          "tips": "The dakuten on ぎ plus the small ゃ creates 'gya'.",
+          "mnemonics": "Think of 'gya' as the voiced version of 'kya'.",
+          "commonMistakes": "Forgetting the dakuten on the base character.",
+          "exampleWords": [
+            { "japanese": "ぎゃく", "romaji": "gyaku", "english": "reverse/opposite" },
+            { "japanese": "ぎゃっ", "romaji": "gya", "english": "(sound of surprise)" }
+          ]
+        },
+        "ぎゅ": {
+          "romaji": "gyu",
+          "strokeCount": 7,
+          "pronunciation": "Like 'gyu' in 'guy' - voiced 'kyu'.",
+          "writingPattern": [
+            "1. Write ぎ (gi) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M30.5,30.25c1.88,0.75,4.64,1.06,5.88,0.88c6.75-1,22.25-4.5,26.5-6c2.17-0.76,3.5-1.25,4.88-2.12",
+            "M36.25,48.7c2.01,0.85,4.97,1.2,6.29,0.99c7.23-1.13,23.82-5.09,28.37-6.79c2.32-0.86,3.75-1.41,5.22-2.4",
+            "M42,14.12c1.5,0.88,3.13,2.94,4,5.12c5.5,13.76,16,29.26,26.37,40.76c7.64,8.47,9.12,9.38-6,3.88",
+            "M33.75,83.25c10.62,9.75,27.25,8.62,38.12,5",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "The small ゅ is placed at the bottom-right of ぎ.",
+          "mnemonics": "Think of 'gyu' as the voiced version of 'kyu'.",
+          "commonMistakes": "Pronouncing it as 'gi-yu' with two separate syllables.",
+          "exampleWords": [
+            { "japanese": "ぎゅうにく", "romaji": "gyuuniku", "english": "beef" },
+            { "japanese": "ぎゅっと", "romaji": "gyutto", "english": "tightly" }
+          ]
+        },
+        "ぎょ": {
+          "romaji": "gyo",
+          "strokeCount": 7,
+          "pronunciation": "Like 'gyo' in 'gyoza' - voiced 'kyo'.",
+          "writingPattern": [
+            "1. Write ぎ (gi) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M30.5,30.25c1.88,0.75,4.64,1.06,5.88,0.88c6.75-1,22.25-4.5,26.5-6c2.17-0.76,3.5-1.25,4.88-2.12",
+            "M36.25,48.7c2.01,0.85,4.97,1.2,6.29,0.99c7.23-1.13,23.82-5.09,28.37-6.79c2.32-0.86,3.75-1.41,5.22-2.4",
+            "M42,14.12c1.5,0.88,3.13,2.94,4,5.12c5.5,13.76,16,29.26,26.37,40.76c7.64,8.47,9.12,9.38-6,3.88",
+            "M33.75,83.25c10.62,9.75,27.25,8.62,38.12,5",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "The small ょ should be clearly smaller than the base character.",
+          "mnemonics": "Think of 'gyoza' - the famous dumpling!",
+          "commonMistakes": "Making the ょ full-size instead of subscript.",
+          "exampleWords": [
+            { "japanese": "ぎょざ", "romaji": "gyoza", "english": "gyoza (dumpling)" },
+            { "japanese": "ぎょぎょ", "romaji": "gyogyo", "english": "fishy (sound)" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "S-Combinations (しゃ しゅ しょ)",
+      "description": "Combining し (shi) with small ゃ (ya), ゅ (yu), ょ (yo) to create contracted sounds.",
+      "characters": {
+        "しゃ": {
+          "romaji": "sha",
+          "strokeCount": 4,
+          "pronunciation": "Like 'sha' in 'shark' - a single 'sh' + 'a' sound.",
+          "writingPattern": [
+            "1. Write し (shi) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [
+            "M39.12,17.5c1.25,3.12,0.93,6.74,0.38,10.25c-2.12,13.5-3,26.5-3,39.12c0,27.38,19.88,30.12,45.5,17.25",
+            "M60,40c1,1.38,1.29,4.7,0.5,7.12c-3,12-8,18-12,22"
+          ],
+          "tips": "The small ゃ is placed in the bottom-right of し.",
+          "mnemonics": "Think of 'sha' as in 'shark' - it's a single sound.",
+          "commonMistakes": "Pronouncing as 'shi-ya' with two syllables.",
+          "exampleWords": [
+            { "japanese": "しゃしん", "romaji": "shashin", "english": "photograph" },
+            { "japanese": "しゃく", "romaji": "shaku", "english": "anger" }
+          ]
+        },
+        "しゅ": {
+          "romaji": "shu",
+          "strokeCount": 4,
+          "pronunciation": "Like 'shu' in 'shoe' - compressed 'shi' + 'yu'.",
+          "writingPattern": [
+            "1. Write し (shi) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M39.12,17.5c1.25,3.12,0.93,6.74,0.38,10.25c-2.12,13.5-3,26.5-3,39.12c0,27.38,19.88,30.12,45.5,17.25",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "The small ゅ is positioned at the bottom-right of し.",
+          "mnemonics": "Think of 'shoe' - the 'shu' sound.",
+          "commonMistakes": "Writing the ゅ too large - it should be subscript.",
+          "exampleWords": [
+            { "japanese": "しゅみ", "romaji": "shumi", "english": "hobby" },
+            { "japanese": "しゅう", "romaji": "shuu", "english": "week/state" }
+          ]
+        },
+        "しょ": {
+          "romaji": "sho",
+          "strokeCount": 4,
+          "pronunciation": "Like 'sho' in 'show' - compressed 'shi' + 'yo'.",
+          "writingPattern": [
+            "1. Write し (shi) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M39.12,17.5c1.25,3.12,0.93,6.74,0.38,10.25c-2.12,13.5-3,26.5-3,39.12c0,27.38,19.88,30.12,45.5,17.25",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "The small ょ is the smallest of the y-column.",
+          "mnemonics": "Think of 'show' - the 'sho' sound.",
+          "commonMistakes": "Making the ょ too large.",
+          "exampleWords": [
+            { "japanese": "しょくどう", "romaji": "shokudou", "english": "cafeteria/dining room" },
+            { "japanese": "しょるい", "romaji": "shorui", "english": "documents" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "J-Combinations (じゃ じゅ じょ)",
+      "description": "Combining じ (ji) with small ゃ (ya), ゅ (yu), ょ (yo) to create voiced contracted sounds.",
+      "characters": {
+        "じゃ": {
+          "romaji": "ja",
+          "strokeCount": 5,
+          "pronunciation": "Like 'ja' in 'jazz' - voiced 'sha'.",
+          "writingPattern": [
+            "1. Write じ (ji) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [
+            "M39.12,17.5c1.25,3.12,0.93,6.74,0.38,10.25c-2.12,13.5-3,26.5-3,39.12c0,27.38,19.88,30.12,45.5,17.25",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M60,40c1,1.38,1.29,4.7,0.5,7.12c-3,12-8,18-12,22"
+          ],
+          "tips": "The dakuten on じ plus the small ゃ creates 'ja'.",
+          "mnemonics": "Think of 'ja' as in 'jazz' - the voiced version.",
+          "commonMistakes": "Forgetting the dakuten.",
+          "exampleWords": [
+            { "japanese": "じゃま", "romaji": "jama", "english": "obstacle/interference" },
+            { "japanese": "じゃがいも", "romaji": "jagaimo", "english": "potato" }
+          ]
+        },
+        "じゅ": {
+          "romaji": "ju",
+          "strokeCount": 5,
+          "pronunciation": "Like 'ju' in 'juice' - voiced 'shu'.",
+          "writingPattern": [
+            "1. Write じ (ji) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M39.12,17.5c1.25,3.12,0.93,6.74,0.38,10.25c-2.12,13.5-3,26.5-3,39.12c0,27.38,19.88,30.12,45.5,17.25",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "The small ゅ is placed at the bottom-right of じ.",
+          "mnemonics": "Think of 'juice' - the 'ju' sound.",
+          "commonMistakes": "Writing the ゅ too large.",
+          "exampleWords": [
+            { "japanese": "じゅぎょう", "romaji": "jugyou", "english": "class/lesson" },
+            { "japanese": "じゅう", "romaji": "juu", "english": "ten" }
+          ]
+        },
+        "じょ": {
+          "romaji": "jo",
+          "strokeCount": 5,
+          "pronunciation": "Like 'jo' in 'joke' - voiced 'sho'.",
+          "writingPattern": [
+            "1. Write じ (ji) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M39.12,17.5c1.25,3.12,0.93,6.74,0.38,10.25c-2.12,13.5-3,26.5-3,39.12c0,27.38,19.88,30.12,45.5,17.25",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "The small ょ should be clearly smaller.",
+          "mnemonics": "Think of 'joke' - the 'jo' sound.",
+          "commonMistakes": "Making the ょ full-size.",
+          "exampleWords": [
+            { "japanese": "じょせい", "romaji": "josei", "english": "woman/female" },
+            { "japanese": "じょおう", "romaji": "joou", "english": "queen" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "Ch-Combinations (ちゃ ちゅ ちょ)",
+      "description": "Combining ち (chi) with small ゃ (ya), ゅ (yu), ょ (yo) to create contracted sounds.",
+      "characters": {
+        "ちゃ": {
+          "romaji": "cha",
+          "strokeCount": 5,
+          "pronunciation": "Like 'cha' in 'chat' - a single 'ch' + 'a' sound.",
+          "writingPattern": [
+            "1. Write ち (chi) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [
+            "M24.5,32.62c1.38,0.62,3.88,1.51,6.38,1.12c6.5-1,18.25-4.12,26.88-6c2.64-0.57,5.38-1.5,7.62-2.38",
+            "M45.62,15.62c0.75,1.25,0.71,3.58,0.38,5.25c-3,15-4.25,22.59-8.38,38.62c-3.25,12.62-5.38,11.12,3.62,4.38c8.29-6.21,19.75-9.5,28.5-9.5c8.62,0,14.58,5.88,14.5,14.5c-0.12,13.5-16.5,20.62-29.88,23.25",
+            "M60,40c1,1.38,1.29,4.7,0.5,7.12c-3,12-8,18-12,22"
+          ],
+          "tips": "The small ゃ is placed at the bottom-right of ち.",
+          "mnemonics": "Think of 'cha' as in 'chat' - a single sound.",
+          "commonMistakes": "Pronouncing as 'chi-ya' with two syllables.",
+          "exampleWords": [
+            { "japanese": "ちゃ", "romaji": "cha", "english": "tea" },
+            { "japanese": "ちゃいろ", "romaji": "chairo", "english": "brown" }
+          ]
+        },
+        "ちゅ": {
+          "romaji": "chu",
+          "strokeCount": 5,
+          "pronunciation": "Like 'chu' in 'chute' - compressed 'chi' + 'yu'.",
+          "writingPattern": [
+            "1. Write ち (chi) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M24.5,32.62c1.38,0.62,3.88,1.51,6.38,1.12c6.5-1,18.25-4.12,26.88-6c2.64-0.57,5.38-1.5,7.62-2.38",
+            "M45.62,15.62c0.75,1.25,0.71,3.58,0.38,5.25c-3,15-4.25,22.59-8.38,38.62c-3.25,12.62-5.38,11.12,3.62,4.38c8.29-6.21,19.75-9.5,28.5-9.5c8.62,0,14.58,5.88,14.5,14.5c-0.12,13.5-16.5,20.62-29.88,23.25",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "The small ゅ is positioned at the bottom-right of ち.",
+          "mnemonics": "Think of 'chute' - the 'chu' sound.",
+          "commonMistakes": "Writing the ゅ too large.",
+          "exampleWords": [
+            { "japanese": "ちゅうがく", "romaji": "chuugaku", "english": "middle school" },
+            { "japanese": "ちゅうしゃ", "romaji": "chuusha", "english": "injection" }
+          ]
+        },
+        "ちょ": {
+          "romaji": "cho",
+          "strokeCount": 5,
+          "pronunciation": "Like 'cho' in 'chocolate' - compressed 'chi' + 'yo'.",
+          "writingPattern": [
+            "1. Write ち (chi) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M24.5,32.62c1.38,0.62,3.88,1.51,6.38,1.12c6.5-1,18.25-4.12,26.88-6c2.64-0.57,5.38-1.5,7.62-2.38",
+            "M45.62,15.62c0.75,1.25,0.71,3.58,0.38,5.25c-3,15-4.25,22.59-8.38,38.62c-3.25,12.62-5.38,11.12,3.62,4.38c8.29-6.21,19.75-9.5,28.5-9.5c8.62,0,14.58,5.88,14.5,14.5c-0.12,13.5-16.5,20.62-29.88,23.25",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "The small ょ should be clearly smaller.",
+          "mnemonics": "Think of 'chocolate' - the 'cho' sound.",
+          "commonMistakes": "Making the ょ full-size.",
+          "exampleWords": [
+            { "japanese": "ちょっと", "romaji": "chotto", "english": "a little" },
+            { "japanese": "ちょうど", "romaji": "choudo", "english": "exactly" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "J-Combinations (ぢゃ ぢゅ ぢょ)",
+      "description": "Combining ぢ (ji) with small ゃ (ya), ゅ (yu), ょ (yo) - rare combinations.",
+      "characters": {
+        "ぢゃ": {
+          "romaji": "ja",
+          "strokeCount": 6,
+          "pronunciation": "Like 'ja' - same sound as じゃ (rarely used).",
+          "writingPattern": [
+            "1. Write ぢ (ji) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [
+            "M24.5,32.62c1.38,0.62,3.88,1.51,6.38,1.12c6.5-1,18.25-4.12,26.88-6c2.64-0.57,5.38-1.5,7.62-2.38",
+            "M45.62,15.62c0.75,1.25,0.71,3.58,0.38,5.25c-3,15-4.25,22.59-8.38,38.62c-3.25,12.62-5.38,11.12,3.62,4.38c8.29-6.21,19.75-9.5,28.5-9.5c8.62,0,14.58,5.88,14.5,14.5c-0.12,13.5-16.5,20.62-29.88,23.25",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M60,40c1,1.38,1.29,4.7,0.5,7.12c-3,12-8,18-12,22"
+          ],
+          "tips": "Very rare - mainly found in compound words.",
+          "mnemonics": "Same sound as じゃ - rarely used.",
+          "commonMistakes": "Confusing with じゃ.",
+          "exampleWords": [
+            { "japanese": "ちぢゃ", "romaji": "chija", "english": "(rare compound)" },
+            { "japanese": "はなぢゃ", "romaji": "hanaja", "english": "nosebleed (colloquial)" }
+          ]
+        },
+        "ぢゅ": {
+          "romaji": "ju",
+          "strokeCount": 6,
+          "pronunciation": "Like 'ju' - same sound as じゅ (rarely used).",
+          "writingPattern": [
+            "1. Write ぢ (ji) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M24.5,32.62c1.38,0.62,3.88,1.51,6.38,1.12c6.5-1,18.25-4.12,26.88-6c2.64-0.57,5.38-1.5,7.62-2.38",
+            "M45.62,15.62c0.75,1.25,0.71,3.58,0.38,5.25c-3,15-4.25,22.59-8.38,38.62c-3.25,12.62-5.38,11.12,3.62,4.38c8.29-6.21,19.75-9.5,28.5-9.5c8.62,0,14.58,5.88,14.5,14.5c-0.12,13.5-16.5,20.62-29.88,23.25",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "Very rare - mainly found in compound words.",
+          "mnemonics": "Same sound as じゅ - rarely used.",
+          "commonMistakes": "Confusing with じゅ.",
+          "exampleWords": [
+            { "japanese": "ちぢゅ", "romaji": "chiju", "english": "(rare compound)" }
+          ]
+        },
+        "ぢょ": {
+          "romaji": "jo",
+          "strokeCount": 6,
+          "pronunciation": "Like 'jo' - same sound as じょ (rarely used).",
+          "writingPattern": [
+            "1. Write ぢ (ji) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M24.5,32.62c1.38,0.62,3.88,1.51,6.38,1.12c6.5-1,18.25-4.12,26.88-6c2.64-0.57,5.38-1.5,7.62-2.38",
+            "M45.62,15.62c0.75,1.25,0.71,3.58,0.38,5.25c-3,15-4.25,22.59-8.38,38.62c-3.25,12.62-5.38,11.12,3.62,4.38c8.29-6.21,19.75-9.5,28.5-9.5c8.62,0,14.58,5.88,14.5,14.5c-0.12,13.5-16.5,20.62-29.88,23.25",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "Very rare - mainly found in compound words.",
+          "mnemonics": "Same sound as じょ - rarely used.",
+          "commonMistakes": "Confusing with じょ.",
+          "exampleWords": [
+            { "japanese": "ちぢょ", "romaji": "chijo", "english": "(rare compound)" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "N-Combinations (にゃ にゅ にょ)",
+      "description": "Combining に (ni) with small ゃ (ya), ゅ (yu), ょ (yo) to create contracted sounds.",
+      "characters": {
+        "にゃ": {
+          "romaji": "nya",
+          "strokeCount": 4,
+          "pronunciation": "Like 'nya' in 'nyan' - the cat sound!",
+          "writingPattern": [
+            "1. Write に (ni) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [
+            "M24.53,22.75c1.25,1.5,1.62,3.75,1.12,6.38c-3,15.88-9,32.5-7.38,47.62c2.02,18.84,4.5,5.75,8.5-3.5",
+            "M53.2,30.64c0.96,0.79,2.44,1.58,5.1,1.35c6.98-0.61,15.01-3.3,22.04-3.36c13.19-0.11,1.5,3.75-8.39,7.35",
+            "M52.53,68c1.76,12.92,11.92,16.01,24.23,14.93c5.08-0.45,8.9-0.8,14.27-2.06",
+            "M60,40c1,1.38,1.29,4.7,0.5,7.12c-3,12-8,18-12,22"
+          ],
+          "tips": "The small ゃ is placed at the bottom-right of に.",
+          "mnemonics": "Think of 'nyan' - the cat sound!",
+          "commonMistakes": "Pronouncing as 'ni-ya' with two syllables.",
+          "exampleWords": [
+            { "japanese": "にゃん", "romaji": "nyan", "english": "meow" },
+            { "japanese": "にゃー", "romaji": "nyaa", "english": "meow (long)" }
+          ]
+        },
+        "にゅ": {
+          "romaji": "nyu",
+          "strokeCount": 4,
+          "pronunciation": "Like 'new' but with an 'n' - compressed 'ni' + 'yu'.",
+          "writingPattern": [
+            "1. Write に (ni) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M24.53,22.75c1.25,1.5,1.62,3.75,1.12,6.38c-3,15.88-9,32.5-7.38,47.62c2.02,18.84,4.5,5.75,8.5-3.5",
+            "M53.2,30.64c0.96,0.79,2.44,1.58,5.1,1.35c6.98-0.61,15.01-3.3,22.04-3.36c13.19-0.11,1.5,3.75-8.39,7.35",
+            "M52.53,68c1.76,12.92,11.92,16.01,24.23,14.93c5.08-0.45,8.9-0.8,14.27-2.06",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "The small ゅ is positioned at the bottom-right of に.",
+          "mnemonics": "Think of 'new' - the 'nyu' sound.",
+          "commonMistakes": "Writing the ゅ too large.",
+          "exampleWords": [
+            { "japanese": "にゅう", "romaji": "nyuu", "english": "new/entrance" },
+            { "japanese": "にゅうがく", "romaji": "nyuugaku", "english": "school admission" }
+          ]
+        },
+        "にょ": {
+          "romaji": "nyo",
+          "strokeCount": 4,
+          "pronunciation": "Like 'nyo' - compressed 'ni' + 'yo'.",
+          "writingPattern": [
+            "1. Write に (ni) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M24.53,22.75c1.25,1.5,1.62,3.75,1.12,6.38c-3,15.88-9,32.5-7.38,47.62c2.02,18.84,4.5,5.75,8.5-3.5",
+            "M53.2,30.64c0.96,0.79,2.44,1.58,5.1,1.35c6.98-0.61,15.01-3.3,22.04-3.36c13.19-0.11,1.5,3.75-8.39,7.35",
+            "M52.53,68c1.76,12.92,11.92,16.01,24.23,14.93c5.08-0.45,8.9-0.8,14.27-2.06",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "The small ょ should be clearly smaller.",
+          "mnemonics": "Think of 'nyo' as in 'nyonyo' - a playful sound.",
+          "commonMistakes": "Making the ょ full-size.",
+          "exampleWords": [
+            { "japanese": "にょき", "romaji": "nyoki", "english": "sprout/growth" },
+            { "japanese": "にょろにょろ", "romaji": "nyoronyoro", "english": "wriggling" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "H-Combinations (ひゃ ひゅ ひょ)",
+      "description": "Combining ひ (hi) with small ゃ (ya), ゅ (yu), ょ (yo) to create contracted sounds.",
+      "characters": {
+        "ひゃ": {
+          "romaji": "hya",
+          "strokeCount": 4,
+          "pronunciation": "Like 'hya' - compressed 'hi' + 'ya'.",
+          "writingPattern": [
+            "1. Write ひ (hi) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [
+            "M20,25.12c1.25,0.88,3.75,2.25,6.5,1.38c2.75-0.87,7.31-2.38,11.38-4.5c6-3.12,8.42-1.01,4.25,4c-27.13,32.62-23.76,58.5-1.52,62.88c18.07,3.56,37.63-16.38,35.63-56.51c-0.72-14.5-0.17-14.78,4.12-1.75c3.76,11.38,10.26,20.76,16.14,26.5",
+            "M60,40c1,1.38,1.29,4.7,0.5,7.12c-3,12-8,18-12,22"
+          ],
+          "tips": "The small ゃ is placed at the bottom-right of ひ.",
+          "mnemonics": "Think of 'hya' - a sharp exclamation.",
+          "commonMistakes": "Pronouncing as 'hi-ya' with two syllables.",
+          "exampleWords": [
+            { "japanese": "ひゃく", "romaji": "hyaku", "english": "one hundred" },
+            { "japanese": "ひゃっか", "romaji": "hyakka", "english": "encyclopedia" }
+          ]
+        },
+        "ひゅ": {
+          "romaji": "hyu",
+          "strokeCount": 4,
+          "pronunciation": "Like 'hyu' in 'huge' - compressed 'hi' + 'yu'.",
+          "writingPattern": [
+            "1. Write ひ (hi) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M20,25.12c1.25,0.88,3.75,2.25,6.5,1.38c2.75-0.87,7.31-2.38,11.38-4.5c6-3.12,8.42-1.01,4.25,4c-27.13,32.62-23.76,58.5-1.52,62.88c18.07,3.56,37.63-16.38,35.63-56.51c-0.72-14.5-0.17-14.78,4.12-1.75c3.76,11.38,10.26,20.76,16.14,26.5",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "The small ゅ is positioned at the bottom-right of ひ.",
+          "mnemonics": "Think of 'huge' - the 'hyu' sound.",
+          "commonMistakes": "Writing the ゅ too large.",
+          "exampleWords": [
+            { "japanese": "ひゅう", "romaji": "hyuu", "english": "whistle sound" },
+            { "japanese": "ひゅー", "romaji": "hyuu", "english": "whistle (long)" }
+          ]
+        },
+        "ひょ": {
+          "romaji": "hyo",
+          "strokeCount": 4,
+          "pronunciation": "Like 'hyo' - compressed 'hi' + 'yo'.",
+          "writingPattern": [
+            "1. Write ひ (hi) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M20,25.12c1.25,0.88,3.75,2.25,6.5,1.38c2.75-0.87,7.31-2.38,11.38-4.5c6-3.12,8.42-1.01,4.25,4c-27.13,32.62-23.76,58.5-1.52,62.88c18.07,3.56,37.63-16.38,35.63-56.51c-0.72-14.5-0.17-14.78,4.12-1.75c3.76,11.38,10.26,20.76,16.14,26.5",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "The small ょ should be clearly smaller.",
+          "mnemonics": "Think of 'hyo' as in 'hyouga' (glacier).",
+          "commonMistakes": "Making the ょ full-size.",
+          "exampleWords": [
+            { "japanese": "ひょう", "romaji": "hyou", "english": "leopard/tiger" },
+            { "japanese": "ひょういん", "romaji": "hyouin", "english": "symptom" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "B-Combinations (びゃ びゅ びょ)",
+      "description": "Combining び (bi) with small ゃ (ya), ゅ (yu), ょ (yo) to create voiced contracted sounds.",
+      "characters": {
+        "びゃ": {
+          "romaji": "bya",
+          "strokeCount": 6,
+          "pronunciation": "Like 'bya' - voiced 'hya'.",
+          "writingPattern": [
+            "1. Write び (bi) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [
+            "M20,25.12c1.25,0.88,3.75,2.25,6.5,1.38c2.75-0.87,7.31-2.38,11.38-4.5c6-3.12,8.42-1.01,4.25,4c-27.13,32.62-23.76,58.5-1.52,62.88c18.07,3.56,37.63-16.38,35.63-56.51c-0.72-14.5-0.17-14.78,4.12-1.75c3.76,11.38,10.26,20.76,16.14,26.5",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M60,40c1,1.38,1.29,4.7,0.5,7.12c-3,12-8,18-12,22"
+          ],
+          "tips": "The dakuten on び plus the small ゃ creates 'bya'.",
+          "mnemonics": "Think of 'bya' as the voiced version of 'hya'.",
+          "commonMistakes": "Forgetting the dakuten.",
+          "exampleWords": [
+            { "japanese": "びゃく", "romaji": "byaku", "english": "white (Buddhist)" },
+            { "japanese": "びゃっ", "romaji": "bya", "english": "(surprise sound)" }
+          ]
+        },
+        "びゅ": {
+          "romaji": "byu",
+          "strokeCount": 6,
+          "pronunciation": "Like 'byu' - voiced 'hyu'.",
+          "writingPattern": [
+            "1. Write び (bi) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M20,25.12c1.25,0.88,3.75,2.25,6.5,1.38c2.75-0.87,7.31-2.38,11.38-4.5c6-3.12,8.42-1.01,4.25,4c-27.13,32.62-23.76,58.5-1.52,62.88c18.07,3.56,37.63-16.38,35.63-56.51c-0.72-14.5-0.17-14.78,4.12-1.75c3.76,11.38,10.26,20.76,16.14,26.5",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "The small ゅ is positioned at the bottom-right of び.",
+          "mnemonics": "Think of 'byu' as the voiced version of 'hyu'.",
+          "commonMistakes": "Pronouncing as 'bi-yu'.",
+          "exampleWords": [
+            { "japanese": "びゅう", "romaji": "byuu", "english": "view" },
+            { "japanese": "びゅー", "romaji": "byuu", "english": "whoosh sound" }
+          ]
+        },
+        "びょ": {
+          "romaji": "byo",
+          "strokeCount": 6,
+          "pronunciation": "Like 'byo' - voiced 'hyo'.",
+          "writingPattern": [
+            "1. Write び (bi) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M20,25.12c1.25,0.88,3.75,2.25,6.5,1.38c2.75-0.87,7.31-2.38,11.38-4.5c6-3.12,8.42-1.01,4.25,4c-27.13,32.62-23.76,58.5-1.52,62.88c18.07,3.56,37.63-16.38,35.63-56.51c-0.72-14.5-0.17-14.78,4.12-1.75c3.76,11.38,10.26,20.76,16.14,26.5",
+            "M74.12,14.75c2.24,1.4,5.78,5.75,6.34,7.92",
+            "M83.88,11.25c2.16,1.2,5.58,4.9,6.12,6.75",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "The small ょ should be clearly smaller.",
+          "mnemonics": "Think of 'byo' as in 'byouin' (hospital).",
+          "commonMistakes": "Making the ょ full-size.",
+          "exampleWords": [
+            { "japanese": "びょういん", "romaji": "byouin", "english": "hospital" },
+            { "japanese": "びょうき", "romaji": "byouki", "english": "illness" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "P-Combinations (ぴゃ ぴゅ ぴょ)",
+      "description": "Combining ぴ (pi) with small ゃ (ya), ゅ (yu), ょ (yo) to create unvoiced contracted sounds.",
+      "characters": {
+        "ぴゃ": {
+          "romaji": "pya",
+          "strokeCount": 5,
+          "pronunciation": "Like 'pya' - unvoiced 'bya'.",
+          "writingPattern": [
+            "1. Write ぴ (pi) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [
+            "M20,25.12c1.25,0.88,3.75,2.25,6.5,1.38c2.75-0.87,7.31-2.38,11.38-4.5c6-3.12,8.42-1.01,4.25,4c-27.13,32.62-23.76,58.5-1.52,62.88c18.07,3.56,37.63-16.38,35.63-56.51c-0.72-14.5-0.17-14.78,4.12-1.75c3.76,11.38,10.26,20.76,16.14,26.5",
+            "M87.5,14.62c3.24,0,5.88,2.84,5.88,6.34c0,3.5-2.64,6.34-5.88,6.34c-3.24,0-5.88-2.84-5.88-6.34C81.62,17.47,84.26,14.62,87.5,14.62z",
+            "M60,40c1,1.38,1.29,4.7,0.5,7.12c-3,12-8,18-12,22"
+          ],
+          "tips": "The handakuten on ぴ plus the small ゃ creates 'pya'.",
+          "mnemonics": "Think of 'pya' as the unvoiced version of 'bya'.",
+          "commonMistakes": "Forgetting the handakuten.",
+          "exampleWords": [
+            { "japanese": "ぴゃ", "romaji": "pya", "english": "(sound of surprise)" }
+          ]
+        },
+        "ぴゅ": {
+          "romaji": "pyu",
+          "strokeCount": 5,
+          "pronunciation": "Like 'pyu' - unvoiced 'byu'.",
+          "writingPattern": [
+            "1. Write ぴ (pi) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M20,25.12c1.25,0.88,3.75,2.25,6.5,1.38c2.75-0.87,7.31-2.38,11.38-4.5c6-3.12,8.42-1.01,4.25,4c-27.13,32.62-23.76,58.5-1.52,62.88c18.07,3.56,37.63-16.38,35.63-56.51c-0.72-14.5-0.17-14.78,4.12-1.75c3.76,11.38,10.26,20.76,16.14,26.5",
+            "M87.5,14.62c3.24,0,5.88,2.84,5.88,6.34c0,3.5-2.64,6.34-5.88,6.34c-3.24,0-5.88-2.84-5.88-6.34C81.62,17.47,84.26,14.62,87.5,14.62z",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "The small ゅ is positioned at the bottom-right of ぴ.",
+          "mnemonics": "Think of 'pyu' as the unvoiced version of 'byu'.",
+          "commonMistakes": "Writing the ゅ too large.",
+          "exampleWords": [
+            { "japanese": "ぴゅー", "romaji": "pyuu", "english": "whistle sound" }
+          ]
+        },
+        "ぴょ": {
+          "romaji": "pyo",
+          "strokeCount": 5,
+          "pronunciation": "Like 'pyo' - unvoiced 'byo'.",
+          "writingPattern": [
+            "1. Write ぴ (pi) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M20,25.12c1.25,0.88,3.75,2.25,6.5,1.38c2.75-0.87,7.31-2.38,11.38-4.5c6-3.12,8.42-1.01,4.25,4c-27.13,32.62-23.76,58.5-1.52,62.88c18.07,3.56,37.63-16.38,35.63-56.51c-0.72-14.5-0.17-14.78,4.12-1.75c3.76,11.38,10.26,20.76,16.14,26.5",
+            "M87.5,14.62c3.24,0,5.88,2.84,5.88,6.34c0,3.5-2.64,6.34-5.88,6.34c-3.24,0-5.88-2.84-5.88-6.34C81.62,17.47,84.26,14.62,87.5,14.62z",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "The small ょ should be clearly smaller.",
+          "mnemonics": "Think of 'pyo' as the unvoiced version of 'byo'.",
+          "commonMistakes": "Making the ょ full-size.",
+          "exampleWords": [
+            { "japanese": "ぴょん", "romaji": "pyon", "english": "hop sound" },
+            { "japanese": "ぴょこ", "romaji": "pyoko", "english": "bobbing sound" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "M-Combinations (みゃ みゅ みょ)",
+      "description": "Combining み (mi) with small ゃ (ya), ゅ (yu), ょ (yo) to create contracted sounds.",
+      "characters": {
+        "みゃ": {
+          "romaji": "mya",
+          "strokeCount": 4,
+          "pronunciation": "Like 'mya' - compressed 'mi' + 'ya'.",
+          "writingPattern": [
+            "1. Write み (mi) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [
+            "M32.5,26c1.88,1.75,4.06,1.7,6.88,1.25c3.88-0.62,7.62-1.75,11.88-3.12c4.26-1.37,6.25-0.12,4.5,5.12c-1.75,5.24-6.66,17.39-12,30.12c-13.63,32.51-29.26,29.26-29.26,18.63c0-14.25,20.48-15.36,33-13.5c18.5,2.75,30,6.62,44.38,14.25",
+            "M79.38,54.75c0.75,2.38,0.49,4.37,0,6.25c-2.12,8.12-7.5,25-22.12,33.75",
+            "M60,40c1,1.38,1.29,4.7,0.5,7.12c-3,12-8,18-12,22"
+          ],
+          "tips": "The small ゃ is placed at the bottom-right of み.",
+          "mnemonics": "Think of 'mya' - the cat sound variant.",
+          "commonMistakes": "Pronouncing as 'mi-ya' with two syllables.",
+          "exampleWords": [
+            { "japanese": "みゃく", "romaji": "myaku", "english": "pulse" },
+            { "japanese": "みゃくらく", "romaji": "myakuraku", "english": "rise and fall" }
+          ]
+        },
+        "みゅ": {
+          "romaji": "myu",
+          "strokeCount": 4,
+          "pronunciation": "Like 'myu' - compressed 'mi' + 'yu'.",
+          "writingPattern": [
+            "1. Write み (mi) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M32.5,26c1.88,1.75,4.06,1.7,6.88,1.25c3.88-0.62,7.62-1.75,11.88-3.12c4.26-1.37,6.25-0.12,4.5,5.12c-1.75,5.24-6.66,17.39-12,30.12c-13.63,32.51-29.26,29.26-29.26,18.63c0-14.25,20.48-15.36,33-13.5c18.5,2.75,30,6.62,44.38,14.25",
+            "M79.38,54.75c0.75,2.38,0.49,4.37,0,6.25c-2.12,8.12-7.5,25-22.12,33.75",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "The small ゅ is positioned at the bottom-right of み.",
+          "mnemonics": "Think of 'myu' as in 'myuujikku' (music).",
+          "commonMistakes": "Writing the ゅ too large.",
+          "exampleWords": [
+            { "japanese": "みゅー", "romaji": "myuu", "english": "mew (cat sound)" }
+          ]
+        },
+        "みょ": {
+          "romaji": "myo",
+          "strokeCount": 4,
+          "pronunciation": "Like 'myo' - compressed 'mi' + 'yo'.",
+          "writingPattern": [
+            "1. Write み (mi) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M32.5,26c1.88,1.75,4.06,1.7,6.88,1.25c3.88-0.62,7.62-1.75,11.88-3.12c4.26-1.37,6.25-0.12,4.5,5.12c-1.75,5.24-6.66,17.39-12,30.12c-13.63,32.51-29.26,29.26-29.26,18.63c0-14.25,20.48-15.36,33-13.5c18.5,2.75,30,6.62,44.38,14.25",
+            "M79.38,54.75c0.75,2.38,0.49,4.37,0,6.25c-2.12,8.12-7.5,25-22.12,33.75",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "The small ょ should be clearly smaller.",
+          "mnemonics": "Think of 'myo' as in 'myouji' (surname).",
+          "commonMistakes": "Making the ょ full-size.",
+          "exampleWords": [
+            { "japanese": "みょうじ", "romaji": "myouji", "english": "surname" },
+            { "japanese": "みょう", "romaji": "myou", "english": "strange" }
+          ]
+        }
+      }
+    },
+    {
+      "title": "R-Combinations (りゃ りゅ りょ)",
+      "description": "Combining り (ri) with small ゃ (ya), ゅ (yu), ょ (yo) to create contracted sounds.",
+      "characters": {
+        "りゃ": {
+          "romaji": "rya",
+          "strokeCount": 4,
+          "pronunciation": "Like 'rya' - compressed 'ri' + 'ya'.",
+          "writingPattern": [
+            "1. Write り (ri) normally",
+            "2. Add a small ゃ (ya) next to it"
+          ],
+          "animation": [
+            "M38.75,25.25c1.25,1.5,2.24,4.03,1.62,6.62c-2.88,12.13-6.29,29.65-4.25,42.38c2,12.5,1.75-0.75,5.62-6.25",
+            "M69.37,18.75c2.25,2.12,2.88,4.12,2.88,6.5c0,2.38,0,26.38,0,35.75c0,16.5-5,25.75-12.62,33.12",
+            "M60,40c1,1.38,1.29,4.7,0.5,7.12c-3,12-8,18-12,22"
+          ],
+          "tips": "The small ゃ is placed at the bottom-right of り.",
+          "mnemonics": "Think of 'rya' as in 'ryakugo' (abbreviation).",
+          "commonMistakes": "Pronouncing as 'ri-ya' with two syllables.",
+          "exampleWords": [
+            { "japanese": "りゃく", "romaji": "ryaku", "english": "abbreviation" },
+            { "japanese": "りゃくご", "romaji": "ryakugo", "english": "abbreviation" }
+          ]
+        },
+        "りゅ": {
+          "romaji": "ryu",
+          "strokeCount": 4,
+          "pronunciation": "Like 'ryu' in 'ryu' (dragon) - compressed 'ri' + 'yu'.",
+          "writingPattern": [
+            "1. Write り (ri) normally",
+            "2. Add a small ゅ (yu) next to it"
+          ],
+          "animation": [
+            "M38.75,25.25c1.25,1.5,2.24,4.03,1.62,6.62c-2.88,12.13-6.29,29.65-4.25,42.38c2,12.5,1.75-0.75,5.62-6.25",
+            "M69.37,18.75c2.25,2.12,2.88,4.12,2.88,6.5c0,2.38,0,26.38,0,35.75c0,16.5-5,25.75-12.62,33.12",
+            "M55,45c3,2,5,5,4,10c-2,10-4,15-6,20"
+          ],
+          "tips": "The small ゅ is positioned at the bottom-right of り.",
+          "mnemonics": "Think of 'ryu' as in 'ryuu' (dragon).",
+          "commonMistakes": "Writing the ゅ too large.",
+          "exampleWords": [
+            { "japanese": "りゅう", "romaji": "ryuu", "english": "dragon" },
+            { "japanese": "りゅうがく", "romaji": "ryuugaku", "english": "study abroad" }
+          ]
+        },
+        "りょ": {
+          "romaji": "ryo",
+          "strokeCount": 4,
+          "pronunciation": "Like 'ryo' in 'ryokou' (travel) - compressed 'ri' + 'yo'.",
+          "writingPattern": [
+            "1. Write り (ri) normally",
+            "2. Add a small ょ (yo) next to it"
+          ],
+          "animation": [
+            "M38.75,25.25c1.25,1.5,2.24,4.03,1.62,6.62c-2.88,12.13-6.29,29.65-4.25,42.38c2,12.5,1.75-0.75,5.62-6.25",
+            "M69.37,18.75c2.25,2.12,2.88,4.12,2.88,6.5c0,2.38,0,26.38,0,35.75c0,16.5-5,25.75-12.62,33.12",
+            "M58,35c2,3,4,6,3,12c-1,8-2,12-3,15"
+          ],
+          "tips": "The small ょ should be clearly smaller.",
+          "mnemonics": "Think of 'ryokou' - travel!",
+          "commonMistakes": "Making the ょ full-size.",
+          "exampleWords": [
+            { "japanese": "りょこう", "romaji": "ryokou", "english": "travel" },
+            { "japanese": "りょうり", "romaji": "ryouri", "english": "cooking/cuisine" }
+          ]
+        }
+      }
+    }
+  ]
+}
